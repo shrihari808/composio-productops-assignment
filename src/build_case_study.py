@@ -9,7 +9,7 @@ Design system: Leonxlnx/taste-skill (`design-taste-frontend`, tasteskill 2.5.1)
 - Dealt hero: `split` (`data-enter` entrance)
 - Dealt moments: `word-highlight` (#thesis) + `line-carries-colour` (#agent dark band)
 - Dealt structure: `nav-centre`, `footer-dark`, `close-word`, `solid` buttons, `wordmark`, `sharp` radius
-- Icons: local full-color SVGs via `icons.mjs` (`assets/icons/`)
+- Icons: local UI glyph SVGs (`assets/icons/ui-*.svg`), no third-party company logos
 - Explorer: software `app-frame` split workspace (100-app list + inline dossier inspector, no popup modal)
 """
 from __future__ import annotations
@@ -24,41 +24,10 @@ ROOT = Path(__file__).resolve().parent.parent
 REPO_URL = "https://github.com/shrihari808/composio-productops-assignment"
 LIVE_URL = "https://composio-productops-assignment.vercel.app"
 
-# Map exact app names to verified local SVGs fetched via tasteskill `icons.mjs`
-ICON_MAP: dict[str, tuple[str, str]] = {
-    "Salesforce": ("salesforce.svg", "ic-land"),
-    "HubSpot": ("hubspot.svg", "ic-wide"),
-    "Zendesk": ("zendesk.svg", "ic-land"),
-    "Intercom": ("intercom.svg", "ic-ink"),
-    "Slack": ("slack.svg", ""),
-    "Twilio": ("twilio.svg", ""),
-    "Discord": ("discord.svg", "ic-land"),
-    "Mailchimp": ("mailchimp.svg", "ic-ink"),
-    "Shopify": ("shopify.svg", ""),
-    "WooCommerce": ("woocommerce.svg", "ic-land"),
-    "Squarespace": ("squarespace.svg", "ic-land ic-ink"),
-    "GitHub": ("github.svg", "ic-ink"),
-    "Vercel": ("vercel.svg", "ic-ink"),
-    "Cloudflare": ("cloudflare.svg", "ic-wide"),
-    "Supabase": ("supabase.svg", ""),
-    "Snowflake": ("snowflake.svg", ""),
-    "MongoDB Atlas": ("mongodb.svg", "ic-tall"),
-    "Datadog": ("datadog.svg", ""),
-    "Sentry": ("sentry.svg", ""),
-    "Notion": ("notion.svg", ""),
-    "Airtable": ("airtable.svg", ""),
-    "Linear": ("linear.svg", "ic-ink"),
-    "Jira": ("jira.svg", ""),
-    "Asana": ("asana.svg", ""),
-    "Stripe": ("stripe.svg", "ic-wide"),
-    "QuickBooks": ("quickbooks.svg", ""),
-    "Xero": ("xero.svg", ""),
-}
-
 PROOF_ICON_MAP: dict[str, str] = {
     "exa": "ui-globe.svg",
     "deepwiki_mcp": "ui-layers.svg",
-    "github": "github.svg",
+    "github": "ui-search.svg",
     "mermaid_chart_mcp": "ui-shield-check.svg",
 }
 
@@ -134,20 +103,6 @@ def build_llms_txt(records: list[dict], analytics: dict, human_audit: dict) -> s
     return "\n".join(lines) + "\n"
 
 
-def icon_img(name: str, size: int = 20) -> str:
-    entry = ICON_MAP.get(name)
-    if not entry:
-        return ""
-    fname, cls = entry
-    if not (ROOT / "assets" / "icons" / fname).exists():
-        return ""
-    extra = f" {cls}" if cls else ""
-    return (
-        f'<img class="ic ic-{size}{extra}" src="assets/icons/{fname}" '
-        f'alt="" aria-hidden="true" width="{size}" height="{size}" loading="lazy">'
-    )
-
-
 def generate_html(
     records: list[dict],
     analytics: dict,
@@ -203,7 +158,6 @@ def generate_html(
             "live_url": LIVE_URL,
             "total_apps": total,
         },
-        "icon_map": {k: v[0] for k, v in ICON_MAP.items() if (ROOT / "assets" / "icons" / v[0]).exists()},
         "analytics": analytics,
         "composio_live_proof": proof,
         "human_audit": human_audit,
@@ -217,7 +171,6 @@ def generate_html(
     hero_preview_rows = []
     for hid in hero_preview_ids:
         rec = by_id[hid]
-        ic = icon_img(rec["name"], 20)
         tag_cls = (
             "tag--ready"
             if rec["buildability_verdict"].startswith("Ready")
@@ -234,7 +187,7 @@ def generate_html(
         )
         hero_preview_rows.append(
             f'<a href="#matrix" class="preview-row" onclick="selectAppAndJump({rec["id"]}); return false;">'
-            f'<span class="preview-row__app">{ic}<span><strong>{html.escape(rec["name"])}</strong>'
+            f'<span class="preview-row__app"><span><strong>{html.escape(rec["name"])}</strong>'
             f'<small>{html.escape(rec["access_model"])}</small></span></span>'
             f'<span class="preview-row__meta"><span class="mono-pill preview-mcp">{html.escape(rec["mcp_status"])}</span>'
             f'<span class="tag {tag_cls}">{short_verdict}</span></span>'
@@ -248,12 +201,11 @@ def generate_html(
         out = []
         for idx, it in enumerate(items):
             nm = html.escape(str(it.get("name", "")))
-            ic = icon_img(it.get("name", ""), 16)
             extra_cls = " q-link--extra" if idx >= limit else ""
             b_html = f'<span class="q-badge">{html.escape(badge)}</span>' if badge else ""
             out.append(
                 f'<a href="#matrix" class="q-link{extra_cls}" onclick="selectAppAndJump({it["id"]}); return false;">'
-                f'{ic}<span>#{it["id"]} {nm}</span>{b_html}</a>'
+                f'<span>#{it["id"]} {nm}</span>{b_html}</a>'
             )
         if len(items) > limit:
             rem = len(items) - limit
@@ -370,7 +322,7 @@ def generate_html(
         "core": {"label": "Composio + Gemini", "icon": "ui:cpu"},
         "lanes": [
             {"label": "Docs retrieved", "icon": "ui:globe", "done": True, "sub": "432 live URLs"},
-            {"label": "Catalog audited", "icon": "github", "done": True, "sub": "1,842 toolkits"},
+            {"label": "Catalog audited", "icon": "ui:search", "done": True, "sub": "1,842 toolkits"},
             {"label": "Sample verified", "icon": "ui:shield-check", "done": True, "sub": f"{p1_acc}% to {fin_acc}%"},
         ],
         "motion": {"cycle": 3.2},
@@ -1814,7 +1766,7 @@ def generate_html(
       </div>
       <div class="footer__legal">
         <span>&copy; 2026 Composio Product Ops Study</span>
-        <span class="credits">Product names and logos are trademarks of their owners. Icons via gilbarbara/logos, Simple Icons and Lucide.</span>
+        <span class="credits">Product names are trademarks of their owners. UI icons via Lucide.</span>
       </div>
     </div>
   </div>
@@ -1876,7 +1828,6 @@ def generate_html(
   const APPS = PAYLOAD.apps;
   const ANALYTICS = PAYLOAD.analytics;
   const HUMAN_AUDIT = PAYLOAD.human_audit || {{}};
-  const ICONS = PAYLOAD.icon_map || {{}};
   let selectedId = APPS[0] ? APPS[0].id : 1;
   let currentPage = 0;
   let tablePage = 0;
@@ -1900,12 +1851,6 @@ def generate_html(
     if (v.startsWith('Buildable')) return `<span class="tag tag--friction">Friction</span>`;
     if (v.startsWith('Gated')) return `<span class="tag tag--gated">Gated</span>`;
     return `<span class="tag tag--blocked">Blocked</span>`;
-  }}
-
-  function appIconHtml(name, size) {{
-    const f = ICONS[name];
-    if (!f) return '';
-    return `<img class="ic ic-${{size}}" src="assets/icons/${{f}}" alt="" aria-hidden="true" width="${{size}}" height="${{size}}" loading="lazy">`;
   }}
 
   function toggleQueue(btn) {{
@@ -1995,7 +1940,6 @@ def generate_html(
         <div>
           <span class="mono-pill">#${{a.id}} · ${{esc(a.category)}}</span>
           <div class="dossier__title" style="margin-top:10px;">
-            ${{appIconHtml(a.name, 28)}}
             <h3>${{esc(a.name)}}</h3>
           </div>
         </div>
@@ -2109,7 +2053,6 @@ def generate_html(
           <td class="mono-cell">${{String(a.id).padStart(2, '0')}}</td>
           <td>
             <div class="mt-app">
-              ${{appIconHtml(a.name, 20)}}
               <div>
                 <div class="mt-app__name">${{esc(a.name)}} ${{auditTag}} ${{fixTag}}</div>
                 <span class="mt-app__cat">${{esc(a.category)}}</span>
@@ -2177,7 +2120,6 @@ def generate_html(
       <button type="button" class="app-item" role="option" data-id="${{a.id}}" aria-selected="${{a.id === selectedId}}" onclick="renderDetail(${{a.id}})">
         <span class="app-item__left">
           <span class="app-item__num">${{String(a.id).padStart(2, '0')}}</span>
-          ${{appIconHtml(a.name, 20)}}
           <span class="app-item__text">
             <span class="app-item__name">${{esc(a.name)}}</span>
             <span class="app-item__cat">${{esc(a.category)}}</span>
@@ -2416,10 +2358,10 @@ def main() -> None:
     diff_report = load_json(ROOT / "data" / "verification_diff_report.json", {})
 
     html_content = generate_html(records, analytics, proof, mermaid_info, human_audit, diff_report)
-    (ROOT / "index.html").write_text(html_content, encoding="utf-8")
+    (ROOT / "index.html").write_text(html_content, encoding="utf-8", newline="\n")
 
     llms_content = build_llms_txt(records, analytics, human_audit)
-    (ROOT / "llms.txt").write_text(llms_content, encoding="utf-8")
+    (ROOT / "llms.txt").write_text(llms_content, encoding="utf-8", newline="\n")
 
     print(f"Built tasteskill index.html ({len(html_content):,} bytes) and llms.txt ({len(llms_content):,} bytes) for {len(records)} apps.")
 
