@@ -1,0 +1,181 @@
+[
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "hint": "hubspot.com",
+    "one_liner": "HubSpot is a comprehensive CRM, marketing, sales, and customer service platform with extensive REST APIs and an official remote MCP server for managing CRM records, activities, content, and conversations.",
+    "auth_methods": [
+      "OAuth2",
+      "Bearer Token",
+      "API Key"
+    ],
+    "auth_notes": "Multi-account integrations must use OAuth2 (30-minute Bearer access tokens with refresh tokens, plus PKCE required for the remote MCP server and client_credentials for the webhooks journal API); single-account integrations can use static app access tokens or scoped service keys (pat-*) as Bearer tokens, while select endpoints use developer API keys via the hapikey query parameter.",
+    "access_model": "Self-Serve Free / Trial",
+    "access_notes": "Developers can self-serve create apps, OAuth credentials, service keys, and MCP connectors; however, private OAuth apps are capped at 10 accounts, public Marketplace listings (including MCP components) require Ecosystem Quality review, and certain scopes depend on paid HubSpot tiers (e.g., Marketing or Revenue Hub Pro/Enterprise).",
+    "api_protocol": "REST",
+    "api_breadth": "Broad (Full Platform)",
+    "api_surface_notes": "Covers core CRM objects (contacts, companies, deals, tickets, leads, custom objects), activities (calls, emails, meetings, notes, tasks), marketing/content (campaigns, blogs, pages, emails, social), conversations, pipelines, properties, and beta revenue objects (quotes, invoices, orders); accounts combine to a limit of 100 project-based apps, service keys, and MCP connectors.",
+    "mcp_status": "Official MCP",
+    "mcp_evidence_url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server",
+    "openapi_spec_available": "Unknown",
+    "webhooks_supported": "Yes",
+    "buildability_verdict": "Ready Today (Easy Win)",
+    "primary_blocker": "None",
+    "evidence_urls": [
+      "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+      "https://developers.hubspot.com/docs/api-reference/latest/authentication/manage-oauth-tokens",
+      "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/account-service-keys",
+      "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server"
+    ],
+    "confidence": "High",
+    "composio_catalog_slugs": [
+      "hubspot"
+    ],
+    "url_health": {},
+    "verification_changes": [],
+    "human_audited": false
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "hint": "api.docs.dealcloud.com",
+    "one_liner": "DealCloud is an enterprise CRM and relationship/pipeline management platform with REST APIs and an official MCP server for reading and updating deal data.",
+    "auth_methods": [
+      "OAuth2",
+      "API Key",
+      "Bearer Token"
+    ],
+    "auth_notes": "REST API uses OAuth2 Client Credentials (client_id and user API key as client_secret) to mint 15-minute Bearer tokens; the official MCP server uses OAuth 2.0 with .well-known dynamic discovery.",
+    "access_model": "Partner / Sales-Gated",
+    "access_notes": "No self-serve developer sandbox or free trial; requires an enterprise DealCloud customer tenant (and Celeste license for MCP), admin or CSM permissioning for API keys, and Account Manager approval for third-party or custom MCP clients.",
+    "api_protocol": "REST",
+    "api_breadth": "Broad (Full Platform)",
+    "api_surface_notes": "REST APIs cover Data and Schema (v4), User Management (v1), Publications (v1), Relationship Intelligence Import (v1), and Site Backups (v4), with per-tenant Swagger endpoints; rate limits are not detailed in the retrieved docs.",
+    "mcp_status": "Official MCP",
+    "mcp_evidence_url": "https://api.docs.dealcloud.com/mcp",
+    "openapi_spec_available": "Yes",
+    "webhooks_supported": "Unknown",
+    "buildability_verdict": "Gated / Needs Outreach",
+    "primary_blocker": "No self-serve developer sandbox; requires enterprise DealCloud tenant/partner access and Account Manager approval for third-party MCP integrations.",
+    "evidence_urls": [
+      "https://api.docs.dealcloud.com/docs",
+      "https://api.docs.dealcloud.com/docs/apikeys",
+      "https://api.docs.dealcloud.com/docs/token",
+      "https://api.docs.dealcloud.com/mcp/connections"
+    ],
+    "confidence": "High",
+    "composio_catalog_slugs": [],
+    "url_health": {},
+    "verification_changes": [],
+    "human_audited": false
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "category": "Communications and Messaging",
+    "hint": "developers.facebook.com/docs/whatsapp",
+    "one_liner": "Enables businesses to programmatically send and receive WhatsApp messages, manage message templates, onboard phone numbers, and handle customer communications at scale via Meta's WhatsApp Business Platform.",
+    "auth_methods": [
+      "OAuth2",
+      "Bearer Token"
+    ],
+    "auth_notes": "Uses long-lived System User access tokens for direct business integrations, Business Integration System User access tokens via Embedded Signup (Facebook Login for Businesses) for Tech Providers/partners, or short-lived User tokens, all sent as HTTP Bearer tokens with business_management, whatsapp_business_management, and whatsapp_business_messaging scopes; official MCP uses Meta OAuth.",
+    "access_model": "Self-Serve Dev + App Review",
+    "access_notes": "Developers can self-serve register a Meta app with a test phone number and temporary/system user token, but production and multi-tenant usage require a Meta Business Portfolio, Cloud API ToS acceptance, business verification, payment configuration, and Embedded Signup / Tech Provider setup for external customer accounts.",
+    "api_protocol": "REST",
+    "api_breadth": "Broad (Full Platform)",
+    "api_surface_notes": "Built on Meta's Graph API (e.g., POST /{Version}/{Phone-Number-ID}/messages) covering text, media, interactive, and template messaging, phone number onboarding/verification, template CRUD, business profiles, webhook subscriptions, groups, and calling; free-form messages require an active 24-hour customer service window and tokens need explicit asset grants on both WhatsApp and Messaging accounts.",
+    "mcp_status": "Official MCP",
+    "mcp_evidence_url": "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp",
+    "openapi_spec_available": "Unknown",
+    "webhooks_supported": "Yes",
+    "buildability_verdict": "Buildable with Friction",
+    "primary_blocker": "Multi-tenant production integration requires Meta Business verification, Embedded Signup / Tech Provider setup for Business Integration System User tokens, dual asset permission assignment across WhatsApp and Messaging accounts, and compliance with the 24-hour messaging window and template approvals.",
+    "evidence_urls": [
+      "https://developers.facebook.com/documentation/business-messaging/whatsapp/access-tokens",
+      "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+      "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api",
+      "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp"
+    ],
+    "confidence": "High",
+    "composio_catalog_slugs": [
+      "whatsapp"
+    ],
+    "url_health": {},
+    "verification_changes": [],
+    "human_audited": false
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "hint": "github.com/sherlock-project/sherlock",
+    "one_liner": "Sherlock is an open-source CLI tool and Python library for hunting down social media accounts by username across hundreds of public websites and social networks.",
+    "auth_methods": [
+      "CLI / Local Only",
+      "No Auth / Open"
+    ],
+    "auth_notes": "Requires no API keys, accounts, or credentials; runs locally by sending direct HTTP requests to publicly accessible profile URLs (with optional proxy support).",
+    "access_model": "Open-Source / Local Tool",
+    "access_notes": "MIT-licensed open-source Python package (sherlock-project) installed via pipx, pip, uv, or Docker. A third-party Apify Cloud Actor exists for remote execution, which requires an Apify account and API token.",
+    "api_protocol": "CLI / Local Only",
+    "api_breadth": "N/A",
+    "api_surface_notes": "No official hosted web API exists; exposes a local CLI and Python sherlock(username, site_data, query_notify, ...) function querying a JSON site manifest. An experimental Django REST Framework repo (sherlock-project/api) requires local self-hosting and has been unmaintained since 2021.",
+    "mcp_status": "None Found",
+    "mcp_evidence_url": null,
+    "openapi_spec_available": "No",
+    "webhooks_supported": "No",
+    "buildability_verdict": "Blocked / Not API-Native",
+    "primary_blocker": "No hosted public web API; Sherlock is a local CLI and Python scraping/probing library with only an unmaintained self-hosted DRF repo and third-party Apify wrapper.",
+    "evidence_urls": [
+      "https://github.com/sherlock-project/sherlock/",
+      "https://context7.com/sherlock-project/sherlock/llms.txt",
+      "https://github.com/bellingcat/toolkit/blob/main/gitbook/tools/sherlock/README.md",
+      "https://github.com/sherlock-project/api"
+    ],
+    "confidence": "High",
+    "composio_catalog_slugs": [],
+    "url_health": {},
+    "verification_changes": [],
+    "human_audited": false
+  },
+  {
+    "id": 92,
+    "name": "Otter AI",
+    "category": "AI, Research and Media-native",
+    "hint": "help.otter.ai (MCP server)",
+    "one_liner": "Otter AI is an AI meeting transcription and conversation intelligence platform offering a Public REST API for Enterprise workspaces and an official hosted MCP server for querying transcripts.",
+    "auth_methods": [
+      "OAuth2",
+      "Bearer Token",
+      "API Key"
+    ],
+    "auth_notes": "Split auth model: the Public REST API uses static Bearer API keys generated in Integrations > Developer (max 2 keys per user, no OAuth), whereas the official hosted MCP server (https://mcp.otter.ai/mcp) uses OAuth 2.1 browser consent with per-meeting granular permissions and no API key support.",
+    "access_model": "Partner / Sales-Gated",
+    "access_notes": "The Public REST API and Super Admin APIs are strictly gated to Enterprise workspaces (requiring an Enterprise contract and contacting an Otter account manager if not enabled). In contrast, the read-only hosted MCP server is available on standard Otter accounts via OAuth.",
+    "api_protocol": "REST",
+    "api_breadth": "Medium (Core Workflows)",
+    "api_surface_notes": "REST API (https://api.otter.ai/v1, 10 req/s rate limit, cursor pagination) covers channels, channel members, conversation list/get/audio/create-from-file-URL, action items, insights, outlines, transcripts, and Super Admin workspace endpoints. Official MCP exposes 3 read-only tools: get user info, search, and fetch.",
+    "mcp_status": "Official MCP",
+    "mcp_evidence_url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+    "openapi_spec_available": "Unknown",
+    "webhooks_supported": "Yes",
+    "buildability_verdict": "Gated / Needs Outreach",
+    "primary_blocker": "The Public REST API is Enterprise-only (account-manager gated) and lacks OAuth, requiring each end user to manually provision static Bearer API keys; only the narrow 3-tool read-only official MCP server supports self-serve OAuth for standard accounts.",
+    "evidence_urls": [
+      "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API",
+      "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+      "https://help.otter.ai/hc/en-us/articles/39661865499799-Super-Admin-APIs",
+      "https://www.scalekit.com/blog/otter-mcp-vs-api"
+    ],
+    "confidence": "High",
+    "composio_catalog_slugs": [
+      "otter_ai_mcp"
+    ],
+    "url_health": {},
+    "verification_changes": [],
+    "human_audited": false
+  }
+]

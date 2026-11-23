@@ -1,0 +1,57 @@
+[
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "elapsed_sec": 17.1,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "elapsed_sec": 15.66,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Gated / Needs Outreach"
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "elapsed_sec": 17.92,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "elapsed_sec": 21.21,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": {
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "repo": "sherlock-project/sherlock",
+      "log_id": "log_QGyNIBqRLD99",
+      "result_type": "completed"
+    },
+    "confidence": "High",
+    "buildability_verdict": "Blocked / Not API-Native"
+  },
+  {
+    "id": 92,
+    "name": "Otter AI",
+    "elapsed_sec": 21.93,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Gated / Needs Outreach"
+  }
+]

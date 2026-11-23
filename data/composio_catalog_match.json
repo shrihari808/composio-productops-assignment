@@ -1,0 +1,818 @@
+{
+  "total_composio_toolkits_scanned": 1842,
+  "apps_matched_in_composio": 81,
+  "apps_not_in_composio": 19,
+  "matches": {
+    "Salesforce": [
+      {
+        "slug": "salesforce",
+        "name": "Salesforce",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "HubSpot": [
+      {
+        "slug": "hubspot",
+        "name": "HubSpot",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Pipedrive": [
+      {
+        "slug": "pipedrive",
+        "name": "Pipedrive",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Attio": [
+      {
+        "slug": "attio",
+        "name": "Attio",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Twenty": [
+      {
+        "slug": "twenty",
+        "name": "Twenty",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Podio": [
+      {
+        "slug": "podio",
+        "name": "Podio",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Zoho CRM": [
+      {
+        "slug": "zoho",
+        "name": "Zoho",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Close": [
+      {
+        "slug": "close",
+        "name": "Close",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "close_mcp",
+        "name": "Close MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Copper": [
+      {
+        "slug": "copper",
+        "name": "Copper",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "DealCloud": [],
+    "Zendesk": [
+      {
+        "slug": "zendesk",
+        "name": "Zendesk",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Intercom": [
+      {
+        "slug": "intercom",
+        "name": "Intercom",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "intercom_mcp",
+        "name": "Intercom MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Freshdesk": [
+      {
+        "slug": "freshdesk",
+        "name": "Freshdesk",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Front": [
+      {
+        "slug": "front",
+        "name": "Front",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Pylon": [
+      {
+        "slug": "pylon_mcp",
+        "name": "Pylon MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "LiveAgent": [],
+    "Plain": [
+      {
+        "slug": "plain",
+        "name": "Plain",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "plain_mcp",
+        "name": "Plain MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Help Scout": [
+      {
+        "slug": "help_scout",
+        "name": "Help Scout",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Gorgias": [
+      {
+        "slug": "gorgias",
+        "name": "Gorgias",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Gladly": [],
+    "Slack": [
+      {
+        "slug": "slack",
+        "name": "Slack",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "slackbot",
+        "name": "Slackbot",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Twilio": [
+      {
+        "slug": "twilio",
+        "name": "Twilio",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Zoho Cliq": [
+      {
+        "slug": "zoho_cliq",
+        "name": "Zoho Cliq",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Lark (Larksuite)": [
+      {
+        "slug": "lark",
+        "name": "Lark",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Pumble": [
+      {
+        "slug": "pumble",
+        "name": "Pumble",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Discord": [
+      {
+        "slug": "discord",
+        "name": "Discord",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "discordbot",
+        "name": "Discord Bot",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Telegram": [
+      {
+        "slug": "telegram",
+        "name": "Telegram",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "WhatsApp Business": [
+      {
+        "slug": "whatsapp",
+        "name": "WhatsApp",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Aircall": [
+      {
+        "slug": "aircall",
+        "name": "Aircall",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Vonage": [],
+    "Google Ads": [
+      {
+        "slug": "googleads",
+        "name": "Google Ads",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Meta Ads": [
+      {
+        "slug": "metaads",
+        "name": "Meta Ads",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "LinkedIn Ads": [
+      {
+        "slug": "linkedin_ads",
+        "name": "Linkedin Ads",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "GoHighLevel": [
+      {
+        "slug": "highlevel_mcp",
+        "name": "HighLevel MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Mailchimp": [
+      {
+        "slug": "mailchimp",
+        "name": "Mailchimp",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Klaviyo": [
+      {
+        "slug": "klaviyo",
+        "name": "Klaviyo",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "systeme.io": [],
+    "Pinterest": [
+      {
+        "slug": "pinterest",
+        "name": "Pinterest",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Threads (Meta)": [
+      {
+        "slug": "threads",
+        "name": "Threads",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "SendGrid": [
+      {
+        "slug": "sendgrid",
+        "name": "SendGrid",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Shopify": [
+      {
+        "slug": "shopify",
+        "name": "Shopify",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "WooCommerce": [],
+    "BigCommerce": [
+      {
+        "slug": "bigcommerce",
+        "name": "BigCommerce",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Salesforce Commerce Cloud": [],
+    "Magento (Adobe Commerce)": [],
+    "Squarespace": [],
+    "Ecwid": [],
+    "Gumroad": [
+      {
+        "slug": "gumroad",
+        "name": "Gumroad",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Amazon Selling Partner": [
+      {
+        "slug": "amazon",
+        "name": "Amazon",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "fanbasis": [],
+    "DataForSEO": [
+      {
+        "slug": "dataforseo",
+        "name": "DataForSEO",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "SE Ranking": [],
+    "Ahrefs": [
+      {
+        "slug": "ahrefs",
+        "name": "Ahrefs",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "ahrefs_mcp",
+        "name": "Ahrefs MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "MrScraper": [
+      {
+        "slug": "mrscraper",
+        "name": "MrScraper",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Apify": [
+      {
+        "slug": "apify",
+        "name": "Apify",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "apify_mcp",
+        "name": "Apify MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Firecrawl": [
+      {
+        "slug": "firecrawl",
+        "name": "Firecrawl",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Bright Data": [
+      {
+        "slug": "brightdata",
+        "name": "Bright Data",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Sherlock": [],
+    "Waterfall.io": [],
+    "Clay": [
+      {
+        "slug": "clay",
+        "name": "Clay",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "clay_mcp",
+        "name": "Clay MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "GitHub": [
+      {
+        "slug": "github",
+        "name": "GitHub",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "github_mcp",
+        "name": "GitHub MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Vercel": [
+      {
+        "slug": "vercel",
+        "name": "Vercel",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "vercel_mcp",
+        "name": "Vercel MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Netlify": [
+      {
+        "slug": "netlify_mcp",
+        "name": "Netlify MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Cloudflare": [
+      {
+        "slug": "cloudflare",
+        "name": "Cloudflare",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "cloudflare_mcp",
+        "name": "Cloudflare MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Supabase": [
+      {
+        "slug": "supabase",
+        "name": "Supabase",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "supabase_mcp",
+        "name": "Supabase MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Neo4j": [
+      {
+        "slug": "neo4j",
+        "name": "Neo4J",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Snowflake": [
+      {
+        "slug": "snowflake",
+        "name": "Snowflake",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "MongoDB Atlas": [
+      {
+        "slug": "mongodb",
+        "name": "MongoDB",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "mongodb_mcp",
+        "name": "MongoDB MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Datadog": [
+      {
+        "slug": "datadog",
+        "name": "Datadog",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "datadog_mcp",
+        "name": "Datadog MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Sentry": [
+      {
+        "slug": "sentry",
+        "name": "Sentry",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "sentry_mcp",
+        "name": "Sentry MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Notion": [
+      {
+        "slug": "notion",
+        "name": "Notion",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "notion_mcp",
+        "name": "Notion MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Airtable": [
+      {
+        "slug": "airtable",
+        "name": "Airtable",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Linear": [
+      {
+        "slug": "linear",
+        "name": "Linear",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "linear_mcp",
+        "name": "Linear MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Jira": [
+      {
+        "slug": "jira",
+        "name": "Jira",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Asana": [
+      {
+        "slug": "asana",
+        "name": "Asana",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Monday.com": [
+      {
+        "slug": "monday",
+        "name": "Monday",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "monday_mcp",
+        "name": "Monday MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "ClickUp": [
+      {
+        "slug": "clickup",
+        "name": "ClickUp",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "clickup_mcp",
+        "name": "ClickUp MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Coda": [
+      {
+        "slug": "coda",
+        "name": "Coda",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Smartsheet": [
+      {
+        "slug": "smartsheet",
+        "name": "Smartsheet",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Harvest": [
+      {
+        "slug": "harvest",
+        "name": "Harvest",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Stripe": [
+      {
+        "slug": "stripe",
+        "name": "Stripe",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "stripe_mcp",
+        "name": "Stripe MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Plaid": [
+      {
+        "slug": "plaid",
+        "name": "Plaid",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "plaid_mcp",
+        "name": "Plaid MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Binance": [],
+    "Paygent Connect": [],
+    "iPayX": [],
+    "QuickBooks": [
+      {
+        "slug": "quickbooks",
+        "name": "QuickBooks",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Xero": [
+      {
+        "slug": "xero",
+        "name": "Xero",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Brex": [
+      {
+        "slug": "brex",
+        "name": "Brex",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Ramp": [
+      {
+        "slug": "ramp",
+        "name": "Ramp",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "ramp_mcp",
+        "name": "Ramp MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "PitchBook": [
+      {
+        "slug": "pitchbook",
+        "name": "PitchBook",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "NotebookLM": [
+      {
+        "slug": "notebook_lm",
+        "name": "NotebookLM",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Otter AI": [
+      {
+        "slug": "otter_ai_mcp",
+        "name": "Otter.ai MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Fathom": [
+      {
+        "slug": "fathom",
+        "name": "Fathom",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Consensus": [
+      {
+        "slug": "consensus",
+        "name": "Consensus",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "consensus_mcp",
+        "name": "Consensus MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Reducto": [],
+    "Devin": [
+      {
+        "slug": "devin_mcp",
+        "name": "Devin MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "higgsfield": [
+      {
+        "slug": "higgsfield",
+        "name": "Higgsfield",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      },
+      {
+        "slug": "higgsfield_mcp",
+        "name": "Higgsfield MCP",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Mermaid CLI": [],
+    "YouTube Transcript": [
+      {
+        "slug": "youtube_transcript",
+        "name": "YouTube Transcript",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ],
+    "Grain": [
+      {
+        "slug": "grain",
+        "name": "Grain",
+        "is_no_auth": false,
+        "composio_managed_auth_schemes": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "total_audited": 5,
+  "apps_modified": 2,
+  "apps_unchanged": 3,
+  "total_field_corrections": 2,
+  "corrections_by_field": {
+    "api_protocol": 1,
+    "evidence_urls": 1
+  },
+  "diffs": [
+    {
+      "id": 2,
+      "name": "HubSpot",
+      "field": "api_protocol",
+      "old": "REST",
+      "new": "REST + GraphQL",
+      "reason": "The official API usage guidelines and limits page (https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines) explicitly documents a GraphQL API alongside HubSpot's REST APIs."
+    },
+    {
+      "id": 28,
+      "name": "WhatsApp Business",
+      "field": "evidence_urls",
+      "old": [
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/access-tokens",
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api",
+        "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp"
+      ],
+      "new": [
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/about-the-platform",
+        "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing",
+        "https://developers.facebook.com/docs/whatsapp/solution-providers/get-started-for-solution-partners?locale=zh_CN"
+      ],
+      "reason": "Replaced 4 broken/dead URL(s): ['https://developers.facebook.com/documentation/business-messaging/whatsapp/access-tokens', 'https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started', 'https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api', 'https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp']"
+    }
+  ]
+}
