@@ -30,6 +30,9 @@ from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
 
+from composio import Composio
+from composio_github import ComposioGitHubAuditor
+from llm_utils import generate_content_throttled
 from schema import (
     AccessModel,
     ApiBreadth,
@@ -45,8 +48,9 @@ load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG_PATH = ROOT / "data" / "composio_catalog_match.json"
+DEEP_CATALOG_PATH = ROOT / "data" / "composio_catalog_deep.json"
 DIFF_REPORT_PATH = ROOT / "data" / "verification_diff_report.json"
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-4-hydrogen")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
 HEADERS = {
     "User-Agent": (
@@ -166,7 +170,8 @@ def verify_single_record(
     record: dict[str, Any],
     exa: Exa,
     gemini_client: genai.Client,
-    catalog_matches: dict[str, list[dict]],
+    deep_catalog_by_app: dict[str, dict[str, Any]],
+    github_auditor: ComposioGitHubAuditor | None = None,
 ) -> tuple[AppResearchRecord, list[dict[str, Any]]]:
     name = record["name"]
     hint = record["hint"]
@@ -191,16 +196,36 @@ def verify_single_record(
     # 3. Targeted disconfirmation search via Exa `/search`
     disconfirm_text = run_disconfirmation_search(exa, name, hint, record)
 
-    # 4. Composio live catalog check (also check for `_mcp` sibling!)
-    matched_toolkits = catalog_matches.get(name, [])
-    catalog_slugs = [t["slug"] for t in matched_toolkits if t.get("slug")]
+    # 4. Upgrade 1: Deep Live Composio Catalog Ground Truth (/api/v3.1/toolkits/{slug})
+    cat_info = deep_catalog_by_app.get(name, {})
+    catalog_slugs = cat_info.get("all_slugs", [])
+    catalog_ground_truth = {
+        "coverage": cat_info.get("coverage", "Not in Catalog"),
+        "api_slugs": cat_info.get("api_slugs", []),
+        "mcp_slugs": cat_info.get("mcp_slugs", []),
+        "composio_production_auth_modes": cat_info.get("auth_modes", []),
+        "composio_managed_oauth_schemes": cat_info.get("composio_managed_auth_schemes", []),
+        "tools_count": cat_info.get("total_tools_count", 0),
+        "triggers_count": cat_info.get("total_triggers_count", 0),
+    }
 
-    # 5. Gemini Critic Agent
+    # 5. Upgrade 2: Live GitHub MCP / Open-Source Repo Audit via Composio `github` toolkit
+    github_audit: dict[str, Any] | None = None
+    if github_auditor and github_auditor.enabled:
+        gh_urls: list[str] = []
+        if record.get("mcp_evidence_url"):
+            gh_urls.append(record["mcp_evidence_url"])
+        gh_urls.extend(record.get("evidence_urls") or [])
+        repo_pair = github_auditor.extract_github_repo(gh_urls)
+        if repo_pair:
+            github_audit = github_auditor.audit_repo(repo_pair[0], repo_pair[1])
+
+    # 6. Gemini Critic Agent
     critic_prompt = f"""You are a rigorous AI Product Ops QA Auditor verifying a Pass 1 research record for `{name}` ({hint}).
-Your job is to catch hallucinations, broken links, missed paywalls/app reviews, and wrong MCP classifications using ONLY the fresh primary-source evidence below.
+Your job is to catch hallucinations, broken links, missed paywalls/app reviews, auth discrepancies, and wrong MCP classifications using ONLY the fresh primary-source evidence below.
 
 PASS 1 RECORD TO AUDIT:
-{json.dumps({k: v for k, v in record.items() if k not in ('url_health', 'verification_changes', 'human_audited')}, indent=2)}
+{json.dumps({k: v for k, v in record.items() if k not in ('url_health', 'verification_changes', 'human_audited', 'github_mcp_audit')}, indent=2)}
 
 LIVE URL HEALTH CHECK RESULTS:
 {json.dumps(url_health, indent=2)}
@@ -214,25 +239,36 @@ LIVE EXTRACTED DOC TEXT (FROM EXA /CONTENTS):
 DISCONFIRMATION SEARCH RESULTS (GATING, PRICING, REVIEW, OFFICIAL MCP):
 {disconfirm_text}
 
-LIVE COMPOSIO CATALOG MATCH:
-{catalog_slugs if catalog_slugs else "None"}
+LIVE COMPOSIO PRODUCTION CATALOG GROUND TRUTH (`/api/v3.1/toolkits`):
+{json.dumps(catalog_ground_truth, indent=2)}
+
+{f"LIVE GITHUB REPO AUDIT (VIA COMPOSIO GITHUB TOOLKIT):{chr(10)}{json.dumps(github_audit, indent=2)}" if github_audit else ""}
 
 STRICT AUDITING CHECKLIST:
 1. BROKEN URLS: ONLY remove a URL if it returned HTTP 404/410 OR failed both HTTP check AND Exa `/contents`. Do NOT delete valid English official docs just because a bot-shielded portal (e.g. Meta, LinkedIn, Cloudflare) returned 403/400/timeout to a raw HTTP check. NEVER prefer non-English localized URLs (like `?locale=zh_CN`) over English official docs.
-2. ACCESS MODEL PRECISION (most common Pass 1 mistake!):
+2. COMPOSIO CATALOG CROSS-CHECK:
+   - Compare Pass 1's `auth_methods` against `composio_production_auth_modes` (e.g., if Composio production catalog shows `OAUTH2` or `DCR_OAUTH` or `API_KEY` and official docs confirm it, make sure Pass 1 didn't miss that auth method!).
+   - If `mcp_slugs` is non-empty (a Composio Provider MCP `*_mcp` exists in production), double-check if the vendor indeed publishes an official remote MCP server and ensure `mcp_status` reflects the primary evidence accurately.
+3. GITHUB REPO AUDIT CHECK (if present above):
+   - Use `owner_login`, `owner_type` (`Organization` vs `User`), `stars`, `archived`, and `pushed_at` to verify whether a cited GitHub MCP repo is genuinely vendor-official (`Official MCP`) vs. a third-party/community repo (`Community MCP Only`) or archived/unmaintained.
+4. ACCESS MODEL PRECISION (most common Pass 1 mistake!):
    - Does the doc say API access is only on Pro/Business/Enterprise paid plans? -> `Self-Serve Paid Plan` (NOT `Self-Serve Free / Trial`).
    - Does production access require App Review, Business Verification, Developer Token approval, or Marketplace review (e.g., Google Ads, Meta Ads, Threads, WhatsApp, LinkedIn Ads, Pinterest, Amazon SP-API, Shopify public apps)? -> `Self-Serve Dev + App Review`.
    - Does it require an existing paying customer admin account with no free dev sandbox (e.g., Gladly, Gorgias, Brex, Ramp, Pylon)? -> `Admin / Customer Account Required` or `Partner / Sales-Gated`.
    - Does it require contacting sales / enterprise partnership to get API access or docs (e.g., DealCloud, PitchBook, Salesforce Commerce Cloud, NotebookLM Enterprise)? -> `Partner / Sales-Gated`.
-3. MCP STATUS PRECISION:
-   - Mark `Official MCP` ONLY if the vendor itself publishes/documents an official MCP server (or Composio ships a Provider MCP `*_mcp` that connects to the vendor's official MCP). Always provide a working `mcp_evidence_url` when `mcp_status != "None Found"`.
-   - If Pass 1 said `None Found` but fresh search proves an official MCP server exists (very common in 2025–2026 for GitHub, Linear, Notion, Stripe, Cloudflare, Supabase, Sentry, Atlassian/Jira, HubSpot, Intercom, Datadog, Plaid, Firecrawl, Apify, Otter AI, Devin, etc.), UPGRADE it to `Official MCP` and log the change!
-   - Conversely, if Pass 1 cited a random third-party GitHub repo as `Official MCP`, DOWNGRADE it to `Community MCP Only`!
-4. AUTH & PROTOCOL PRECISION: Verify every listed `auth_methods` and `api_protocol` (e.g., Linear/Monday/Plain/Shopify are GraphQL or REST+GraphQL; WooCommerce/Twilio/DataForSEO support Basic Auth; Binance uses API Key + HMAC Signature).
-5. LOGGING CHANGES: Only add entries to `changes_made` when a substantive field actually changed (`auth_methods`, `access_model`, `api_protocol`, `api_breadth`, `mcp_status`, `openapi_spec_available`, `webhooks_supported`, `buildability_verdict`, `evidence_urls`). Do NOT fabricate fake changes if Pass 1 was already correct!
+5. MCP STATUS & ENTITY CONFUSION PRECISION:
+   - ENTITY CHECK: Verify that every evidence URL and `mcp_evidence_url` actually belongs to `{name}` (`{hint}`) and NOT a similarly-named company or unrelated package (e.g. Paygent Connect != Payman AI, fanbasis != unrelated npm packages, Mermaid CLI != commercial Mermaid Chart SaaS). If Pass 1 mixed up entities, fix all affected fields and log the change!
+   - Mark `Official MCP` ONLY if the vendor itself publishes/documents an official MCP server for THIS exact product on its own domain or verified vendor GitHub organization. An OpenAPI spec URL or third-party wrapper is NOT an Official MCP. Always provide a working `mcp_evidence_url` when `mcp_status != "None Found"`, and set `mcp_evidence_url` to `null` if `mcp_status == "None Found"`.
+   - If Pass 1 missed an official MCP server that fresh search confirms, UPGRADE it to `Official MCP` and log the change!
+   - If Pass 1 cited a third-party repo, wrong company, or non-MCP page as `Official MCP`, DOWNGRADE it to `Community MCP Only` or `None Found`!
+6. VERDICT CONSISTENCY & AUTH PRECISION:
+   - Verify every listed `auth_methods` and `api_protocol` (e.g., Linear/Monday/Plain/Shopify are GraphQL or REST+GraphQL; WooCommerce/Twilio/DataForSEO support Basic Auth; Binance uses API Key + HMAC Signature).
+   - Ensure `buildability_verdict` is strictly consistent with `access_model`: `Ready Today (Easy Win)` requires `Self-Serve Free / Trial` without major review/paywall blockers; `Self-Serve Paid Plan`, `Self-Serve Dev + App Review`, and `Admin / Customer Account Required` should normally be `Buildable with Friction`; `Partner / Sales-Gated` should be `Gated / Needs Outreach` (unless a self-serve OAuth MCP exists, in which case `Buildable with Friction` with clear notes).
+7. LOGGING CHANGES: Only add entries to `changes_made` when a substantive field actually changed (`auth_methods`, `access_model`, `api_protocol`, `api_breadth`, `mcp_status`, `openapi_spec_available`, `webhooks_supported`, `buildability_verdict`, `evidence_urls`). Do NOT fabricate fake changes if Pass 1 was already correct!
 """
 
-    response = gemini_client.models.generate_content(
+    response = generate_content_throttled(
+        gemini_client,
         model=GEMINI_MODEL,
         contents=critic_prompt,
         config=types.GenerateContentConfig(
@@ -322,6 +358,13 @@ STRICT AUDITING CHECKLIST:
         evidence_urls=verdict.evidence_urls,
         confidence=verdict.confidence,
         composio_catalog_slugs=catalog_slugs,
+        composio_coverage=cat_info.get("coverage", "Not in Catalog"),
+        composio_tools_count=cat_info.get("total_tools_count", 0),
+        composio_triggers_count=cat_info.get("total_triggers_count", 0),
+        composio_auth_modes=cat_info.get("auth_modes", []),
+        composio_managed_auth=bool(cat_info.get("composio_managed_auth_schemes")),
+        composio_logo=cat_info.get("logo"),
+        github_mcp_audit=github_audit,
         url_health=scoped_health,
         verification_changes=change_strings,
         human_audited=record.get("human_audited", False),
@@ -342,9 +385,14 @@ def main() -> None:
     in_path = ROOT / args.input
     out_path = ROOT / args.output
     records = json.loads(in_path.read_text(encoding="utf-8"))
-    catalog_matches = {}
-    if CATALOG_PATH.exists():
-        catalog_matches = json.loads(CATALOG_PATH.read_text(encoding="utf-8")).get("matches", {})
+
+    deep_catalog_by_app: dict[str, dict[str, Any]] = {}
+    if DEEP_CATALOG_PATH.exists():
+        deep_catalog_by_app = json.loads(DEEP_CATALOG_PATH.read_text(encoding="utf-8")).get("by_app", {})
+    elif CATALOG_PATH.exists():
+        raw_matches = json.loads(CATALOG_PATH.read_text(encoding="utf-8")).get("matches", {})
+        for k, v in raw_matches.items():
+            deep_catalog_by_app[k] = {"all_slugs": [x["slug"] for x in v if x.get("slug")]}
 
     if args.ids:
         target_ids = {int(x.strip()) for x in args.ids.split(",") if x.strip()}
@@ -365,13 +413,22 @@ def main() -> None:
         all_diffs = prev_rep.get("diffs", [])
 
     todo = [r for r in selected if r["id"] not in existing]
-    print(f"Pass 2 Verifier | model={GEMINI_MODEL} | target={len(selected)} | remaining={len(todo)}")
+    print(f"Pass 2 Verifier | model={GEMINI_MODEL} | target={len(selected)} | remaining={len(todo)}", flush=True)
 
     exa = Exa()
     gemini_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+    # Initialize Upgrade 2: Composio live GitHub auditor (gracefully disabled if github not yet authorized)
+    composio = Composio()
+    gh_session = composio.create(user_id="product_ops_researcher", toolkits=["github"])
+    github_auditor = ComposioGitHubAuditor(gh_session)
+    print(
+        f"Composio GitHub Auditor: {'ACTIVE (' + str(github_auditor.repo_tool_slug) + ')' if github_auditor.enabled else 'INACTIVE (connect github via src/connect_integrations.py)'}",
+        flush=True,
+    )
+
     def _worker(rec: dict) -> tuple[AppResearchRecord, list[dict]]:
-        return verify_single_record(rec, exa, gemini_client, catalog_matches)
+        return verify_single_record(rec, exa, gemini_client, deep_catalog_by_app, github_auditor)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency) as pool:
         future_map = {pool.submit(_worker, r): r for r in todo}

@@ -1,0 +1,45 @@
+{
+  "user_id": "product_ops_researcher",
+  "verified_live_executions": [
+    {
+      "toolkit": "exa",
+      "toolkit_type": "api",
+      "auth_type": "API_KEY (Connected via Composio Connect Link)",
+      "session_id": "trs_WrnJjYXfqA94",
+      "tool_slug": "EXA_SEARCH",
+      "result_type": "completed",
+      "log_id": "log_KVRfY2eUAxul",
+      "purpose": "Single-app live web search inside Composio Session runner (src/research_one_composio.py)"
+    },
+    {
+      "toolkit": "github",
+      "toolkit_type": "api",
+      "auth_type": "OAUTH2 (Composio Managed Auth)",
+      "session_id": "trs_WrnJjYXfqA94",
+      "tool_slug": "GITHUB_GET_A_REPOSITORY",
+      "result_type": "completed",
+      "log_id": "log_-CS4rRpxKjx4",
+      "purpose": "Audit GitHub repo ownership (Organization vs User), stars, archived state, and last push date for official vs community MCP verification"
+    },
+    {
+      "toolkit": "deepwiki_mcp",
+      "toolkit_type": "mcp",
+      "auth_type": "NO_AUTH (Provider MCP)",
+      "session_id": "trs_WrnJjYXfqA94",
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "result_type": "completed",
+      "log_id": "log_gilIkXXa5vQA",
+      "purpose": "Inspect open-source repository architecture for CLI/OSS apps (e.g., sherlock-project/sherlock)"
+    },
+    {
+      "toolkit": "mermaid_chart_mcp",
+      "toolkit_type": "mcp",
+      "auth_type": "NO_AUTH (Provider MCP)",
+      "session_id": "trs_26KSZgEsBirK",
+      "tool_slug": "MERMAID_CHART_MCP_VALIDATE_AND_RENDER_MERMAID_DIAGRAM",
+      "result_type": "completed",
+      "log_id": "log_J3d6ViRpXWTW",
+      "purpose": "Validate and render the 3-Pass Research & Verification Pipeline architecture diagram"
+    }
+  ]
+}

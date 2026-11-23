@@ -1,0 +1,1683 @@
+{
+  "total_apps": 100,
+  "distributions": {
+    "auth_methods": {
+      "OAuth2": 88,
+      "API Key": 64,
+      "Bearer Token": 62,
+      "Basic Auth": 21,
+      "JWT": 10,
+      "App Token / Bot Token": 7,
+      "HMAC / Signature": 6,
+      "Other": 4,
+      "No Auth / Open": 3,
+      "CLI / Local Only": 2
+    },
+    "access_models": {
+      "Self-Serve Free / Trial": 55,
+      "Self-Serve Dev + App Review": 20,
+      "Admin / Customer Account Required": 9,
+      "Self-Serve Paid Plan": 7,
+      "Partner / Sales-Gated": 6,
+      "Open-Source / Local Tool": 3
+    },
+    "api_protocols": {
+      "REST": 86,
+      "REST + GraphQL": 7,
+      "GraphQL": 3,
+      "CLI / Local Only": 2,
+      "RPC / Proprietary SDK": 1,
+      "MCP Only": 1
+    },
+    "api_breadth": {
+      "Broad (Full Platform)": 80,
+      "Medium (Core Workflows)": 14,
+      "Narrow (Single-Purpose / Limited)": 4,
+      "N/A": 2
+    },
+    "mcp_status": {
+      "Official MCP": 89,
+      "None Found": 6,
+      "Community MCP Only": 5
+    },
+    "buildability_verdicts": {
+      "Ready Today (Easy Win)": 50,
+      "Buildable with Friction": 43,
+      "Gated / Needs Outreach": 5,
+      "Blocked / Not API-Native": 2
+    },
+    "openapi_spec_available": {
+      "Unknown": 60,
+      "Yes": 34,
+      "No": 6
+    },
+    "webhooks_supported": {
+      "Yes": 57,
+      "Unknown": 40,
+      "No": 3
+    },
+    "confidence": {
+      "High": 94,
+      "Medium": 6
+    },
+    "composio_coverage": {
+      "Built API Only": 54,
+      "Both Built + Provider MCP": 22,
+      "Not in Catalog": 19,
+      "Provider MCP Only": 5
+    }
+  },
+  "highlights": {
+    "multi_auth_apps": 86,
+    "oauth_plus_key_or_token_apps": 75,
+    "self_serve_free_or_paid": 62,
+    "gated_review_admin_or_partner": 35,
+    "official_mcp_count": 89,
+    "community_mcp_count": 5,
+    "github_repos_audited_via_composio": 16,
+    "total_urls_checked": 432,
+    "url_health_breakdown": {
+      "bot_shielded_403_429": 25,
+      "ok_2xx_3xx": 392,
+      "timeout_or_other": 15
+    }
+  },
+  "category_matrix": [
+    {
+      "category": "CRM and Sales",
+      "total": 10,
+      "self_serve_count": 8,
+      "gated_or_review_count": 2,
+      "local_oss_count": 0,
+      "ready_today": 6,
+      "buildable_friction": 3,
+      "gated_outreach": 1,
+      "blocked": 0,
+      "mcp_official": 10,
+      "mcp_community": 0,
+      "oauth2_count": 10,
+      "api_key_or_bearer_count": 8,
+      "in_composio": 9,
+      "not_in_composio": 1,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 7,
+        "Self-Serve Dev + App Review": 1,
+        "Self-Serve Paid Plan": 1,
+        "Partner / Sales-Gated": 1
+      }
+    },
+    {
+      "category": "Support and Helpdesk",
+      "total": 10,
+      "self_serve_count": 4,
+      "gated_or_review_count": 6,
+      "local_oss_count": 0,
+      "ready_today": 2,
+      "buildable_friction": 8,
+      "gated_outreach": 0,
+      "blocked": 0,
+      "mcp_official": 10,
+      "mcp_community": 0,
+      "oauth2_count": 10,
+      "api_key_or_bearer_count": 10,
+      "in_composio": 8,
+      "not_in_composio": 2,
+      "access_breakdown": {
+        "Self-Serve Dev + App Review": 4,
+        "Self-Serve Paid Plan": 2,
+        "Admin / Customer Account Required": 2,
+        "Self-Serve Free / Trial": 2
+      }
+    },
+    {
+      "category": "Communications and Messaging",
+      "total": 10,
+      "self_serve_count": 7,
+      "gated_or_review_count": 3,
+      "local_oss_count": 0,
+      "ready_today": 7,
+      "buildable_friction": 3,
+      "gated_outreach": 0,
+      "blocked": 0,
+      "mcp_official": 8,
+      "mcp_community": 2,
+      "oauth2_count": 9,
+      "api_key_or_bearer_count": 8,
+      "in_composio": 9,
+      "not_in_composio": 1,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 7,
+        "Self-Serve Dev + App Review": 2,
+        "Admin / Customer Account Required": 1
+      }
+    },
+    {
+      "category": "Marketing, Ads, Email and Social",
+      "total": 10,
+      "self_serve_count": 4,
+      "gated_or_review_count": 6,
+      "local_oss_count": 0,
+      "ready_today": 4,
+      "buildable_friction": 6,
+      "gated_outreach": 0,
+      "blocked": 0,
+      "mcp_official": 7,
+      "mcp_community": 1,
+      "oauth2_count": 8,
+      "api_key_or_bearer_count": 6,
+      "in_composio": 9,
+      "not_in_composio": 1,
+      "access_breakdown": {
+        "Self-Serve Dev + App Review": 6,
+        "Self-Serve Free / Trial": 4
+      }
+    },
+    {
+      "category": "Ecommerce",
+      "total": 10,
+      "self_serve_count": 3,
+      "gated_or_review_count": 6,
+      "local_oss_count": 1,
+      "ready_today": 4,
+      "buildable_friction": 5,
+      "gated_outreach": 1,
+      "blocked": 0,
+      "mcp_official": 8,
+      "mcp_community": 2,
+      "oauth2_count": 8,
+      "api_key_or_bearer_count": 9,
+      "in_composio": 4,
+      "not_in_composio": 6,
+      "access_breakdown": {
+        "Self-Serve Dev + App Review": 4,
+        "Open-Source / Local Tool": 1,
+        "Self-Serve Free / Trial": 3,
+        "Partner / Sales-Gated": 1,
+        "Admin / Customer Account Required": 1
+      }
+    },
+    {
+      "category": "Data, SEO and Scraping",
+      "total": 10,
+      "self_serve_count": 8,
+      "gated_or_review_count": 1,
+      "local_oss_count": 1,
+      "ready_today": 6,
+      "buildable_friction": 2,
+      "gated_outreach": 1,
+      "blocked": 1,
+      "mcp_official": 8,
+      "mcp_community": 0,
+      "oauth2_count": 8,
+      "api_key_or_bearer_count": 8,
+      "in_composio": 7,
+      "not_in_composio": 3,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 7,
+        "Self-Serve Paid Plan": 1,
+        "Open-Source / Local Tool": 1,
+        "Partner / Sales-Gated": 1
+      }
+    },
+    {
+      "category": "Developer, Infra and Data platforms",
+      "total": 10,
+      "self_serve_count": 8,
+      "gated_or_review_count": 2,
+      "local_oss_count": 0,
+      "ready_today": 7,
+      "buildable_friction": 3,
+      "gated_outreach": 0,
+      "blocked": 0,
+      "mcp_official": 10,
+      "mcp_community": 0,
+      "oauth2_count": 10,
+      "api_key_or_bearer_count": 10,
+      "in_composio": 10,
+      "not_in_composio": 0,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 8,
+        "Admin / Customer Account Required": 2
+      }
+    },
+    {
+      "category": "Productivity and Project Management",
+      "total": 10,
+      "self_serve_count": 10,
+      "gated_or_review_count": 0,
+      "local_oss_count": 0,
+      "ready_today": 9,
+      "buildable_friction": 1,
+      "gated_outreach": 0,
+      "blocked": 0,
+      "mcp_official": 10,
+      "mcp_community": 0,
+      "oauth2_count": 10,
+      "api_key_or_bearer_count": 10,
+      "in_composio": 10,
+      "not_in_composio": 0,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 9,
+        "Self-Serve Paid Plan": 1
+      }
+    },
+    {
+      "category": "Finance and Fintech",
+      "total": 10,
+      "self_serve_count": 3,
+      "gated_or_review_count": 7,
+      "local_oss_count": 0,
+      "ready_today": 1,
+      "buildable_friction": 7,
+      "gated_outreach": 2,
+      "blocked": 0,
+      "mcp_official": 9,
+      "mcp_community": 0,
+      "oauth2_count": 8,
+      "api_key_or_bearer_count": 7,
+      "in_composio": 7,
+      "not_in_composio": 3,
+      "access_breakdown": {
+        "Self-Serve Free / Trial": 3,
+        "Self-Serve Dev + App Review": 3,
+        "Partner / Sales-Gated": 2,
+        "Admin / Customer Account Required": 2
+      }
+    },
+    {
+      "category": "AI, Research and Media-native",
+      "total": 10,
+      "self_serve_count": 7,
+      "gated_or_review_count": 2,
+      "local_oss_count": 1,
+      "ready_today": 4,
+      "buildable_friction": 5,
+      "gated_outreach": 0,
+      "blocked": 1,
+      "mcp_official": 9,
+      "mcp_community": 0,
+      "oauth2_count": 7,
+      "api_key_or_bearer_count": 9,
+      "in_composio": 8,
+      "not_in_composio": 2,
+      "access_breakdown": {
+        "Admin / Customer Account Required": 1,
+        "Partner / Sales-Gated": 1,
+        "Self-Serve Free / Trial": 5,
+        "Self-Serve Paid Plan": 2,
+        "Open-Source / Local Tool": 1
+      }
+    }
+  ],
+  "composio_roadmap": {
+    "catalog_summary": {
+      "total_composio_toolkits_scanned": 1842,
+      "apps_matched": 81,
+      "apps_not_in_composio": 19,
+      "built_api_only": 54,
+      "provider_mcp_only": 5,
+      "both_built_and_mcp": 22,
+      "with_composio_managed_oauth": 32,
+      "with_triggers": 23,
+      "total_tools_across_matched": 14555
+    },
+    "net_new_easy_wins": [
+      {
+        "id": 16,
+        "name": "LiveAgent",
+        "category": "Support and Helpdesk",
+        "auth_methods": [
+          "API Key",
+          "OAuth2",
+          "Bearer Token"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Yes"
+      },
+      {
+        "id": 30,
+        "name": "Vonage",
+        "category": "Communications and Messaging",
+        "auth_methods": [
+          "API Key",
+          "Basic Auth",
+          "JWT",
+          "OAuth2",
+          "HMAC / Signature"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Yes"
+      },
+      {
+        "id": 37,
+        "name": "systeme.io",
+        "category": "Marketing, Ads, Email and Social",
+        "auth_methods": [
+          "API Key"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Unknown"
+      },
+      {
+        "id": 42,
+        "name": "WooCommerce",
+        "category": "Ecommerce",
+        "auth_methods": [
+          "API Key",
+          "Basic Auth",
+          "Other"
+        ],
+        "access_model": "Open-Source / Local Tool",
+        "mcp_status": "Official MCP",
+        "openapi": "Unknown"
+      },
+      {
+        "id": 50,
+        "name": "fanbasis",
+        "category": "Ecommerce",
+        "auth_methods": [
+          "API Key"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Unknown"
+      },
+      {
+        "id": 52,
+        "name": "SE Ranking",
+        "category": "Data, SEO and Scraping",
+        "auth_methods": [
+          "API Key",
+          "OAuth2"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Unknown"
+      },
+      {
+        "id": 95,
+        "name": "Reducto",
+        "category": "AI, Research and Media-native",
+        "auth_methods": [
+          "API Key",
+          "Bearer Token"
+        ],
+        "access_model": "Self-Serve Free / Trial",
+        "mcp_status": "Official MCP",
+        "openapi": "Yes"
+      }
+    ],
+    "net_new_friction": [
+      {
+        "id": 20,
+        "name": "Gladly",
+        "category": "Support and Helpdesk",
+        "access_model": "Admin / Customer Account Required",
+        "primary_blocker": "No free self-serve developer sandbox (requires an active customer Admin to create an API User and generate a Basic Auth token, or CSM purchase for a sandbox); additionally, Gladly's official OAuth2 MCP server is gated behind account-team enablement."
+      },
+      {
+        "id": 45,
+        "name": "Magento (Adobe Commerce)",
+        "category": "Ecommerce",
+        "access_model": "Admin / Customer Account Required",
+        "primary_blocker": "Fragmented auth and API surfaces across PaaS/Open Source (per-store OAuth 1.0a Admin setup and custom store URLs) versus Adobe Commerce as a Cloud Service (Adobe IMS OAuth 2.0 and differing REST endpoints)."
+      },
+      {
+        "id": 46,
+        "name": "Squarespace",
+        "category": "Ecommerce",
+        "access_model": "Self-Serve Dev + App Review",
+        "primary_blocker": "Third-party OAuth requires client registration and review with 7-day rotating refresh tokens, API keys require paid merchant plans, Webhook Subscriptions are OAuth-only, and official MCP Commerce tools are currently limited to Claude and ChatGPT."
+      },
+      {
+        "id": 47,
+        "name": "Ecwid",
+        "category": "Ecommerce",
+        "access_model": "Self-Serve Dev + App Review",
+        "primary_blocker": "Public OAuth2 apps require Ecwid App Market submission, partner agreement, validation review, and a corporate entity for AI apps, while direct custom-app Bearer token access requires users to be on a paid Ecwid plan and manually supply store_id and secret_token."
+      },
+      {
+        "id": 83,
+        "name": "Binance",
+        "category": "Finance and Fintech",
+        "access_model": "Self-Serve Free / Trial",
+        "primary_blocker": "Requires per-request HMAC/RSA/Ed25519 cryptographic signing, faces HTTP 418 IP-based rate-limit bans on shared cloud egress IPs, and the official MCP server requires browser OAuth plus manual Agentic sub-account funding with no published tools/list schema."
+      },
+      {
+        "id": 85,
+        "name": "iPayX",
+        "category": "Finance and Fintech",
+        "access_model": "Self-Serve Free / Trial",
+        "primary_blocker": "Contradictory API documentation (two different Supabase Edge Function REST base URLs, two different MCP URLs, mismatched /audit request schemas, and conflicting pricing/rate-limit tiers across /developers, /docs/mcp-server, and /pricing), paid gating on full forensic spread breakdowns, and draft API Terms of Service pending legal review."
+      }
+    ],
+    "net_new_outreach": [
+      {
+        "id": 10,
+        "name": "DealCloud",
+        "category": "CRM and Sales",
+        "access_model": "Partner / Sales-Gated",
+        "primary_blocker": "No self-serve developer sandbox or trial; requires an enterprise DealCloud tenant with admin/CSM-provisioned API permissions, plus Celeste licensing and Account Manager approval for local or third-party MCP integrations."
+      },
+      {
+        "id": 44,
+        "name": "Salesforce Commerce Cloud",
+        "category": "Ecommerce",
+        "access_model": "Partner / Sales-Gated",
+        "primary_blocker": "Requires an enterprise B2C Commerce customer instance or paid LINK Technology Partner Program membership (with mandatory Integration Security Review and Certification) to provision credentials and distribute integrations, alongside split Shopper (SLAS) and Admin (Account Manager) auth flows."
+      },
+      {
+        "id": 59,
+        "name": "Waterfall.io",
+        "category": "Data, SEO and Scraping",
+        "access_model": "Partner / Sales-Gated",
+        "primary_blocker": "No self-serve API key provisioning; Waterfall manually reviews every access request and works with a limited number of approved customers."
+      },
+      {
+        "id": 84,
+        "name": "Paygent Connect",
+        "category": "Finance and Fintech",
+        "access_model": "Partner / Sales-Gated",
+        "primary_blocker": "Merchant/ISO onboarding and partner-gated NMI gateway provisioning required for API security keys; no official MCP server."
+      }
+    ],
+    "net_new_blocked": [
+      {
+        "id": 58,
+        "name": "Sherlock",
+        "category": "Data, SEO and Scraping",
+        "api_protocol": "CLI / Local Only",
+        "primary_blocker": "No hosted public web API; Sherlock is a local CLI and Python HTTP-probing library (with only an unhosted DRF repo and third-party Apify scraper wrappers)."
+      },
+      {
+        "id": 98,
+        "name": "Mermaid CLI",
+        "category": "AI, Research and Media-native",
+        "api_protocol": "CLI / Local Only",
+        "primary_blocker": "No public web API or official MCP for mermaid-cli: it is strictly a local CLI and Puppeteer-based Node.js tool (distinct from the separate commercial Mermaid Chart SaaS API and MCP server on mermaid.ai)."
+      }
+    ],
+    "mcp_expansion_candidates": [
+      {
+        "id": 1,
+        "name": "Salesforce",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "salesforce"
+        ],
+        "mcp_evidence_url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html"
+      },
+      {
+        "id": 2,
+        "name": "HubSpot",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "hubspot"
+        ],
+        "mcp_evidence_url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server"
+      },
+      {
+        "id": 3,
+        "name": "Pipedrive",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "pipedrive"
+        ],
+        "mcp_evidence_url": "https://www.pipedrive.com/en/features/mcp-server"
+      },
+      {
+        "id": 4,
+        "name": "Attio",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "attio"
+        ],
+        "mcp_evidence_url": "https://docs.attio.com/mcp/overview"
+      },
+      {
+        "id": 5,
+        "name": "Twenty",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "twenty"
+        ],
+        "mcp_evidence_url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp"
+      },
+      {
+        "id": 6,
+        "name": "Podio",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "podio"
+        ],
+        "mcp_evidence_url": "https://www.progress.com/podio/documentation/using-podio/ai-and-mcp/podio-mcp-server-integration-guide"
+      },
+      {
+        "id": 7,
+        "name": "Zoho CRM",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "zoho"
+        ],
+        "mcp_evidence_url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html"
+      },
+      {
+        "id": 9,
+        "name": "Copper",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "copper"
+        ],
+        "mcp_evidence_url": "https://www.copper.com/mcp"
+      },
+      {
+        "id": 11,
+        "name": "Zendesk",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "zendesk"
+        ],
+        "mcp_evidence_url": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP"
+      },
+      {
+        "id": 13,
+        "name": "Freshdesk",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "freshdesk"
+        ],
+        "mcp_evidence_url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
+      },
+      {
+        "id": 14,
+        "name": "Front",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "front"
+        ],
+        "mcp_evidence_url": "https://dev.frontapp.com/docs/mcp-server"
+      },
+      {
+        "id": 18,
+        "name": "Help Scout",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "help_scout"
+        ],
+        "mcp_evidence_url": "https://docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-to-search-conversations-and-pull-reports"
+      },
+      {
+        "id": 19,
+        "name": "Gorgias",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "gorgias"
+        ],
+        "mcp_evidence_url": "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546"
+      },
+      {
+        "id": 21,
+        "name": "Slack",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "slack",
+          "slackbot"
+        ],
+        "mcp_evidence_url": "https://docs.slack.dev/ai/slack-mcp-server/"
+      },
+      {
+        "id": 22,
+        "name": "Twilio",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "twilio"
+        ],
+        "mcp_evidence_url": "https://www.twilio.com/docs/ai/mcp"
+      },
+      {
+        "id": 23,
+        "name": "Zoho Cliq",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "zoho_cliq"
+        ],
+        "mcp_evidence_url": "https://www.zoho.com/cliq/help/platform/zoho-cliq-mcp.html"
+      },
+      {
+        "id": 24,
+        "name": "Lark (Larksuite)",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "lark"
+        ],
+        "mcp_evidence_url": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction"
+      },
+      {
+        "id": 25,
+        "name": "Pumble",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "pumble"
+        ],
+        "mcp_evidence_url": "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server/"
+      },
+      {
+        "id": 28,
+        "name": "WhatsApp Business",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "whatsapp"
+        ],
+        "mcp_evidence_url": "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp"
+      },
+      {
+        "id": 29,
+        "name": "Aircall",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "aircall"
+        ],
+        "mcp_evidence_url": "https://support.aircall.io/en-gb/articles/39677926959517"
+      },
+      {
+        "id": 31,
+        "name": "Google Ads",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "googleads"
+        ],
+        "mcp_evidence_url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server"
+      },
+      {
+        "id": 32,
+        "name": "Meta Ads",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "metaads"
+        ],
+        "mcp_evidence_url": "https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview"
+      },
+      {
+        "id": 35,
+        "name": "Mailchimp",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "mailchimp"
+        ],
+        "mcp_evidence_url": "https://mailchimp.com/developer/transactional/guides/how-to-use-mailchimps-transactional-messaging-mcp"
+      },
+      {
+        "id": 36,
+        "name": "Klaviyo",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "klaviyo"
+        ],
+        "mcp_evidence_url": "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server"
+      },
+      {
+        "id": 38,
+        "name": "Pinterest",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "pinterest"
+        ],
+        "mcp_evidence_url": "https://developers.pinterest.com/about-pinterest-mcp/"
+      },
+      {
+        "id": 41,
+        "name": "Shopify",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "shopify"
+        ],
+        "mcp_evidence_url": "https://shopify.dev/docs/apps/build/shop-mcp"
+      },
+      {
+        "id": 43,
+        "name": "BigCommerce",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "bigcommerce"
+        ],
+        "mcp_evidence_url": "https://docs.bigcommerce.com/developer/api-reference/mcp/overview/"
+      },
+      {
+        "id": 48,
+        "name": "Gumroad",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "gumroad"
+        ],
+        "mcp_evidence_url": "https://gumroad.com/mcp"
+      },
+      {
+        "id": 49,
+        "name": "Amazon Selling Partner",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "amazon"
+        ],
+        "mcp_evidence_url": "https://github.com/amzn/selling-partner-agentic-toolkit"
+      },
+      {
+        "id": 51,
+        "name": "DataForSEO",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "dataforseo"
+        ],
+        "mcp_evidence_url": "https://dataforseo.com/model-context-protocol"
+      },
+      {
+        "id": 54,
+        "name": "MrScraper",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "mrscraper"
+        ],
+        "mcp_evidence_url": "https://docs.mrscraper.com/docs/getting-started/mcp-server"
+      },
+      {
+        "id": 56,
+        "name": "Firecrawl",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "firecrawl"
+        ],
+        "mcp_evidence_url": "https://docs.firecrawl.dev/mcp-server"
+      },
+      {
+        "id": 57,
+        "name": "Bright Data",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "brightdata"
+        ],
+        "mcp_evidence_url": "https://docs.brightdata.com/products/mcp-server/overview"
+      },
+      {
+        "id": 66,
+        "name": "Neo4j",
+        "category": "Developer, Infra and Data platforms",
+        "existing_slugs": [
+          "neo4j"
+        ],
+        "mcp_evidence_url": "https://neo4j.com/docs/mcp/current/"
+      },
+      {
+        "id": 67,
+        "name": "Snowflake",
+        "category": "Developer, Infra and Data platforms",
+        "existing_slugs": [
+          "snowflake"
+        ],
+        "mcp_evidence_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+      },
+      {
+        "id": 72,
+        "name": "Airtable",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "airtable"
+        ],
+        "mcp_evidence_url": "https://airtable.com/developers/agents/mcp/getting-started"
+      },
+      {
+        "id": 74,
+        "name": "Jira",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "jira"
+        ],
+        "mcp_evidence_url": "https://developer.atlassian.com/cloud/rovo-mcp/"
+      },
+      {
+        "id": 75,
+        "name": "Asana",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "asana"
+        ],
+        "mcp_evidence_url": "https://developers.asana.com/docs/integrating-with-asanas-mcp-server"
+      },
+      {
+        "id": 78,
+        "name": "Coda",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "coda"
+        ],
+        "mcp_evidence_url": "https://help.coda.io/hc/en-us/articles/44722661982989-Connect-to-the-Coda-MCP"
+      },
+      {
+        "id": 79,
+        "name": "Smartsheet",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "smartsheet"
+        ],
+        "mcp_evidence_url": "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server"
+      },
+      {
+        "id": 80,
+        "name": "Harvest",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "harvest"
+        ],
+        "mcp_evidence_url": "https://support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP"
+      },
+      {
+        "id": 86,
+        "name": "QuickBooks",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "quickbooks"
+        ],
+        "mcp_evidence_url": "https://github.com/intuit/quickbooks-online-mcp-server"
+      },
+      {
+        "id": 87,
+        "name": "Xero",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "xero"
+        ],
+        "mcp_evidence_url": "https://developer.xero.com/faq/remote-mcp"
+      },
+      {
+        "id": 88,
+        "name": "Brex",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "brex"
+        ],
+        "mcp_evidence_url": "https://developer.brex.com/docs/mcp"
+      },
+      {
+        "id": 90,
+        "name": "PitchBook",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "pitchbook"
+        ],
+        "mcp_evidence_url": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector"
+      },
+      {
+        "id": 91,
+        "name": "NotebookLM",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "notebook_lm"
+        ],
+        "mcp_evidence_url": "https://developers.google.com/notebook/docs/mcp"
+      },
+      {
+        "id": 93,
+        "name": "Fathom",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "fathom"
+        ],
+        "mcp_evidence_url": "https://developers.fathom.ai/mcp-docs"
+      },
+      {
+        "id": 99,
+        "name": "YouTube Transcript",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "youtube_transcript"
+        ],
+        "mcp_evidence_url": "https://transcriptapi.com/docs/mcp/"
+      },
+      {
+        "id": 100,
+        "name": "Grain",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "grain"
+        ],
+        "mcp_evidence_url": "https://support.grain.com/en/articles/14811968-grain-mcp"
+      }
+    ],
+    "trigger_expansion_candidates": [
+      {
+        "id": 4,
+        "name": "Attio",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "attio"
+        ],
+        "tools_count": 105
+      },
+      {
+        "id": 5,
+        "name": "Twenty",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "twenty"
+        ],
+        "tools_count": 23
+      },
+      {
+        "id": 6,
+        "name": "Podio",
+        "category": "CRM and Sales",
+        "existing_slugs": [
+          "podio"
+        ],
+        "tools_count": 143
+      },
+      {
+        "id": 12,
+        "name": "Intercom",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "intercom",
+          "intercom_mcp"
+        ],
+        "tools_count": 153
+      },
+      {
+        "id": 13,
+        "name": "Freshdesk",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "freshdesk"
+        ],
+        "tools_count": 184
+      },
+      {
+        "id": 15,
+        "name": "Pylon",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "pylon_mcp"
+        ],
+        "tools_count": 12
+      },
+      {
+        "id": 18,
+        "name": "Help Scout",
+        "category": "Support and Helpdesk",
+        "existing_slugs": [
+          "help_scout"
+        ],
+        "tools_count": 129
+      },
+      {
+        "id": 23,
+        "name": "Zoho Cliq",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "zoho_cliq"
+        ],
+        "tools_count": 162
+      },
+      {
+        "id": 24,
+        "name": "Lark (Larksuite)",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "lark"
+        ],
+        "tools_count": 451
+      },
+      {
+        "id": 27,
+        "name": "Telegram",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "telegram"
+        ],
+        "tools_count": 18
+      },
+      {
+        "id": 29,
+        "name": "Aircall",
+        "category": "Communications and Messaging",
+        "existing_slugs": [
+          "aircall"
+        ],
+        "tools_count": 48
+      },
+      {
+        "id": 34,
+        "name": "GoHighLevel",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "highlevel_mcp"
+        ],
+        "tools_count": 36
+      },
+      {
+        "id": 39,
+        "name": "Threads (Meta)",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "threads"
+        ],
+        "tools_count": 24
+      },
+      {
+        "id": 40,
+        "name": "SendGrid",
+        "category": "Marketing, Ads, Email and Social",
+        "existing_slugs": [
+          "sendgrid"
+        ],
+        "tools_count": 359
+      },
+      {
+        "id": 43,
+        "name": "BigCommerce",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "bigcommerce"
+        ],
+        "tools_count": 532
+      },
+      {
+        "id": 48,
+        "name": "Gumroad",
+        "category": "Ecommerce",
+        "existing_slugs": [
+          "gumroad"
+        ],
+        "tools_count": 13
+      },
+      {
+        "id": 51,
+        "name": "DataForSEO",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "dataforseo"
+        ],
+        "tools_count": 354
+      },
+      {
+        "id": 56,
+        "name": "Firecrawl",
+        "category": "Data, SEO and Scraping",
+        "existing_slugs": [
+          "firecrawl"
+        ],
+        "tools_count": 245
+      },
+      {
+        "id": 68,
+        "name": "MongoDB Atlas",
+        "category": "Developer, Infra and Data platforms",
+        "existing_slugs": [
+          "mongodb",
+          "mongodb_mcp"
+        ],
+        "tools_count": 537
+      },
+      {
+        "id": 70,
+        "name": "Sentry",
+        "category": "Developer, Infra and Data platforms",
+        "existing_slugs": [
+          "sentry",
+          "sentry_mcp"
+        ],
+        "tools_count": 219
+      },
+      {
+        "id": 79,
+        "name": "Smartsheet",
+        "category": "Productivity and Project Management",
+        "existing_slugs": [
+          "smartsheet"
+        ],
+        "tools_count": 180
+      },
+      {
+        "id": 82,
+        "name": "Plaid",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "plaid",
+          "plaid_mcp"
+        ],
+        "tools_count": 75
+      },
+      {
+        "id": 87,
+        "name": "Xero",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "xero"
+        ],
+        "tools_count": 109
+      },
+      {
+        "id": 89,
+        "name": "Ramp",
+        "category": "Finance and Fintech",
+        "existing_slugs": [
+          "ramp",
+          "ramp_mcp"
+        ],
+        "tools_count": 399
+      },
+      {
+        "id": 92,
+        "name": "Otter AI",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "otter_ai_mcp"
+        ],
+        "tools_count": 3
+      },
+      {
+        "id": 97,
+        "name": "higgsfield",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "higgsfield",
+          "higgsfield_mcp"
+        ],
+        "tools_count": 114
+      },
+      {
+        "id": 100,
+        "name": "Grain",
+        "category": "AI, Research and Media-native",
+        "existing_slugs": [
+          "grain"
+        ],
+        "tools_count": 17
+      }
+    ]
+  },
+  "verification": {
+    "pass2_diff_summary": {
+      "total_audited": 100,
+      "apps_modified": 29,
+      "apps_unchanged": 71,
+      "total_field_corrections": 30,
+      "corrections_by_field": {
+        "openapi_spec_available": 8,
+        "webhooks_supported": 10,
+        "access_model": 5,
+        "buildability_verdict": 2,
+        "evidence_urls": 2,
+        "api_protocol": 1,
+        "mcp_status": 1,
+        "auth_methods": 1
+      }
+    },
+    "sample_pass2_diffs": [
+      {
+        "id": 1,
+        "name": "Salesforce",
+        "field": "openapi_spec_available",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The live extracted Salesforce REST API Developer Guide (https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm) explicitly includes 'Generating an OpenAPI 3.0 Document for sObjects REST API (Beta)' in its official documentation navigation."
+      },
+      {
+        "id": 3,
+        "name": "Pipedrive",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The official Pipedrive CRM API page (https://www.pipedrive.com/en/features/crm-api) explicitly states developers can access what they need via webhooks and API endpoints."
+      },
+      {
+        "id": 9,
+        "name": "Copper",
+        "field": "access_model",
+        "old": "Admin / Customer Account Required",
+        "new": "Self-Serve Paid Plan",
+        "reason": "Copper's pricing page (copper.com/pricing) and partner FAQ (copper.com/partners) confirm self-serve account signup with API & Embedded integration SDK gated to paid Professional/Business plans, and partners required to purchase a Business license for a demo account."
+      },
+      {
+        "id": 11,
+        "name": "Zendesk",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "Zendesk's official API authentication article (https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests) explicitly documents Zendesk webhooks, the Add webhook configuration page, Test webhook functionality, and OAuth authentication for webhooks."
+      },
+      {
+        "id": 15,
+        "name": "Pylon",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "Pylon's official pricing page (https://www.usepylon.com/pricing) explicitly lists Webhooks under Developer platform features as included on Professional, Advanced, and Enterprise plans."
+      },
+      {
+        "id": 14,
+        "name": "Front",
+        "field": "access_model",
+        "old": "Admin / Customer Account Required",
+        "new": "Self-Serve Dev + App Review",
+        "reason": "https://dev.frontapp.com/docs/partnering-with-front explicitly states developers can sign up for a free development account (so no paid customer account is required to build), while public integrations for Front customers must use OAuth and undergo technical approval (and potential security/legal review) to be published in the Front App Store."
+      },
+      {
+        "id": 17,
+        "name": "Plain",
+        "field": "openapi_spec_available",
+        "old": "Yes",
+        "new": "No",
+        "reason": "Plain exposes a GraphQL-only API (https://core-api.uk.plain.com/graphql/v1) with a GraphQL SDL schema at https://core-api.uk.plain.com/graphql/v1/schema.graphql, not a REST OpenAPI specification."
+      },
+      {
+        "id": 18,
+        "name": "Help Scout",
+        "field": "buildability_verdict",
+        "old": "Ready Today (Easy Win)",
+        "new": "Buildable with Friction",
+        "reason": "Help Scout's Free plan explicitly excludes API access and integrations (docs.helpscout.com/article/1140-mailbox-api and helpscout.com/pricing/); paid Standard, Plus, or Pro plans are required for API/MCP access, and Plus/Pro is required for Reporting endpoints."
+      },
+      {
+        "id": 22,
+        "name": "Twilio",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The primary doc https://www.twilio.com/docs/usage/requests-to-twilio explicitly covers how the Twilio APIs handle webhooks, and the live Composio production catalog confirms 45 webhook/event triggers."
+      },
+      {
+        "id": 27,
+        "name": "Telegram",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The live Telegram Bot API documentation at https://core.telegram.org/bots/api/ explicitly documents webhooks as one of the two supported methods for receiving bot updates (alongside getUpdates), including webhook URL, port, and max_webhook_connections configuration."
+      },
+      {
+        "id": 29,
+        "name": "Aircall",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "Primary Aircall sources (https://aircall.io/pricing/ FAQ and https://aircall.io/blog/tech/ai-ecosystem-developer-guide/) explicitly confirm Aircall offers an open webhook framework for real-time call and contact events set up after user authorization."
+      },
+      {
+        "id": 30,
+        "name": "Vonage",
+        "field": "openapi_spec_available",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The live Getting Started Overview doc (https://developer.vonage.com/en/getting-started/overview) explicitly states under the OpenAPI section: 'Each of our APIs has its own OpenAPI specification.'"
+      },
+      {
+        "id": 31,
+        "name": "Google Ads",
+        "field": "evidence_urls",
+        "old": [
+          "https://support.google.com/adspolicy/answer/6169371?hl=en"
+        ],
+        "new": [
+          "https://developers.google.com/google-ads/api/docs/oauth/overview",
+          "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+          "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+          "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+          "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+        ],
+        "reason": "Replaced 1 broken/dead URL(s): ['https://support.google.com/adspolicy/answer/6169371?hl=en']"
+      },
+      {
+        "id": 35,
+        "name": "Mailchimp",
+        "field": "openapi_spec_available",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The live Mailchimp API structure documentation at https://mailchimp.com/developer/marketing/docs/fundamentals/ explicitly states: 'We use the OpenAPI Specification (formerly known as Swagger) to describe each endpoint.'"
+      },
+      {
+        "id": 40,
+        "name": "SendGrid",
+        "field": "openapi_spec_available",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The official SendGrid v3 API reference (https://www.twilio.com/docs/sendgrid/api-reference) explicitly lists an OpenAPI specification under SDKs and tools."
+      },
+      {
+        "id": 43,
+        "name": "BigCommerce",
+        "field": "openapi_spec_available",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The BigCommerce developer documentation at https://docs.bigcommerce.com/developer/docs/ai-agent-setup explicitly confirms that developers can download BigCommerce OpenAPI Specifications for schema-aware workflows."
+      },
+      {
+        "id": 45,
+        "name": "Magento (Adobe Commerce)",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "While developer.adobe.com/commerce/webapi/get-started/ notes the core CRUD Web API framework does not support webhooks, Adobe's official Commerce Developer Agent announcement (business.adobe.com/blog/commerce-developer-agent) confirms Adobe Commerce supports webhooks via App Builder extensibility."
+      },
+      {
+        "id": 54,
+        "name": "MrScraper",
+        "field": "access_model",
+        "old": "Admin / Customer Account Required",
+        "new": "Self-Serve Free / Trial",
+        "reason": "MrScraper billing docs (https://docs.mrscraper.com/docs/getting-started/billing) and pricing page (https://mrscraper.com/pricing) confirm a self-serve Scraper Free plan with no credit card required that includes monthly tokens and API token access."
+      },
+      {
+        "id": 61,
+        "name": "GitHub",
+        "field": "api_protocol",
+        "old": "REST",
+        "new": "REST + GraphQL",
+        "reason": "The live extracted GitHub Rate Limits documentation explicitly confirms GitHub provides a GraphQL API alongside its REST API ('The GraphQL API also has a separate primary rate limit. See Rate limits and query limits for the GraphQL API.')."
+      },
+      {
+        "id": 60,
+        "name": "Clay",
+        "field": "access_model",
+        "old": "Admin / Customer Account Required",
+        "new": "Self-Serve Free / Trial",
+        "reason": "Clay's pricing page (https://www.clay.com/pricing) and MCP docs (https://university.clay.com/docs/clay-mcp-in-chatgpt) confirm a self-serve Free plan and 14-day trial that both include Public API/CLI access (100 search results/30 days) and Clay MCP, aligning with buildability_verdict 'Ready Today (Easy Win)'."
+      },
+      {
+        "id": 71,
+        "name": "Notion",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "Notion's official pricing page (https://www.notion.com/pricing) explicitly lists Webhooks under API automations & integrations alongside Public API, corroborated by 8 triggers in the Composio production catalog."
+      },
+      {
+        "id": 73,
+        "name": "Linear",
+        "field": "openapi_spec_available",
+        "old": "Yes",
+        "new": "No",
+        "reason": "Primary docs (https://linear.app/developers/graphql and https://linear.app/docs/api-and-webhooks) state that Linear's public API is strictly GraphQL using GraphQL schema introspection (explorable via Apollo Studio) rather than REST, with no OpenAPI specification provided."
+      },
+      {
+        "id": 76,
+        "name": "Monday.com",
+        "field": "openapi_spec_available",
+        "old": "Yes",
+        "new": "No",
+        "reason": "The primary developer documentation (https://developer.monday.com/api-reference/docs/getting-started and https://developer.monday.com/api-reference/docs/build-on-monday-with-ai) specifies that Monday.com exposes a single-endpoint GraphQL API (https://api.monday.com/v2) using a GraphQL schema and schema introspection rather than REST or an OpenAPI specification."
+      },
+      {
+        "id": 77,
+        "name": "ClickUp",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "ClickUp's official FAQ (https://clickup.com/faqs) explicitly states that webhook support is available alongside its public REST API and OAuth, corroborated by 21 triggers in the live Composio production catalog."
+      },
+      {
+        "id": 87,
+        "name": "Xero",
+        "field": "webhooks_supported",
+        "old": "Unknown",
+        "new": "Yes",
+        "reason": "The live Xero Developer Pricing page (https://developer.xero.com/pricing) explicitly lists Webhooks under Standard features across all plans (Starter, Core, Plus, Advanced, and Enterprise)."
+      },
+      {
+        "id": 98,
+        "name": "Mermaid CLI",
+        "field": "mcp_status",
+        "old": "Official MCP",
+        "new": "None Found",
+        "reason": "https://mermaid.ai/docs/ai/mcp-server documents the separate commercial Mermaid Chart SaaS MCP server (mcp.mermaid.ai, requiring a Mermaid Chart account), not an official MCP server for the open-source mermaid-js/mermaid-cli package, whose GitHub README and npm page contain no MCP server."
+      },
+      {
+        "id": 96,
+        "name": "Devin",
+        "field": "access_model",
+        "old": "Admin / Customer Account Required",
+        "new": "Self-Serve Paid Plan",
+        "reason": "https://docs.devin.ai/admin/billing/self-serve and https://devin.ai/pricing confirm Devin offers self-serve signup at app.devin.ai with Free ($0), Pro ($20/mo, explicitly including MCP integrations), Max ($200/mo), and Teams ($80/mo) plans rather than requiring a pre-existing enterprise customer admin account."
+      },
+      {
+        "id": 97,
+        "name": "higgsfield",
+        "field": "buildability_verdict",
+        "old": "Ready Today (Easy Win)",
+        "new": "Buildable with Friction",
+        "reason": "Consistent with Self-Serve Paid Plan access_model: API calls require registering a payment method and funding a prepaid USD balance ($5 minimum top-up) with zero-balance request rejection, and official MCP/CLI always deduct paid plan credits with no free generations."
+      },
+      {
+        "id": 97,
+        "name": "higgsfield",
+        "field": "evidence_urls",
+        "old": [
+          "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api"
+        ],
+        "new": [
+          "https://docs.higgsfield.ai/docs/authentication",
+          "https://docs.higgsfield.ai/docs/quickstart",
+          "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp",
+          "https://higgsfield.ai/higgsfield-api",
+          "https://higgsfield.ai/cli",
+          "https://open.higgsfield.ai/terms-of-service"
+        ],
+        "reason": "Replaced 1 broken/dead URL(s): ['https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api']"
+      },
+      {
+        "id": 100,
+        "name": "Grain",
+        "field": "auth_methods",
+        "old": [
+          "OAuth2",
+          "Bearer Token"
+        ],
+        "new": [
+          "OAuth2",
+          "Bearer Token",
+          "API Key"
+        ],
+        "reason": "Grain's official support docs (https://support.grain.com/en/articles/15507288-grain-api) refer to PATs and WATs as Personal/Workspace API tokens, and the live Composio production catalog confirms API_KEY as the production auth mode for Grain."
+      }
+    ],
+    "human_audit": {
+      "summary": {
+        "sample_size": 20,
+        "categories_covered": 10,
+        "apps_per_category": 2,
+        "browser_verified_count": 6,
+        "pass1_hits": 10,
+        "pass1_misses": 10,
+        "pass1_accuracy_pct": 50.0,
+        "pass2_hits": 16,
+        "pass2_misses": 4,
+        "pass2_accuracy_pct": 80.0,
+        "final_hits": 20,
+        "final_accuracy_pct": 100.0,
+        "pass2_lift_pts": 30.0,
+        "pass3_lift_pts": 20.0
+      },
+      "sample_audit": [
+        {
+          "id": 2,
+          "name": "HubSpot",
+          "category": "CRM and Sales",
+          "pass1_accurate": false,
+          "pass2_accurate": false,
+          "verification_method": "Live Docs + Composio Catalog",
+          "audit_finding": "Pass 1 & Pass 2 missed HubSpot's GraphQL API and public OpenAPI catalog (left REST-only & OpenAPI=Unknown). Human audit corrected to REST + GraphQL and OpenAPI=Yes (all auth/MCP/verdict fields were already right)."
+        },
+        {
+          "id": 10,
+          "name": "DealCloud",
+          "category": "CRM and Sales",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Browser (api.docs.dealcloud.com/mcp)",
+          "audit_finding": "Confirmed live in browser (HTTP 200): Official Intapp DealCloud MCP requires Celeste license, and custom/third-party AI clients explicitly require 'Contact your Account Manager'."
+        },
+        {
+          "id": 18,
+          "name": "Help Scout",
+          "category": "Support and Helpdesk",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 Verifier + Pricing Docs",
+          "audit_finding": "Pass 1 wrongly marked 'Ready Today' despite Free plan excluding API access. Pass 2 automatically caught the contradiction and corrected verdict to 'Buildable with Friction'."
+        },
+        {
+          "id": 20,
+          "name": "Gladly",
+          "category": "Support and Helpdesk",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Composio GitHub Auditor (log_mdMMdPqBOJwK)",
+          "audit_finding": "Confirmed via live Composio github toolkit: gladly/claude-plugin is owned by the official 'gladly' Organization (Apache-2.0, active Nov 2026), and REST API requires customer admin account."
+        },
+        {
+          "id": 26,
+          "name": "Discord",
+          "category": "Communications and Messaging",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Docs + Composio Catalog",
+          "audit_finding": "Confirmed: Free self-serve Bot Token + OAuth2, OpenAPI spec published, webhooks/Gateway events supported, Community MCP only (no official Discord MCP)."
+        },
+        {
+          "id": 28,
+          "name": "WhatsApp Business",
+          "category": "Communications and Messaging",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Exa Indexed Crawl + Composio Catalog (Browser DNS blocked)",
+          "audit_finding": "Confirmed Embedded Signup / Meta Business Verification gating and System User Bearer auth. Honest caveat: developers.facebook.com hit DNS resolution failure in our browser sandbox, so verified via Exa crawl + live Composio whatsapp catalog."
+        },
+        {
+          "id": 31,
+          "name": "Google Ads",
+          "category": "Marketing, Ads, Email and Social",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 HTTP Link Audit + Official Docs",
+          "audit_finding": "Pass 1 cited a dead support URL (adspolicy/answer/6169371). Pass 2 link checker caught it and replaced it with live Google Ads OAuth & developer-token access-level docs."
+        },
+        {
+          "id": 33,
+          "name": "LinkedIn Ads",
+          "category": "Marketing, Ads, Email and Social",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Docs + Composio Catalog",
+          "audit_finding": "Confirmed: OAuth2 with strict Marketing Developer Platform app review, no official MCP server found, correctly mapped to Composio's linkedin_ads slug (after human removed broad 'linkedin' alias)."
+        },
+        {
+          "id": 49,
+          "name": "Amazon Selling Partner",
+          "category": "Ecommerce",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Docs + GitHub Org Check",
+          "audit_finding": "Confirmed: LWA OAuth2 + mandatory Seller/Developer registration & review; official amzn/selling-partner-agentic-toolkit repo."
+        },
+        {
+          "id": 50,
+          "name": "fanbasis",
+          "category": "Ecommerce",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Browser (fanbasis.com -> commas.com & commasdocs.com)",
+          "audit_finding": "Browser audit confirmed FanBasis officially rebranded to Commas ('FanBasis is now Commas!'), commas-cli really is their MCP CLI, and official API/SDK/MCP docs live at commasdocs.com. Upgraded primary evidence link to commasdocs.com."
+        },
+        {
+          "id": 58,
+          "name": "Sherlock",
+          "category": "Data, SEO and Scraping",
+          "pass1_accurate": false,
+          "pass2_accurate": false,
+          "verification_method": "Composio deepwiki_mcp + GitHub (log_RngXHKaygRK9) + Human",
+          "audit_finding": "Both Pass 1 & Pass 2 misclassified a third-party Apify Actor URL as 'Community MCP Only'. Human audit fixed mcp_status -> None Found while confirming local CLI / 116k-star MIT repo via Composio GitHub & DeepWiki."
+        },
+        {
+          "id": 60,
+          "name": "Clay",
+          "category": "Data, SEO and Scraping",
+          "pass1_accurate": false,
+          "pass2_accurate": false,
+          "verification_method": "Live Browser (university.clay.com/docs/connect-to-clay-mcp)",
+          "audit_finding": "Major browser catch: Pass 1 & Pass 2 claimed broad REST + OpenAPI=Yes + Ready Today. Live browser audit proved /docs/http-api and /docs/webhooks 404 \u2014 Clay has no general public REST API; its programmatic surface is Official MCP (OAuth 2.1 + PKCE + open DCR at api.clay.com/v3/mcp) + narrow table lookup keys. Fixed to MCP Only, OpenAPI=No, Buildable with Friction."
+        },
+        {
+          "id": 61,
+          "name": "GitHub",
+          "category": "Developer, Infra and Data platforms",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 Verifier + Official Docs",
+          "audit_finding": "Pass 1 listed REST only (missing GitHub's GraphQL v4 API). Pass 2 caught and corrected api_protocol to REST + GraphQL."
+        },
+        {
+          "id": 67,
+          "name": "Snowflake",
+          "category": "Developer, Infra and Data platforms",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Docs + Composio Catalog",
+          "audit_finding": "Confirmed: Account-scoped JWT/OAuth2/PAT auth, Cortex Agents official MCP, customer account & warehouse provisioning friction."
+        },
+        {
+          "id": 71,
+          "name": "Notion",
+          "category": "Productivity and Project Management",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 Verifier + Composio Catalog (8 triggers)",
+          "audit_finding": "Pass 1 left webhooks_supported=Unknown. Pass 2 resolved it to Yes using Notion's official docs corroborated by 8 live triggers in Composio's catalog."
+        },
+        {
+          "id": 73,
+          "name": "Linear",
+          "category": "Productivity and Project Management",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 Verifier + Official Docs",
+          "audit_finding": "Pass 1 falsely marked openapi_spec_available=Yes on a GraphQL-only API. Pass 2 verified Linear's docs and corrected OpenAPI -> No."
+        },
+        {
+          "id": 84,
+          "name": "Paygent Connect",
+          "category": "Finance and Fintech",
+          "pass1_accurate": false,
+          "pass2_accurate": false,
+          "verification_method": "Human Web & Primary Docs Audit (NMI / Paygent)",
+          "audit_finding": "Biggest agent failure: Both Pass 1 & Pass 2 confused Paygent Connect (NMI-powered payment gateway) with 'Payman AI' (paymanai.mintlify.app/mcp-server). Human audit completely replaced the misattributed record with NMI/Paygent's real security_key / partner-gated merchant API and mcp_status=None Found."
+        },
+        {
+          "id": 85,
+          "name": "iPayX",
+          "category": "Finance and Fintech",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Browser (ipayx.ai/docs/mcp-server & /pricing)",
+          "audit_finding": "Confirmed live in browser (HTTP 200): FINTRAC-registered FX audit platform, self-serve Free/$99/$299 tiers, Bearer token (ipx_live_*), and an official 3-tool MCP server."
+        },
+        {
+          "id": 92,
+          "name": "Otter AI",
+          "category": "AI, Research and Media-native",
+          "pass1_accurate": true,
+          "pass2_accurate": true,
+          "verification_method": "Live Browser (help.otter.ai Otter MCP Server)",
+          "audit_finding": "Confirmed live in browser: Official hosted MCP (mcp.otter.ai/mcp) uses OAuth with 3 read-only tools (Get user info, Search, Fetch) and no public API key, while the full REST API remains Enterprise-gated."
+        },
+        {
+          "id": 98,
+          "name": "Mermaid CLI",
+          "category": "AI, Research and Media-native",
+          "pass1_accurate": false,
+          "pass2_accurate": true,
+          "verification_method": "Pass 2 Verifier + Composio mermaid_chart_mcp",
+          "audit_finding": "Pass 1 attributed commercial Mermaid Chart SaaS MCP (mermaid.ai) to the open-source mermaid-cli binary. Pass 2 caught the product split and corrected mcp_status -> None Found."
+        }
+      ]
+    }
+  }
+}

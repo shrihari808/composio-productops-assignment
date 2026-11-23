@@ -1,37 +1,282 @@
 {
-  "total_audited": 5,
-  "apps_modified": 2,
-  "apps_unchanged": 3,
-  "total_field_corrections": 2,
+  "total_audited": 100,
+  "apps_modified": 29,
+  "apps_unchanged": 71,
+  "total_field_corrections": 30,
   "corrections_by_field": {
+    "openapi_spec_available": 8,
+    "webhooks_supported": 10,
+    "access_model": 5,
+    "buildability_verdict": 2,
+    "evidence_urls": 2,
     "api_protocol": 1,
-    "evidence_urls": 1
+    "mcp_status": 1,
+    "auth_methods": 1
   },
   "diffs": [
     {
-      "id": 2,
-      "name": "HubSpot",
+      "id": 1,
+      "name": "Salesforce",
+      "field": "openapi_spec_available",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The live extracted Salesforce REST API Developer Guide (https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm) explicitly includes 'Generating an OpenAPI 3.0 Document for sObjects REST API (Beta)' in its official documentation navigation."
+    },
+    {
+      "id": 3,
+      "name": "Pipedrive",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The official Pipedrive CRM API page (https://www.pipedrive.com/en/features/crm-api) explicitly states developers can access what they need via webhooks and API endpoints."
+    },
+    {
+      "id": 9,
+      "name": "Copper",
+      "field": "access_model",
+      "old": "Admin / Customer Account Required",
+      "new": "Self-Serve Paid Plan",
+      "reason": "Copper's pricing page (copper.com/pricing) and partner FAQ (copper.com/partners) confirm self-serve account signup with API & Embedded integration SDK gated to paid Professional/Business plans, and partners required to purchase a Business license for a demo account."
+    },
+    {
+      "id": 11,
+      "name": "Zendesk",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "Zendesk's official API authentication article (https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests) explicitly documents Zendesk webhooks, the Add webhook configuration page, Test webhook functionality, and OAuth authentication for webhooks."
+    },
+    {
+      "id": 15,
+      "name": "Pylon",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "Pylon's official pricing page (https://www.usepylon.com/pricing) explicitly lists Webhooks under Developer platform features as included on Professional, Advanced, and Enterprise plans."
+    },
+    {
+      "id": 14,
+      "name": "Front",
+      "field": "access_model",
+      "old": "Admin / Customer Account Required",
+      "new": "Self-Serve Dev + App Review",
+      "reason": "https://dev.frontapp.com/docs/partnering-with-front explicitly states developers can sign up for a free development account (so no paid customer account is required to build), while public integrations for Front customers must use OAuth and undergo technical approval (and potential security/legal review) to be published in the Front App Store."
+    },
+    {
+      "id": 17,
+      "name": "Plain",
+      "field": "openapi_spec_available",
+      "old": "Yes",
+      "new": "No",
+      "reason": "Plain exposes a GraphQL-only API (https://core-api.uk.plain.com/graphql/v1) with a GraphQL SDL schema at https://core-api.uk.plain.com/graphql/v1/schema.graphql, not a REST OpenAPI specification."
+    },
+    {
+      "id": 18,
+      "name": "Help Scout",
+      "field": "buildability_verdict",
+      "old": "Ready Today (Easy Win)",
+      "new": "Buildable with Friction",
+      "reason": "Help Scout's Free plan explicitly excludes API access and integrations (docs.helpscout.com/article/1140-mailbox-api and helpscout.com/pricing/); paid Standard, Plus, or Pro plans are required for API/MCP access, and Plus/Pro is required for Reporting endpoints."
+    },
+    {
+      "id": 22,
+      "name": "Twilio",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The primary doc https://www.twilio.com/docs/usage/requests-to-twilio explicitly covers how the Twilio APIs handle webhooks, and the live Composio production catalog confirms 45 webhook/event triggers."
+    },
+    {
+      "id": 27,
+      "name": "Telegram",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The live Telegram Bot API documentation at https://core.telegram.org/bots/api/ explicitly documents webhooks as one of the two supported methods for receiving bot updates (alongside getUpdates), including webhook URL, port, and max_webhook_connections configuration."
+    },
+    {
+      "id": 29,
+      "name": "Aircall",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "Primary Aircall sources (https://aircall.io/pricing/ FAQ and https://aircall.io/blog/tech/ai-ecosystem-developer-guide/) explicitly confirm Aircall offers an open webhook framework for real-time call and contact events set up after user authorization."
+    },
+    {
+      "id": 30,
+      "name": "Vonage",
+      "field": "openapi_spec_available",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The live Getting Started Overview doc (https://developer.vonage.com/en/getting-started/overview) explicitly states under the OpenAPI section: 'Each of our APIs has its own OpenAPI specification.'"
+    },
+    {
+      "id": 31,
+      "name": "Google Ads",
+      "field": "evidence_urls",
+      "old": [
+        "https://support.google.com/adspolicy/answer/6169371?hl=en"
+      ],
+      "new": [
+        "https://developers.google.com/google-ads/api/docs/oauth/overview",
+        "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+        "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+        "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+        "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+      ],
+      "reason": "Replaced 1 broken/dead URL(s): ['https://support.google.com/adspolicy/answer/6169371?hl=en']"
+    },
+    {
+      "id": 35,
+      "name": "Mailchimp",
+      "field": "openapi_spec_available",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The live Mailchimp API structure documentation at https://mailchimp.com/developer/marketing/docs/fundamentals/ explicitly states: 'We use the OpenAPI Specification (formerly known as Swagger) to describe each endpoint.'"
+    },
+    {
+      "id": 40,
+      "name": "SendGrid",
+      "field": "openapi_spec_available",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The official SendGrid v3 API reference (https://www.twilio.com/docs/sendgrid/api-reference) explicitly lists an OpenAPI specification under SDKs and tools."
+    },
+    {
+      "id": 43,
+      "name": "BigCommerce",
+      "field": "openapi_spec_available",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The BigCommerce developer documentation at https://docs.bigcommerce.com/developer/docs/ai-agent-setup explicitly confirms that developers can download BigCommerce OpenAPI Specifications for schema-aware workflows."
+    },
+    {
+      "id": 45,
+      "name": "Magento (Adobe Commerce)",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "While developer.adobe.com/commerce/webapi/get-started/ notes the core CRUD Web API framework does not support webhooks, Adobe's official Commerce Developer Agent announcement (business.adobe.com/blog/commerce-developer-agent) confirms Adobe Commerce supports webhooks via App Builder extensibility."
+    },
+    {
+      "id": 54,
+      "name": "MrScraper",
+      "field": "access_model",
+      "old": "Admin / Customer Account Required",
+      "new": "Self-Serve Free / Trial",
+      "reason": "MrScraper billing docs (https://docs.mrscraper.com/docs/getting-started/billing) and pricing page (https://mrscraper.com/pricing) confirm a self-serve Scraper Free plan with no credit card required that includes monthly tokens and API token access."
+    },
+    {
+      "id": 61,
+      "name": "GitHub",
       "field": "api_protocol",
       "old": "REST",
       "new": "REST + GraphQL",
-      "reason": "The official API usage guidelines and limits page (https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines) explicitly documents a GraphQL API alongside HubSpot's REST APIs."
+      "reason": "The live extracted GitHub Rate Limits documentation explicitly confirms GitHub provides a GraphQL API alongside its REST API ('The GraphQL API also has a separate primary rate limit. See Rate limits and query limits for the GraphQL API.')."
     },
     {
-      "id": 28,
-      "name": "WhatsApp Business",
+      "id": 60,
+      "name": "Clay",
+      "field": "access_model",
+      "old": "Admin / Customer Account Required",
+      "new": "Self-Serve Free / Trial",
+      "reason": "Clay's pricing page (https://www.clay.com/pricing) and MCP docs (https://university.clay.com/docs/clay-mcp-in-chatgpt) confirm a self-serve Free plan and 14-day trial that both include Public API/CLI access (100 search results/30 days) and Clay MCP, aligning with buildability_verdict 'Ready Today (Easy Win)'."
+    },
+    {
+      "id": 71,
+      "name": "Notion",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "Notion's official pricing page (https://www.notion.com/pricing) explicitly lists Webhooks under API automations & integrations alongside Public API, corroborated by 8 triggers in the Composio production catalog."
+    },
+    {
+      "id": 73,
+      "name": "Linear",
+      "field": "openapi_spec_available",
+      "old": "Yes",
+      "new": "No",
+      "reason": "Primary docs (https://linear.app/developers/graphql and https://linear.app/docs/api-and-webhooks) state that Linear's public API is strictly GraphQL using GraphQL schema introspection (explorable via Apollo Studio) rather than REST, with no OpenAPI specification provided."
+    },
+    {
+      "id": 76,
+      "name": "Monday.com",
+      "field": "openapi_spec_available",
+      "old": "Yes",
+      "new": "No",
+      "reason": "The primary developer documentation (https://developer.monday.com/api-reference/docs/getting-started and https://developer.monday.com/api-reference/docs/build-on-monday-with-ai) specifies that Monday.com exposes a single-endpoint GraphQL API (https://api.monday.com/v2) using a GraphQL schema and schema introspection rather than REST or an OpenAPI specification."
+    },
+    {
+      "id": 77,
+      "name": "ClickUp",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "ClickUp's official FAQ (https://clickup.com/faqs) explicitly states that webhook support is available alongside its public REST API and OAuth, corroborated by 21 triggers in the live Composio production catalog."
+    },
+    {
+      "id": 87,
+      "name": "Xero",
+      "field": "webhooks_supported",
+      "old": "Unknown",
+      "new": "Yes",
+      "reason": "The live Xero Developer Pricing page (https://developer.xero.com/pricing) explicitly lists Webhooks under Standard features across all plans (Starter, Core, Plus, Advanced, and Enterprise)."
+    },
+    {
+      "id": 98,
+      "name": "Mermaid CLI",
+      "field": "mcp_status",
+      "old": "Official MCP",
+      "new": "None Found",
+      "reason": "https://mermaid.ai/docs/ai/mcp-server documents the separate commercial Mermaid Chart SaaS MCP server (mcp.mermaid.ai, requiring a Mermaid Chart account), not an official MCP server for the open-source mermaid-js/mermaid-cli package, whose GitHub README and npm page contain no MCP server."
+    },
+    {
+      "id": 96,
+      "name": "Devin",
+      "field": "access_model",
+      "old": "Admin / Customer Account Required",
+      "new": "Self-Serve Paid Plan",
+      "reason": "https://docs.devin.ai/admin/billing/self-serve and https://devin.ai/pricing confirm Devin offers self-serve signup at app.devin.ai with Free ($0), Pro ($20/mo, explicitly including MCP integrations), Max ($200/mo), and Teams ($80/mo) plans rather than requiring a pre-existing enterprise customer admin account."
+    },
+    {
+      "id": 97,
+      "name": "higgsfield",
+      "field": "buildability_verdict",
+      "old": "Ready Today (Easy Win)",
+      "new": "Buildable with Friction",
+      "reason": "Consistent with Self-Serve Paid Plan access_model: API calls require registering a payment method and funding a prepaid USD balance ($5 minimum top-up) with zero-balance request rejection, and official MCP/CLI always deduct paid plan credits with no free generations."
+    },
+    {
+      "id": 97,
+      "name": "higgsfield",
       "field": "evidence_urls",
       "old": [
-        "https://developers.facebook.com/documentation/business-messaging/whatsapp/access-tokens",
-        "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
-        "https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api",
-        "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp"
+        "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api"
       ],
       "new": [
-        "https://developers.facebook.com/documentation/business-messaging/whatsapp/about-the-platform",
-        "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing",
-        "https://developers.facebook.com/docs/whatsapp/solution-providers/get-started-for-solution-partners?locale=zh_CN"
+        "https://docs.higgsfield.ai/docs/authentication",
+        "https://docs.higgsfield.ai/docs/quickstart",
+        "https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp",
+        "https://higgsfield.ai/higgsfield-api",
+        "https://higgsfield.ai/cli",
+        "https://open.higgsfield.ai/terms-of-service"
       ],
-      "reason": "Replaced 4 broken/dead URL(s): ['https://developers.facebook.com/documentation/business-messaging/whatsapp/access-tokens', 'https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started', 'https://developers.facebook.com/documentation/business-messaging/whatsapp/reference/whatsapp-business-phone-number/message-api', 'https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp']"
+      "reason": "Replaced 1 broken/dead URL(s): ['https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api']"
+    },
+    {
+      "id": 100,
+      "name": "Grain",
+      "field": "auth_methods",
+      "old": [
+        "OAuth2",
+        "Bearer Token"
+      ],
+      "new": [
+        "OAuth2",
+        "Bearer Token",
+        "API Key"
+      ],
+      "reason": "Grain's official support docs (https://support.grain.com/en/articles/15507288-grain-api) refer to PATs and WATs as Personal/Workspace API tokens, and the live Composio production catalog confirms API_KEY as the production auth mode for Grain."
     }
   ]
 }

@@ -1,0 +1,36 @@
+flowchart LR
+    Seed["100 Target Apps<br/>(10 Categories)"] --> P1
+
+    subgraph P1["Pass 1: Broad Research Agent"]
+        Exa1["Exa /search<br/>(Docs, Auth, Gating, MCP)"]
+        DW["Composio Session:<br/>deepwiki_mcp"]
+        Gem1["Gemini 4 Hydrogen<br/>(Strict Pydantic JSON)"]
+        Exa1 --> Gem1
+        DW --> Gem1
+    end
+
+    Gem1 --> Snap1[("pass1_results.json<br/>Immutable Baseline")]
+    Snap1 --> P2
+
+    subgraph P2["Pass 2: Automated Verification Loop"]
+        URL["HTTP Link Health<br/>(404 vs Bot-Shield)"]
+        Exa2["Exa /contents +<br/>Disconfirmation /search"]
+        Cat["Composio v3.1 Live Catalog<br/>(1,842 Toolkits Ground Truth)"]
+        GH["Composio Session:<br/>github Toolkit (MCP Repo Audit)"]
+        Critic["Gemini Critic Agent<br/>(Field-Level Diff Audit)"]
+        URL --> Critic
+        Exa2 --> Critic
+        Cat --> Critic
+        GH --> Critic
+    end
+
+    Critic --> Snap2[("pass2_verified.json +<br/>verification_diff_report.json")]
+    Snap2 --> P3
+
+    subgraph P3["Pass 3: Human + Browser Audit"]
+        Sample["Stratified 20-25 App<br/>Manual & Browser Check"]
+        Metrics["Accuracy Delta:<br/>Pass 1 -> Pass 2 -> Final"]
+        Sample --> Metrics
+    end
+
+    Metrics --> Out["Interactive HTML Case Study<br/>+ Agent-Ready JSON Export"]

@@ -1,0 +1,134 @@
+# Composio AI Product Ops — 100-App Toolkit & MCP Buildability Research
+
+> Automated multi-pass research and verification study of 100 SaaS, developer, fintech, and AI apps across 10 categories.
+> Source Repo: https://github.com/shrihari808/composio-productops-assignment
+
+## Headline Metrics
+- Total Apps Analyzed: 100
+- Buildability Verdicts: {"Ready Today (Easy Win)": 50, "Buildable with Friction": 43, "Gated / Needs Outreach": 5, "Blocked / Not API-Native": 2}
+- Auth Methods Frequency: {"OAuth2": 88, "API Key": 64, "Bearer Token": 62, "Basic Auth": 21, "JWT": 10, "App Token / Bot Token": 7, "HMAC / Signature": 6, "Other": 4, "No Auth / Open": 3, "CLI / Local Only": 2}
+- Access Models: {"Self-Serve Free / Trial": 55, "Self-Serve Dev + App Review": 20, "Admin / Customer Account Required": 9, "Self-Serve Paid Plan": 7, "Partner / Sales-Gated": 6, "Open-Source / Local Tool": 3}
+- MCP Status: {"Official MCP": 89, "None Found": 6, "Community MCP Only": 5}
+- Composio Live Catalog Coverage (1,842 toolkits audited): {"Built API Only": 54, "Both Built + Provider MCP": 22, "Not in Catalog": 19, "Provider MCP Only": 5}
+- Pass 2 Automated Corrections: 30 field fixes across 29 apps
+- Human + Browser Audit (20-app stratified sample): Pass 1 exact accuracy 50.0% -> Pass 2 automated 80.0% -> Final audited 100.0%
+
+## Strategic Composio Action Queues
+- Net-New Easy Wins (Not in Composio + Ready Today): ['LiveAgent', 'Vonage', 'systeme.io', 'WooCommerce', 'fanbasis', 'SE Ranking', 'Reducto']
+- Net-New Friction (Not in Composio + Buildable w/ Friction): ['Gladly', 'Magento (Adobe Commerce)', 'Squarespace', 'Ecwid', 'Binance', 'iPayX']
+- Net-New Partner/Outreach Queue: ['DealCloud', 'Salesforce Commerce Cloud', 'Waterfall.io', 'Paygent Connect']
+- Net-New Non-API Blockers: ['Sherlock', 'Mermaid CLI']
+- Official MCP Expansion Candidates (Built API Only in Composio, Official Vendor MCP exists): ['Salesforce', 'HubSpot', 'Pipedrive', 'Attio', 'Twenty', 'Podio', 'Zoho CRM', 'Copper', 'Zendesk', 'Freshdesk', 'Front', 'Help Scout', 'Gorgias', 'Slack', 'Twilio', 'Zoho Cliq', 'Lark (Larksuite)', 'Pumble', 'WhatsApp Business', 'Aircall', 'Google Ads', 'Meta Ads', 'Mailchimp', 'Klaviyo', 'Pinterest', 'Shopify', 'BigCommerce', 'Gumroad', 'Amazon Selling Partner', 'DataForSEO', 'MrScraper', 'Firecrawl', 'Bright Data', 'Neo4j', 'Snowflake', 'Airtable', 'Jira', 'Asana', 'Coda', 'Smartsheet', 'Harvest', 'QuickBooks', 'Xero', 'Brex', 'PitchBook', 'NotebookLM', 'Fathom', 'YouTube Transcript', 'Grain']
+
+## Machine-Readable Artifacts
+- Final Verified Dataset: data/final_results.json
+- Pass 1 Raw Baseline: data/pass1_results.json
+- Pass 2 Verified Snapshot: data/pass2_verified.json
+- Automated Verification Diffs: data/verification_diff_report.json
+- Human & Browser Audit Log: data/human_audit.json
+- Deep Composio Catalog Audit: data/composio_catalog_deep.json
+- Aggregated Analytics: data/analytics_summary.json
+
+## 100-App Compact Index
+| # | App | Category | Auth | Access Model | API | MCP | Verdict | Composio Coverage |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Salesforce | CRM and Sales | OAuth2, Bearer Token, JWT | Self-Serve Free / Trial | REST | Official MCP | Buildable with Friction | Built API Only |
+| 2 | HubSpot | CRM and Sales | OAuth2, Bearer Token, API Key | Self-Serve Free / Trial | REST + GraphQL | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 3 | Pipedrive | CRM and Sales | OAuth2, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 4 | Attio | CRM and Sales | OAuth2, API Key, Bearer Token, Basic Auth | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 5 | Twenty | CRM and Sales | OAuth2, API Key, Bearer Token | Self-Serve Free / Trial | REST + GraphQL | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 6 | Podio | CRM and Sales | OAuth2, App Token / Bot Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 7 | Zoho CRM | CRM and Sales | OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 8 | Close | CRM and Sales | OAuth2, API Key, Basic Auth | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 9 | Copper | CRM and Sales | OAuth2, API Key | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Built API Only |
+| 10 | DealCloud | CRM and Sales | OAuth2, API Key, Bearer Token | Partner / Sales-Gated | REST | Official MCP | Gated / Needs Outreach | Not in Catalog |
+| 11 | Zendesk | Support and Helpdesk | OAuth2, Bearer Token, Basic Auth, API Key | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 12 | Intercom | Support and Helpdesk | OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 13 | Freshdesk | Support and Helpdesk | API Key, Basic Auth, OAuth2 | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Built API Only |
+| 14 | Front | Support and Helpdesk | OAuth2, Bearer Token, API Key | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 15 | Pylon | Support and Helpdesk | Bearer Token, OAuth2 | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Provider MCP Only |
+| 16 | LiveAgent | Support and Helpdesk | API Key, OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 17 | Plain | Support and Helpdesk | OAuth2, API Key, Bearer Token | Self-Serve Free / Trial | GraphQL | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 18 | Help Scout | Support and Helpdesk | OAuth2, API Key, Basic Auth | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Built API Only |
+| 19 | Gorgias | Support and Helpdesk | OAuth2, API Key, Basic Auth, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 20 | Gladly | Support and Helpdesk | Basic Auth, API Key, HMAC / Signature, OAuth2 | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Not in Catalog |
+| 21 | Slack | Communications and Messaging | OAuth2, Bearer Token, App Token / Bot Token, HMAC / Signature | Self-Serve Free / Trial | RPC / Proprietary SDK | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 22 | Twilio | Communications and Messaging | OAuth2, API Key, Basic Auth, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 23 | Zoho Cliq | Communications and Messaging | OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 24 | Lark (Larksuite) | Communications and Messaging | OAuth2, Bearer Token, App Token / Bot Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 25 | Pumble | Communications and Messaging | OAuth2, App Token / Bot Token, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 26 | Discord | Communications and Messaging | OAuth2, App Token / Bot Token, Bearer Token, Basic Auth | Self-Serve Free / Trial | REST | Community MCP Only | Ready Today (Easy Win) | Built API Only |
+| 27 | Telegram | Communications and Messaging | App Token / Bot Token, API Key, Other | Self-Serve Free / Trial | REST | Community MCP Only | Ready Today (Easy Win) | Built API Only |
+| 28 | WhatsApp Business | Communications and Messaging | OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 29 | Aircall | Communications and Messaging | OAuth2, Basic Auth | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Built API Only |
+| 30 | Vonage | Communications and Messaging | API Key, Basic Auth, JWT, OAuth2, HMAC / Signature | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 31 | Google Ads | Marketing, Ads, Email and Social | OAuth2 | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 32 | Meta Ads | Marketing, Ads, Email and Social | OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 33 | LinkedIn Ads | Marketing, Ads, Email and Social | OAuth2 | Self-Serve Dev + App Review | REST | None Found | Buildable with Friction | Built API Only |
+| 34 | GoHighLevel | Marketing, Ads, Email and Social | OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Provider MCP Only |
+| 35 | Mailchimp | Marketing, Ads, Email and Social | OAuth2, API Key, Basic Auth, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 36 | Klaviyo | Marketing, Ads, Email and Social | OAuth2, API Key, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 37 | systeme.io | Marketing, Ads, Email and Social | API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 38 | Pinterest | Marketing, Ads, Email and Social | OAuth2 | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 39 | Threads (Meta) | Marketing, Ads, Email and Social | OAuth2 | Self-Serve Dev + App Review | REST | None Found | Buildable with Friction | Built API Only |
+| 40 | SendGrid | Marketing, Ads, Email and Social | API Key, Bearer Token, Basic Auth | Self-Serve Free / Trial | REST | Community MCP Only | Ready Today (Easy Win) | Built API Only |
+| 41 | Shopify | Ecommerce | OAuth2, API Key, Bearer Token, JWT | Self-Serve Dev + App Review | REST + GraphQL | Official MCP | Buildable with Friction | Built API Only |
+| 42 | WooCommerce | Ecommerce | API Key, Basic Auth, Other | Open-Source / Local Tool | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 43 | BigCommerce | Ecommerce | OAuth2, API Key | Self-Serve Free / Trial | REST + GraphQL | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 44 | Salesforce Commerce Cloud | Ecommerce | OAuth2, Bearer Token, JWT | Partner / Sales-Gated | REST | Official MCP | Gated / Needs Outreach | Not in Catalog |
+| 45 | Magento (Adobe Commerce) | Ecommerce | OAuth2, Bearer Token, HMAC / Signature, Other | Admin / Customer Account Required | REST + GraphQL | Community MCP Only | Buildable with Friction | Not in Catalog |
+| 46 | Squarespace | Ecommerce | OAuth2, API Key | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Not in Catalog |
+| 47 | Ecwid | Ecommerce | OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Community MCP Only | Buildable with Friction | Not in Catalog |
+| 48 | Gumroad | Ecommerce | OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 49 | Amazon Selling Partner | Ecommerce | OAuth2 | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 50 | fanbasis | Ecommerce | API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 51 | DataForSEO | Data, SEO and Scraping | Basic Auth, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 52 | SE Ranking | Data, SEO and Scraping | API Key, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 53 | Ahrefs | Data, SEO and Scraping | OAuth2, API Key, Bearer Token | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 54 | MrScraper | Data, SEO and Scraping | API Key, Bearer Token, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 55 | Apify | Data, SEO and Scraping | Bearer Token, API Key, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 56 | Firecrawl | Data, SEO and Scraping | OAuth2, API Key, Bearer Token, No Auth / Open | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 57 | Bright Data | Data, SEO and Scraping | API Key, Bearer Token, OAuth2, Basic Auth | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 58 | Sherlock | Data, SEO and Scraping | CLI / Local Only, No Auth / Open | Open-Source / Local Tool | CLI / Local Only | None Found | Blocked / Not API-Native | Not in Catalog |
+| 59 | Waterfall.io | Data, SEO and Scraping | API Key | Partner / Sales-Gated | REST | None Found | Gated / Needs Outreach | Not in Catalog |
+| 60 | Clay | Data, SEO and Scraping | API Key, OAuth2 | Self-Serve Free / Trial | MCP Only | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 61 | GitHub | Developer, Infra and Data platforms | OAuth2, Bearer Token, JWT, Basic Auth, App Token / Bot Token | Self-Serve Free / Trial | REST + GraphQL | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 62 | Vercel | Developer, Infra and Data platforms | Bearer Token, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 63 | Netlify | Developer, Infra and Data platforms | OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Provider MCP Only |
+| 64 | Cloudflare | Developer, Infra and Data platforms | OAuth2, Bearer Token, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 65 | Supabase | Developer, Infra and Data platforms | OAuth2, API Key, Bearer Token, JWT | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 66 | Neo4j | Developer, Infra and Data platforms | OAuth2, Bearer Token, Basic Auth, API Key, JWT | Self-Serve Free / Trial | REST + GraphQL | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 67 | Snowflake | Developer, Infra and Data platforms | OAuth2, JWT, Bearer Token, Other | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Built API Only |
+| 68 | MongoDB Atlas | Developer, Infra and Data platforms | OAuth2, Bearer Token, API Key | Self-Serve Free / Trial | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 69 | Datadog | Developer, Infra and Data platforms | API Key, OAuth2, Bearer Token | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 70 | Sentry | Developer, Infra and Data platforms | OAuth2, Bearer Token, Basic Auth, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 71 | Notion | Productivity and Project Management | OAuth2, Bearer Token, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 72 | Airtable | Productivity and Project Management | OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 73 | Linear | Productivity and Project Management | OAuth2, API Key | Self-Serve Free / Trial | GraphQL | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 74 | Jira | Productivity and Project Management | OAuth2, Basic Auth, API Key, Bearer Token, JWT | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 75 | Asana | Productivity and Project Management | OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 76 | Monday.com | Productivity and Project Management | OAuth2, API Key, Bearer Token, JWT | Self-Serve Free / Trial | GraphQL | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 77 | ClickUp | Productivity and Project Management | OAuth2, API Key | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 78 | Coda | Productivity and Project Management | Bearer Token, API Key, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 79 | Smartsheet | Productivity and Project Management | OAuth2, API Key, Bearer Token | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Built API Only |
+| 80 | Harvest | Productivity and Project Management | OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 81 | Stripe | Finance and Fintech | API Key, OAuth2, Basic Auth, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 82 | Plaid | Finance and Fintech | API Key, OAuth2, Bearer Token | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 83 | Binance | Finance and Fintech | API Key, HMAC / Signature, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Buildable with Friction | Not in Catalog |
+| 84 | Paygent Connect | Finance and Fintech | API Key | Partner / Sales-Gated | REST | None Found | Gated / Needs Outreach | Not in Catalog |
+| 85 | iPayX | Finance and Fintech | Bearer Token, API Key, HMAC / Signature | Self-Serve Free / Trial | REST | Official MCP | Buildable with Friction | Not in Catalog |
+| 86 | QuickBooks | Finance and Fintech | OAuth2 | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 87 | Xero | Finance and Fintech | OAuth2 | Self-Serve Dev + App Review | REST | Official MCP | Buildable with Friction | Built API Only |
+| 88 | Brex | Finance and Fintech | OAuth2, Bearer Token, API Key | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Built API Only |
+| 89 | Ramp | Finance and Fintech | OAuth2 | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 90 | PitchBook | Finance and Fintech | API Key, OAuth2 | Partner / Sales-Gated | REST | Official MCP | Gated / Needs Outreach | Built API Only |
+| 91 | NotebookLM | AI, Research and Media-native | OAuth2, Bearer Token | Admin / Customer Account Required | REST | Official MCP | Buildable with Friction | Built API Only |
+| 92 | Otter AI | AI, Research and Media-native | OAuth2, Bearer Token, API Key | Partner / Sales-Gated | REST | Official MCP | Buildable with Friction | Provider MCP Only |
+| 93 | Fathom | AI, Research and Media-native | OAuth2, API Key, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 94 | Consensus | AI, Research and Media-native | API Key, OAuth2, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Both Built + Provider MCP |
+| 95 | Reducto | AI, Research and Media-native | API Key, Bearer Token | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Not in Catalog |
+| 96 | Devin | AI, Research and Media-native | API Key, Bearer Token | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Provider MCP Only |
+| 97 | higgsfield | AI, Research and Media-native | API Key, OAuth2 | Self-Serve Paid Plan | REST | Official MCP | Buildable with Friction | Both Built + Provider MCP |
+| 98 | Mermaid CLI | AI, Research and Media-native | CLI / Local Only, No Auth / Open | Open-Source / Local Tool | CLI / Local Only | None Found | Blocked / Not API-Native | Not in Catalog |
+| 99 | YouTube Transcript | AI, Research and Media-native | API Key, Bearer Token, OAuth2 | Self-Serve Free / Trial | REST | Official MCP | Ready Today (Easy Win) | Built API Only |
+| 100 | Grain | AI, Research and Media-native | OAuth2, Bearer Token, API Key | Self-Serve Free / Trial | REST | Official MCP | Buildable with Friction | Built API Only |

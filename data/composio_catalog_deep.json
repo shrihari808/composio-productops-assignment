@@ -1,0 +1,5764 @@
+{
+  "summary": {
+    "total_composio_toolkits_scanned": 1842,
+    "apps_matched": 81,
+    "apps_not_in_composio": 19,
+    "built_api_only": 54,
+    "provider_mcp_only": 5,
+    "both_built_and_mcp": 22,
+    "with_composio_managed_oauth": 32,
+    "with_triggers": 23,
+    "total_tools_across_matched": 14555
+  },
+  "by_app": {
+    "Salesforce": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "salesforce"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "salesforce"
+      ],
+      "auth_modes": [
+        "OAUTH2",
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 556,
+      "total_triggers_count": 7,
+      "logo": "https://logos.composio.dev/api/salesforce",
+      "toolkits": [
+        {
+          "slug": "salesforce",
+          "name": "Salesforce",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "edd1e300-a402-4dc9-b91c-8f54e3254166",
+            "getCurrentUserEndpoint": "https://login.salesforce.com/services/oauth2/userinfo",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 556,
+          "triggers_count": 7,
+          "version": "20261119_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/salesforce",
+          "app_url": "https://www.salesforce.com/in/",
+          "docs_url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_list.htm",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "HubSpot": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "hubspot"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "hubspot"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 354,
+      "total_triggers_count": 2,
+      "logo": "https://logos.composio.dev/api/hubspot",
+      "toolkits": [
+        {
+          "slug": "hubspot",
+          "name": "HubSpot",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "635cc036-aba3-48ad-a6ab-1abd84f8817b",
+            "getCurrentUserEndpoint": "https://api.hubapi.com/account-info/v3/details",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 354,
+          "triggers_count": 2,
+          "version": "20261116_01",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/hubspot",
+          "app_url": "https://www.hubspot.com/",
+          "docs_url": "https://developers.hubspot.com/docs/reference/api/overview",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Pipedrive": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "pipedrive"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "pipedrive"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 404,
+      "total_triggers_count": 3,
+      "logo": "https://logos.composio.dev/api/pipedrive",
+      "toolkits": [
+        {
+          "slug": "pipedrive",
+          "name": "Pipedrive",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "006311eb-3342-4353-95c6-b1ad0a364406",
+            "getCurrentUserEndpoint": "https://api.pipedrive.com/v1/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "x-api-token": "{{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 404,
+          "triggers_count": 3,
+          "version": "20261116_01",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/pipedrive",
+          "app_url": "https://www.pipedrive.com/",
+          "docs_url": "https://developers.pipedrive.com/docs/api/v1",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Attio": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "attio"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "attio"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 105,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/attio",
+      "toolkits": [
+        {
+          "slug": "attio",
+          "name": "Attio",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "b4da1f1a-434b-4001-8c66-caa14c5cf9f6",
+            "getCurrentUserEndpoint": "https://api.attio.com/v2/self",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 105,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/attio",
+          "app_url": "https://attio.com",
+          "docs_url": "https://docs.attio.com/rest-api/overview",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Twenty": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "twenty"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "twenty"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 23,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/twenty",
+      "toolkits": [
+        {
+          "slug": "twenty",
+          "name": "Twenty",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "cbca7cf8-8528-4f9e-be30-8dc2abc6afb1",
+            "getCurrentUserEndpoint": "https://api.twenty.com/rest/open-api/core",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 23,
+          "triggers_count": 0,
+          "version": "20261111_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/twenty",
+          "app_url": "https://twenty.com/",
+          "docs_url": "https://docs.twenty.com/developers/extend/api",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Podio": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "podio"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "podio"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 143,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/podio",
+      "toolkits": [
+        {
+          "slug": "podio",
+          "name": "Podio",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "75c6e9e5-9dd3-4e13-8636-41c4f5648ef5",
+            "getCurrentUserEndpoint": "https://api.podio.com/user/status",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "OAuth2 {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "OAuth2 {{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 143,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/podio",
+          "app_url": "https://podio.com",
+          "docs_url": "https://developers.podio.com/doc",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Zoho CRM": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "zoho"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "zoho"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 115,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/zoho",
+      "toolkits": [
+        {
+          "slug": "zoho",
+          "name": "Zoho",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "a4468da2-dec2-49c6-adf3-347bce6953d2",
+            "getCurrentUserEndpoint": "https://www.zohoapis.com/crm/v8/users?type=CurrentUser",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Zoho-oauthtoken {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Zoho-oauthtoken {{bearer_token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 115,
+          "triggers_count": 0,
+          "version": "20261119_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/zoho",
+          "app_url": "https://www.zoho.com",
+          "docs_url": "https://www.zoho.com/crm/developer/docs/api/v7/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Close": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "close"
+      ],
+      "mcp_slugs": [
+        "close_mcp"
+      ],
+      "all_slugs": [
+        "close",
+        "close_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 189,
+      "total_triggers_count": 45,
+      "logo": "https://logos.composio.dev/api/close",
+      "toolkits": [
+        {
+          "slug": "close",
+          "name": "Close",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "e1008e59-e35f-4d77-8c65-54c3a51765e9",
+            "getCurrentUserEndpoint": "https://api.close.com/api/v1/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Basic {{basic_encoded}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 75,
+          "triggers_count": 45,
+          "version": "20261119_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/close",
+          "app_url": "https://www.close.com/",
+          "docs_url": "https://developer.close.com/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "close_mcp",
+          "name": "Close MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3716d43b-ddbc-4c89-a7d7-ecc1ee682234",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 114,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/close_mcp",
+          "app_url": "https://mcp.close.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Copper": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "copper"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "copper"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 65,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/copper",
+      "toolkits": [
+        {
+          "slug": "copper",
+          "name": "Copper",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "c8b3936e-d67f-4d55-9c85-8cfb2c203007",
+            "getCurrentUserEndpoint": "https://api.copper.com/developer_api/v1/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "X-PW-AccessToken": "{{generic_api_key}}",
+                    "X-PW-Application": "developer_api",
+                    "X-PW-UserEmail": "{{generic_id}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 65,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/copper",
+          "app_url": "https://www.copper.com/",
+          "docs_url": "https://developer.copper.com/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "DealCloud": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Zendesk": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "zendesk"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "zendesk"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 483,
+      "total_triggers_count": 2,
+      "logo": "https://logos.composio.dev/api/zendesk",
+      "toolkits": [
+        {
+          "slug": "zendesk",
+          "name": "Zendesk",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f28d98aa-3d96-406c-a060-96d3e0d876ae",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.zendesk.com/api/v2/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 483,
+          "triggers_count": 2,
+          "version": "20261120_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/zendesk",
+          "app_url": "https://www.zendesk.com/",
+          "docs_url": "https://developer.zendesk.com/api-reference/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Intercom": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "intercom"
+      ],
+      "mcp_slugs": [
+        "intercom_mcp"
+      ],
+      "all_slugs": [
+        "intercom",
+        "intercom_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 153,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/intercom",
+      "toolkits": [
+        {
+          "slug": "intercom",
+          "name": "Intercom",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "22020958-9628-4166-ba88-4917776a3827",
+            "getCurrentUserEndpoint": "https://api.intercom.io/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 138,
+          "triggers_count": 0,
+          "version": "20261104_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/intercom",
+          "app_url": "https://www.intercom.com",
+          "docs_url": "https://developers.intercom.com/docs/references/introduction",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "intercom_mcp",
+          "name": "Intercom MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "61b93c15-8081-449b-a508-c15a434d6b6c",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 15,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/intercom_mcp",
+          "app_url": "https://mcp.intercom.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Freshdesk": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "freshdesk"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "freshdesk"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 184,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/freshdesk",
+      "toolkits": [
+        {
+          "slug": "freshdesk",
+          "name": "Freshdesk",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "08ef9d31-0436-48dd-b329-c609cb23b210",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.freshdesk.com/api/v2/account",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Basic {{basic_encoded}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BASIC",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 184,
+          "triggers_count": 0,
+          "version": "20261111_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/freshdesk",
+          "app_url": "https://www.freshworks.com/",
+          "docs_url": "https://developers.freshdesk.com/api/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Front": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "front"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "front"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 180,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/front",
+      "toolkits": [
+        {
+          "slug": "front",
+          "name": "Front",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "c9c6f70f-cb9e-4b25-9032-c3c3275ff7be",
+            "getCurrentUserEndpoint": "https://api2.frontapp.com/teammates",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 180,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/front",
+          "app_url": "https://frontapp.com",
+          "docs_url": "https://dev.frontapp.com/docs/core-api-overview",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Pylon": {
+      "coverage": "Provider MCP Only",
+      "api_slugs": [],
+      "mcp_slugs": [
+        "pylon_mcp"
+      ],
+      "all_slugs": [
+        "pylon_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 12,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/pylon_mcp",
+      "toolkits": [
+        {
+          "slug": "pylon_mcp",
+          "name": "Pylon MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f4e98049-5ddb-426b-b65b-3cc8e8ad8534",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 12,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/pylon_mcp",
+          "app_url": "https://mcp.usepylon.com",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "LiveAgent": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Plain": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "plain"
+      ],
+      "mcp_slugs": [
+        "plain_mcp"
+      ],
+      "all_slugs": [
+        "plain",
+        "plain_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 199,
+      "total_triggers_count": 11,
+      "logo": "https://logos.composio.dev/api/plain",
+      "toolkits": [
+        {
+          "slug": "plain",
+          "name": "Plain",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "af123a26-1c55-4aed-b832-59446105695d",
+            "getCurrentUserEndpoint": "N/A",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 119,
+          "triggers_count": 11,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/plain",
+          "app_url": "https://www.plain.com",
+          "docs_url": "https://www.plain.com/docs/graphql/introduction",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "plain_mcp",
+          "name": "Plain MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "946534d6-5e3b-4f61-a25d-a798701c97e3",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 80,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/plain_mcp",
+          "app_url": "https://mcp.plain.com/mcp",
+          "docs_url": "https://www.plain.com/docs/integrations/mcp-server",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Help Scout": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "help_scout"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "help_scout"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 129,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/help_scout",
+      "toolkits": [
+        {
+          "slug": "help_scout",
+          "name": "Help Scout",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1de146af-b673-4e42-bd49-18866ea7a59b",
+            "getCurrentUserEndpoint": "https://api.helpscout.net/v2/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 129,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/help_scout",
+          "app_url": "https://www.helpscout.com",
+          "docs_url": "https://developer.helpscout.com/mailbox-api/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Gorgias": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "gorgias"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "gorgias"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 51,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/gorgias",
+      "toolkits": [
+        {
+          "slug": "gorgias",
+          "name": "Gorgias",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "2fafa60d-c936-42b7-b92c-8f47979309ac",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.gorgias.com/api/accounts",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Basic {{basic_encoded}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 51,
+          "triggers_count": 0,
+          "version": "20261110_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/gorgias",
+          "app_url": "https://www.gorgias.com",
+          "docs_url": "https://developers.gorgias.com/reference/introduction",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Gladly": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Slack": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "slack",
+        "slackbot"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "slack",
+        "slackbot"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 270,
+      "total_triggers_count": 18,
+      "logo": "https://logos.composio.dev/api/slack",
+      "toolkits": [
+        {
+          "slug": "slack",
+          "name": "Slack",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "933dfc28-17b1-4764-95b3-ecd134a9bb06",
+            "getCurrentUserEndpoint": "https://slack.com/api/auth.test",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 165,
+          "triggers_count": 9,
+          "version": "20261116_01",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/slack",
+          "app_url": "https://slack.com/intl/en-in//",
+          "docs_url": "https://api.slack.com/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "slackbot",
+          "name": "Slackbot",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "91368627-707a-4eb5-8ccb-9a46a36811dc",
+            "getCurrentUserEndpoint": "https://slack.com/api/bots.info",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 105,
+          "triggers_count": 9,
+          "version": "20261116_01",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/slackbot",
+          "app_url": "https://slack.com/intl/en-in/",
+          "docs_url": "https://api.slack.com/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Twilio": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "twilio"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "twilio"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "BASIC",
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 452,
+      "total_triggers_count": 45,
+      "logo": "https://logos.composio.dev/api/twilio",
+      "toolkits": [
+        {
+          "slug": "twilio",
+          "name": "Twilio",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1d1416ec-ca54-41ce-b9bf-efb7d485def1",
+            "getCurrentUserEndpoint": "https://api.twilio.com/2010-04-01/Accounts.json",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Basic {{basic_encoded}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BASIC",
+                "proxy": {
+                  "headers": {
+                    "X-Composio-Twilio-Auth-Mode": "connection-basic"
+                  }
+                }
+              },
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{access_token}}",
+                    "X-Composio-Twilio-Auth-Mode": "account-s2s"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{token}}",
+                    "X-Composio-Twilio-Auth-Mode": "account-s2s"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "BASIC",
+            "API_KEY",
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 452,
+          "triggers_count": 45,
+          "version": "00000000_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/twilio",
+          "app_url": "https://www.twilio.com",
+          "docs_url": "https://www.twilio.com/docs/iam/api-keys/key-resource-v1",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Zoho Cliq": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "zoho_cliq"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "zoho_cliq"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 162,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/zoho_cliq",
+      "toolkits": [
+        {
+          "slug": "zoho_cliq",
+          "name": "Zoho Cliq",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "09e197e9-2c17-4dfa-a35a-ff4ffcd640d6",
+            "getCurrentUserEndpoint": "https://accounts.zoho.com/oauth/user/info",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "base_url": "https://{{base_url_host}}/api/v2",
+                  "headers": {
+                    "Authorization": "Zoho-oauthtoken {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Zoho-oauthtoken {{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 162,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/zoho_cliq",
+          "app_url": "https://www.zoho.com/cliq/",
+          "docs_url": "https://www.zoho.com/cliq/help/restapi/v2/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Lark (Larksuite)": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "lark"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "lark"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 451,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/lark",
+      "toolkits": [
+        {
+          "slug": "lark",
+          "name": "Lark",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "ef464a8d-a86f-424b-b544-736d9b627b42",
+            "getCurrentUserEndpoint": "https://open.larksuite.com/open-apis/authen/v1/user_info",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 451,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/lark",
+          "app_url": "https://www.larksuite.com",
+          "docs_url": "https://open.larksuite.com/document/home/index",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Pumble": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "pumble"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "pumble"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 9,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/pumble",
+      "toolkits": [
+        {
+          "slug": "pumble",
+          "name": "Pumble",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "51c94f25-533e-4dc9-9806-17ad8ab3078a",
+            "getCurrentUserEndpoint": "https://pumble-api-keys.addons.marketplace.cake.com/myInfo",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "ApiKey": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 9,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/pumble",
+          "app_url": "https://pumble.com",
+          "docs_url": "https://pumble-api-keys.addons.marketplace.cake.com/api-docs/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Discord": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "discord",
+        "discordbot"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "discord",
+        "discordbot"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 180,
+      "total_triggers_count": 1,
+      "logo": "https://logos.composio.dev/api/discord",
+      "toolkits": [
+        {
+          "slug": "discord",
+          "name": "Discord",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "896c2b7f-b95f-4103-ad55-92811c4a969b",
+            "getCurrentUserEndpoint": "https://discord.com/api/v10/users/@me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 23,
+          "triggers_count": 1,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/discord",
+          "app_url": "https://composio.dev",
+          "docs_url": "https://discord.com/developers/docs/reference",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "discordbot",
+          "name": "Discord Bot",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3f03c6b2-9485-4c05-8ad5-75ec6703eded",
+            "getCurrentUserEndpoint": "https://discord.com/api/v10/users/@me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bot {{bearer_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bot {{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 157,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/discordbot",
+          "app_url": "https://discord.com/",
+          "docs_url": "https://discord.com/developers/docs/reference",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Telegram": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "telegram"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "telegram"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 18,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/telegram",
+      "toolkits": [
+        {
+          "slug": "telegram",
+          "name": "Telegram",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3ff8b3e3-7354-4c5c-b958-489209b75b19",
+            "getCurrentUserEndpoint": "https://api.telegram.org/bot{{generic_api_key}}/getMe",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "bot_token": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 18,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/telegram",
+          "app_url": "https://telegram.org/",
+          "docs_url": "https://core.telegram.org/bots/api",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "WhatsApp Business": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "whatsapp"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "whatsapp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 127,
+      "total_triggers_count": 1,
+      "logo": "https://logos.composio.dev/api/whatsapp",
+      "toolkits": [
+        {
+          "slug": "whatsapp",
+          "name": "WhatsApp",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "cbc85f2d-994c-4c75-9c38-2e709c0e1216",
+            "getCurrentUserEndpoint": "https://graph.facebook.com/v22.0/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{access_token}}",
+                    "waba_id": "{{generic_id}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{bearer_token}}",
+                    "waba_id": "{{generic_id}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{token}}",
+                    "waba_id": "{{generic_id}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 127,
+          "triggers_count": 1,
+          "version": "20261116_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/whatsapp",
+          "app_url": "https://web.whatsapp.com/",
+          "docs_url": "https://developers.facebook.com/docs/whatsapp",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Aircall": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "aircall"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "aircall"
+      ],
+      "auth_modes": [
+        "BASIC",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 48,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/aircall",
+      "toolkits": [
+        {
+          "slug": "aircall",
+          "name": "Aircall",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "a8f1109f-fd82-40e0-bd94-09ef6c8abea8",
+            "getCurrentUserEndpoint": "https://api.aircall.io/v1/company",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BASIC",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "BASIC"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 48,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/aircall",
+          "app_url": "https://aircall.io",
+          "docs_url": "https://developer.aircall.io/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Vonage": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Google Ads": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "googleads"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "googleads"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 78,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/googleads",
+      "toolkits": [
+        {
+          "slug": "googleads",
+          "name": "Google Ads",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "a44d3fe3-9673-4dbf-882d-fc295604471e",
+            "getCurrentUserEndpoint": "https://googleads.googleapis.com/v26/customers:listAccessibleCustomers",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "customer_id": "{{generic_id}}",
+                    "Content-Type": "application/json"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "customer_id": "{{generic_id}}",
+                    "Content-Type": "application/json"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 78,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/googleads",
+          "app_url": "https://composio.dev",
+          "docs_url": "https://developers.google.com/google-ads/api/docs/start",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Meta Ads": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "metaads"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "metaads"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 99,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/metaads",
+      "toolkits": [
+        {
+          "slug": "metaads",
+          "name": "Meta Ads",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1b96fc64-adee-411f-9fb6-16c996032456",
+            "getCurrentUserEndpoint": "https://graph.facebook.com/v26.0/me?fields=id,name",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "queryParams": {
+                    "appsecret_proof": "{{hmac_sha256_digest}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{bearer_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "queryParams": {
+                    "appsecret_proof": "{{hmac_sha256_digest}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 99,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/metaads",
+          "app_url": "https://business.meta.com/",
+          "docs_url": "https://developers.facebook.com/docs/marketing-apis",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "LinkedIn Ads": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "linkedin_ads"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "linkedin_ads"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 28,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/linkedin_ads",
+      "toolkits": [
+        {
+          "slug": "linkedin_ads",
+          "name": "Linkedin Ads",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "5c3156dd-5c22-49d5-9b95-bbc8673a5ae8",
+            "getCurrentUserEndpoint": "https://api.linkedin.com/v2/userinfo",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "X-Restli-Protocol-Version": "2.0.0"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "X-Restli-Protocol-Version": "2.0.0"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 28,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/linkedin_ads",
+          "app_url": "https://www.linkedin.com/advertising",
+          "docs_url": "https://learn.microsoft.com/en-us/linkedin/marketing/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "GoHighLevel": {
+      "coverage": "Provider MCP Only",
+      "api_slugs": [],
+      "mcp_slugs": [
+        "highlevel_mcp"
+      ],
+      "all_slugs": [
+        "highlevel_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 36,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/highlevel_mcp",
+      "toolkits": [
+        {
+          "slug": "highlevel_mcp",
+          "name": "HighLevel MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "081b87f7-6cde-4c13-aaf3-e7b55e7f0103",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}",
+                    "locationId": "{{location_id}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 36,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/highlevel_mcp",
+          "app_url": "https://services.leadconnectorhq.com/mcp/",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Mailchimp": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "mailchimp"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "mailchimp"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 275,
+      "total_triggers_count": 4,
+      "logo": "https://logos.composio.dev/api/mailchimp",
+      "toolkits": [
+        {
+          "slug": "mailchimp",
+          "name": "Mailchimp",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f9e6c5a2-f611-4fd5-a8e1-ab6ead8e962d",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.api.mailchimp.com/3.0/account-exports",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 275,
+          "triggers_count": 4,
+          "version": "20261116_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/mailchimp",
+          "app_url": "https://mailchimp.com/",
+          "docs_url": "https://mailchimp.com/developer/marketing/api/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Klaviyo": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "klaviyo"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "klaviyo"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 233,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/klaviyo",
+      "toolkits": [
+        {
+          "slug": "klaviyo",
+          "name": "Klaviyo",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "5dfe4aca-0105-4cb5-8711-eaa34eae6ece",
+            "getCurrentUserEndpoint": "https://a.klaviyo.com/api/accounts",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Klaviyo-API-Key {{generic_api_key}}",
+                    "revision": "2024-07-15"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "revision": "2024-07-15"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "revision": "2024-07-15"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 233,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/klaviyo",
+          "app_url": "https://www.klaviyo.com/",
+          "docs_url": "https://developers.klaviyo.com/en/reference/api_overview",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "systeme.io": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Pinterest": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "pinterest"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "pinterest"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 27,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/pinterest",
+      "toolkits": [
+        {
+          "slug": "pinterest",
+          "name": "Pinterest",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "579da9cd-e66c-477a-aeb8-a5b01280f9d9",
+            "getCurrentUserEndpoint": "https://api.pinterest.com/v5/user_account",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 27,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/pinterest",
+          "app_url": "https://www.pinterest.com",
+          "docs_url": "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Threads (Meta)": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "threads"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "threads"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 24,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/threads",
+      "toolkits": [
+        {
+          "slug": "threads",
+          "name": "Threads",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f4f03037-73d7-464e-b2bc-908e192d936d",
+            "getCurrentUserEndpoint": "https://graph.threads.com/v1.0/me?fields=id,username,name,threads_profile_picture_url,threads_biography,is_verified",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 24,
+          "triggers_count": 0,
+          "version": "20261026_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/threads",
+          "app_url": "https://www.threads.com",
+          "docs_url": "https://developers.facebook.com/documentation/threads",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "SendGrid": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "sendgrid"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "sendgrid"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 359,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/sendgrid",
+      "toolkits": [
+        {
+          "slug": "sendgrid",
+          "name": "SendGrid",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "ee996256-b24f-4927-ba0d-b2e6a9f20627",
+            "getCurrentUserEndpoint": "https://api.sendgrid.com/v3/contactdb/lists",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 359,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/sendgrid",
+          "app_url": "https://login.sendgrid.com",
+          "docs_url": "https://docs.sendgrid.com/api-reference",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Shopify": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "shopify"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "shopify"
+      ],
+      "auth_modes": [
+        "OAUTH2",
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 386,
+      "total_triggers_count": 45,
+      "logo": "https://logos.composio.dev/api/shopify",
+      "toolkits": [
+        {
+          "slug": "shopify",
+          "name": "Shopify",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "b891031b-1f9a-4f9a-a301-1495302585a5",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.myshopify.com/admin/api/2026-04/shop.json",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "X-Shopify-Access-Token": "{{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "X-Shopify-Access-Token": "{{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "X-Shopify-Access-Token": "{{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "X-Shopify-Access-Token": "{{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 386,
+          "triggers_count": 45,
+          "version": "20261116_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/shopify",
+          "app_url": "https://www.shopify.com",
+          "docs_url": "https://shopify.dev/docs/api/admin-graphql",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "WooCommerce": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "BigCommerce": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "bigcommerce"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "bigcommerce"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 532,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/bigcommerce",
+      "toolkits": [
+        {
+          "slug": "bigcommerce",
+          "name": "BigCommerce",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "b521e5e5-e715-4987-9685-94893f1cc277",
+            "getCurrentUserEndpoint": "https://api.bigcommerce.com/stores/{{base_url_subdomain}}/v2/store",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "X-Auth-Token": "{{generic_api_key}}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "X-Auth-Token": "{{access_token}}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "X-Auth-Token": "{{token}}",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 532,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/bigcommerce",
+          "app_url": "https://www.bigcommerce.com",
+          "docs_url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Salesforce Commerce Cloud": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Magento (Adobe Commerce)": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Squarespace": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Ecwid": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Gumroad": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "gumroad"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "gumroad"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 13,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/gumroad",
+      "toolkits": [
+        {
+          "slug": "gumroad",
+          "name": "Gumroad",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "a06dfa04-e2c3-4e16-8566-65e1cd379a0e",
+            "getCurrentUserEndpoint": "https://api.gumroad.com/v2/user",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 13,
+          "triggers_count": 0,
+          "version": "20261113_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/gumroad",
+          "app_url": "https://gumroad.com",
+          "docs_url": "https://gumroad.com/api",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Amazon Selling Partner": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "amazon"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "amazon"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/amazon",
+      "toolkits": [
+        {
+          "slug": "amazon",
+          "name": "Amazon",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1c2c48fd-4a6d-479e-935e-f9fc26a97cef",
+            "getCurrentUserEndpoint": "https://api.amazon.com/account",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 0,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/amazon",
+          "app_url": "https://www.amazon.in/",
+          "docs_url": "https://developer.amazon.com/docs/app-submission-api/auth.html",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "fanbasis": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "DataForSEO": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "dataforseo"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "dataforseo"
+      ],
+      "auth_modes": [
+        "BASIC"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 354,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/dataforseo",
+      "toolkits": [
+        {
+          "slug": "dataforseo",
+          "name": "DataForSEO",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f55f40a3-1644-4435-b2c3-1426426738c8",
+            "getCurrentUserEndpoint": "https://api.dataforseo.com/v3/appendix/user_data",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "BASIC",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "BASIC"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 354,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/dataforseo",
+          "app_url": "https://dataforseo.com",
+          "docs_url": "https://docs.dataforseo.com/v3/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "SE Ranking": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Ahrefs": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "ahrefs"
+      ],
+      "mcp_slugs": [
+        "ahrefs_mcp"
+      ],
+      "all_slugs": [
+        "ahrefs",
+        "ahrefs_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 181,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/ahrefs",
+      "toolkits": [
+        {
+          "slug": "ahrefs",
+          "name": "Ahrefs",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "cf8c5d4b-69e6-4de6-ba71-409d1a1561d1",
+            "getCurrentUserEndpoint": "https://api.ahrefs.com/v3/subscription-info/limits-and-usage",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 46,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/ahrefs",
+          "app_url": "https://ahrefs.com/",
+          "docs_url": "https://docs.ahrefs.com/docs/api/reference/introduction",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "ahrefs_mcp",
+          "name": "Ahrefs MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "8b56d6ec-991f-4f41-92be-1b9e6fc2ee35",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 135,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/ahrefs_mcp",
+          "app_url": "https://api.ahrefs.com/mcp/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "MrScraper": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "mrscraper"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "mrscraper"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 11,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/mrscraper",
+      "toolkits": [
+        {
+          "slug": "mrscraper",
+          "name": "MrScraper",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "02fe4c95-d253-4f2a-9088-aa2705c3954f",
+            "getCurrentUserEndpoint": "https://api.app.mrscraper.com/api/v1/subscription-accounts",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "x-api-token": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 11,
+          "triggers_count": 0,
+          "version": "20261111_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/mrscraper",
+          "app_url": "https://mrscraper.com",
+          "docs_url": "https://docs.mrscraper.com/docs/api/authentication",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Apify": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "apify"
+      ],
+      "mcp_slugs": [
+        "apify_mcp"
+      ],
+      "all_slugs": [
+        "apify",
+        "apify_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 196,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/apify",
+      "toolkits": [
+        {
+          "slug": "apify",
+          "name": "Apify",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "e6fb29ae-635b-4136-b3ff-8dd0d15c7b0e",
+            "getCurrentUserEndpoint": "https://api.apify.com/v2/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 184,
+          "triggers_count": 0,
+          "version": "20261113_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/apify",
+          "app_url": "https://apify.com/",
+          "docs_url": "https://docs.apify.com/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "apify_mcp",
+          "name": "Apify MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "6fcfdd65-2854-43fb-9dd1-f6156e14673e",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 12,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/apify_mcp",
+          "app_url": "https://mcp.apify.com/",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Firecrawl": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "firecrawl"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "firecrawl"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 245,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/firecrawl",
+      "toolkits": [
+        {
+          "slug": "firecrawl",
+          "name": "Firecrawl",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "edb3e5a6-fc2b-4f1d-98be-b0e71352bce1",
+            "getCurrentUserEndpoint": "https://api.firecrawl.dev/v2/team/credit-usage",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 245,
+          "triggers_count": 0,
+          "version": "20261119_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/firecrawl",
+          "app_url": "https://www.firecrawl.dev/",
+          "docs_url": "https://docs.firecrawl.dev/api-reference/introduction",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Bright Data": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "brightdata"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "brightdata"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 167,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/brightdata",
+      "toolkits": [
+        {
+          "slug": "brightdata",
+          "name": "Bright Data",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "267b0c7d-c2cb-48c3-9240-b60d26c798dc",
+            "getCurrentUserEndpoint": "https://api.brightdata.com/zone/get_active_zones",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 167,
+          "triggers_count": 0,
+          "version": "20261112_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/brightdata",
+          "app_url": "https://brightdata.com/",
+          "docs_url": "https://docs.brightdata.com/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Sherlock": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Waterfall.io": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Clay": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "clay"
+      ],
+      "mcp_slugs": [
+        "clay_mcp"
+      ],
+      "all_slugs": [
+        "clay",
+        "clay_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 32,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/clay",
+      "toolkits": [
+        {
+          "slug": "clay",
+          "name": "Clay",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3fdfacea-8668-41bb-9f04-0bc16e3ab717",
+            "getCurrentUserEndpoint": "https://api.clay.com/public/v0/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "clay-api-key": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 15,
+          "triggers_count": 0,
+          "version": "20261104_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/clay",
+          "app_url": "https://clay.com",
+          "docs_url": "https://developers.clay.com",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "clay_mcp",
+          "name": "Clay MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "43e87a80-2503-4841-923c-b1d6acc345ea",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 17,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/clay_mcp",
+          "app_url": "https://api.clay.com/v3/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "GitHub": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "github"
+      ],
+      "mcp_slugs": [
+        "github_mcp"
+      ],
+      "all_slugs": [
+        "github",
+        "github_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 927,
+      "total_triggers_count": 46,
+      "logo": "https://logos.composio.dev/api/github",
+      "toolkits": [
+        {
+          "slug": "github",
+          "name": "GitHub",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "01e22f33-dc3f-46ae-b58d-050e4d2d1909",
+            "getCurrentUserEndpoint": "https://api.github.com/user",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "SERVICE_ACCOUNT",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 883,
+          "triggers_count": 46,
+          "version": "20261116_01",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/github",
+          "app_url": "https://github.com/",
+          "docs_url": "https://docs.github.com/en/rest?apiVersion=2022-11-28",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "github_mcp",
+          "name": "GitHub MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "80e4b387-5ced-4f15-aab2-eff26d003037",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 44,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/github_mcp",
+          "app_url": "https://api.githubcopilot.com/mcp/",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Vercel": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "vercel"
+      ],
+      "mcp_slugs": [
+        "vercel_mcp"
+      ],
+      "all_slugs": [
+        "vercel",
+        "vercel_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 436,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/vercel",
+      "toolkits": [
+        {
+          "slug": "vercel",
+          "name": "Vercel",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "dee67dcc-21d8-48a8-9b34-c0030613e621",
+            "getCurrentUserEndpoint": "https://api.vercel.com/v2/user",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{bearer_token}}"
+                  },
+                  "queryParams": {
+                    "teamId": "{{generic_id}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 399,
+          "triggers_count": 0,
+          "version": "20261118_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/vercel",
+          "app_url": "https://vercel.com",
+          "docs_url": "https://vercel.com/docs/rest-api",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "vercel_mcp",
+          "name": "Vercel MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "aca165df-4af5-4ff2-8e87-389be063839f",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 37,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/vercel_mcp",
+          "app_url": "https://mcp.vercel.com",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Netlify": {
+      "coverage": "Provider MCP Only",
+      "api_slugs": [],
+      "mcp_slugs": [
+        "netlify_mcp"
+      ],
+      "all_slugs": [
+        "netlify_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 9,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/netlify_mcp",
+      "toolkits": [
+        {
+          "slug": "netlify_mcp",
+          "name": "Netlify MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "64ca2db3-3c83-4d57-ae99-c0f310bdaf7c",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 9,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/netlify_mcp",
+          "app_url": "https://netlify-mcp.netlify.app/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Cloudflare": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "cloudflare"
+      ],
+      "mcp_slugs": [
+        "cloudflare_mcp"
+      ],
+      "all_slugs": [
+        "cloudflare",
+        "cloudflare_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 174,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/cloudflare",
+      "toolkits": [
+        {
+          "slug": "cloudflare",
+          "name": "Cloudflare",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "dd3ae68b-6e89-48e0-a929-b1329a1a3f47",
+            "getCurrentUserEndpoint": "https://api.cloudflare.com/client/v4/user",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "X-Auth-Email": "{{generic_id}}",
+                    "X-Auth-Key": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 171,
+          "triggers_count": 0,
+          "version": "20261120_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/cloudflare",
+          "app_url": "https://dash.cloudflare.com/sign-up",
+          "docs_url": "https://developers.cloudflare.com",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "cloudflare_mcp",
+          "name": "Cloudflare MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "5619eeb1-3899-4497-9980-640aedfee4e2",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 3,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/cloudflare_mcp",
+          "app_url": "https://mcp.cloudflare.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Supabase": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "supabase"
+      ],
+      "mcp_slugs": [
+        "supabase_mcp"
+      ],
+      "all_slugs": [
+        "supabase",
+        "supabase_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 262,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/supabase",
+      "toolkits": [
+        {
+          "slug": "supabase",
+          "name": "Supabase",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3bd3142b-7151-4e46-a667-e9cea75ba4d4",
+            "getCurrentUserEndpoint": "https://api.supabase.com/v1/projects",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{bearer_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 230,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/supabase",
+          "app_url": "https://supabase.com",
+          "docs_url": "https://supabase.com/docs/reference/api/introduction",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "supabase_mcp",
+          "name": "Supabase MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "513bbe33-4afd-49f4-b9c6-7827be60903f",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 32,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/supabase_mcp",
+          "app_url": "https://mcp.supabase.com/mcp?features=docs%2Caccount%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions%2Cbranching%2Cstorage",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Neo4j": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "neo4j"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "neo4j"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2",
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 21,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/neo4j",
+      "toolkits": [
+        {
+          "slug": "neo4j",
+          "name": "Neo4J",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "7ce6d8b9-8957-4fca-92fc-e9546f984363",
+            "getCurrentUserEndpoint": "https://api.neo4j.io/v1/tenants",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BASIC",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY",
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 21,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/neo4j",
+          "app_url": "https://neo4j.com",
+          "docs_url": "https://neo4j.com/docs/aura/api/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Snowflake": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "snowflake"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "snowflake"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 16,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/snowflake",
+      "toolkits": [
+        {
+          "slug": "snowflake",
+          "name": "Snowflake",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "15e5d506-f0d7-4885-ab93-aa2b0b6d4bae",
+            "getCurrentUserEndpoint": "https://{{subdomain}}.snowflakecomputing.com/api/v2/users",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "BASIC",
+                "proxy": {
+                  "headers": {
+                    "account_url": "{{subdomain}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 16,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/snowflake",
+          "app_url": "https://www.snowflake.com/en/",
+          "docs_url": "https://docs.snowflake.com/en/developer-guide/sql-api/index",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "MongoDB Atlas": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "mongodb"
+      ],
+      "mcp_slugs": [
+        "mongodb_mcp"
+      ],
+      "all_slugs": [
+        "mongodb",
+        "mongodb_mcp"
+      ],
+      "auth_modes": [
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 537,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/mongodb",
+      "toolkits": [
+        {
+          "slug": "mongodb",
+          "name": "MongoDB",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "bb4a35ab-f939-4167-b9ee-4613763de50d",
+            "getCurrentUserEndpoint": "N/A",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 496,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/mongodb",
+          "app_url": "https://www.mongodb.com/",
+          "docs_url": "https://www.mongodb.com/docs/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "mongodb_mcp",
+          "name": "MongoDB MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "e93411df-7e1d-4fc4-8093-fd9b24d8438b",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 41,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/mongodb_mcp",
+          "app_url": "https://mcp.mongodb.com",
+          "docs_url": "https://www.mongodb.com/docs/mcp-server/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Datadog": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "datadog"
+      ],
+      "mcp_slugs": [
+        "datadog_mcp"
+      ],
+      "all_slugs": [
+        "datadog",
+        "datadog_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "BEARER_TOKEN",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 625,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/datadog",
+      "toolkits": [
+        {
+          "slug": "datadog",
+          "name": "Datadog",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "b36fd9ae-69d2-4383-b953-a522b6a3f93c",
+            "getCurrentUserEndpoint": "https://api.datadoghq.com/api/v2/validate_keys",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "DD-API-KEY": "{{generic_api_key}}",
+                    "DD-APPLICATION-KEY": "{{generic_id}}",
+                    "Content-Type": "application/json"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{#bearer_token}}{{bearer_token}}{{/bearer_token}}{{^bearer_token}}{{token}}{{/bearer_token}}",
+                    "Content-Type": "application/json"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "BEARER_TOKEN",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 255,
+          "triggers_count": 0,
+          "version": "20261113_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/datadog",
+          "app_url": "https://www.datadoghq.com",
+          "docs_url": "https://docs.datadoghq.com/developers/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "datadog_mcp",
+          "name": "Datadog MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3252012a-7ea0-473a-8fdf-e25df0d20c2c",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 370,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/datadog_mcp",
+          "app_url": "https://mcp.datadoghq.com/v1/mcp?toolsets=all",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Sentry": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "sentry"
+      ],
+      "mcp_slugs": [
+        "sentry_mcp"
+      ],
+      "all_slugs": [
+        "sentry",
+        "sentry_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 219,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/sentry",
+      "toolkits": [
+        {
+          "slug": "sentry",
+          "name": "Sentry",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f72149e8-4cd4-4324-99de-2d11122413ae",
+            "getCurrentUserEndpoint": "https://sentry.io/api/0/organizations",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 210,
+          "triggers_count": 0,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/sentry",
+          "app_url": "https://sentry.io/welcome/",
+          "docs_url": "https://develop.sentry.dev/backend/api/public/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "sentry_mcp",
+          "name": "Sentry MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "53f31c8f-08e2-4ccb-a3aa-f4eda6764058",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 9,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/sentry_mcp",
+          "app_url": "https://mcp.sentry.dev/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Notion": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "notion"
+      ],
+      "mcp_slugs": [
+        "notion_mcp"
+      ],
+      "all_slugs": [
+        "notion",
+        "notion_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 99,
+      "total_triggers_count": 8,
+      "logo": "https://logos.composio.dev/api/notion",
+      "toolkits": [
+        {
+          "slug": "notion",
+          "name": "Notion",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "dbfb6202-e358-4271-8a80-a8b6d53a717b",
+            "getCurrentUserEndpoint": "https://api.notion.com/v1/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Notion-Version": "2022-06-28"
+                  }
+                }
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}",
+                    "Notion-Version": "2022-06-28"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Notion-Version": "2022-06-28"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 57,
+          "triggers_count": 8,
+          "version": "20261116_01",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/notion",
+          "app_url": "https://www.notion.so",
+          "docs_url": "https://developers.notion.com/reference/intro",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "notion_mcp",
+          "name": "Notion MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "5a03e62a-1f50-478c-8b8d-79ce82ec220b",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 42,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/notion_mcp",
+          "app_url": "https://mcp.notion.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Airtable": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "airtable"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "airtable"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 26,
+      "total_triggers_count": 6,
+      "logo": "https://logos.composio.dev/api/airtable",
+      "toolkits": [
+        {
+          "slug": "airtable",
+          "name": "Airtable",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "71920e35-ef21-4f6d-9e5c-a69108f5b750",
+            "getCurrentUserEndpoint": "https://api.airtable.com/v0/meta/whoami",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 26,
+          "triggers_count": 6,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/airtable",
+          "app_url": "https://www.airtable.com/",
+          "docs_url": "https://airtable.com/developers/web/api/introduction",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Linear": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "linear"
+      ],
+      "mcp_slugs": [
+        "linear_mcp"
+      ],
+      "all_slugs": [
+        "linear",
+        "linear_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 125,
+      "total_triggers_count": 12,
+      "logo": "https://logos.composio.dev/api/linear",
+      "toolkits": [
+        {
+          "slug": "linear",
+          "name": "Linear",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1614fd24-d056-465e-b5a1-714ef9e1a960",
+            "getCurrentUserEndpoint": "https://api.linear.app/graphql?query=%7Bviewer%7Bid,name,email%7D%7D",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "apollo-require-preflight": "true"
+                  }
+                }
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "{{generic_api_key}}",
+                    "apollo-require-preflight": "true"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "apollo-require-preflight": "true"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 47,
+          "triggers_count": 12,
+          "version": "20261116_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/linear",
+          "app_url": "https://linear.app",
+          "docs_url": "https://developers.linear.app/docs",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "linear_mcp",
+          "name": "Linear MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "6903a34e-3adb-49ac-b5c3-8adad80107ae",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 78,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/linear_mcp",
+          "app_url": "https://mcp.linear.app/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Jira": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "jira"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "jira"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2",
+        "S2S_OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 166,
+      "total_triggers_count": 17,
+      "logo": "https://logos.composio.dev/api/jira",
+      "toolkits": [
+        {
+          "slug": "jira",
+          "name": "Jira",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "2683dc3c-69fa-4d47-91a3-ebf2d9148023",
+            "getCurrentUserEndpoint": "https://api.atlassian.com/oauth/token/accessible-resources",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "S2S_OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Basic {{basic_encoded}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY",
+            "S2S_OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 166,
+          "triggers_count": 17,
+          "version": "20261120_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/jira",
+          "app_url": "https://www.atlassian.com/software/jira",
+          "docs_url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Asana": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "asana"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "asana"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 247,
+      "total_triggers_count": 6,
+      "logo": "https://logos.composio.dev/api/asana",
+      "toolkits": [
+        {
+          "slug": "asana",
+          "name": "Asana",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "5c9b1ee3-00ba-4e4e-8cdc-88a2fd009a75",
+            "getCurrentUserEndpoint": "https://app.asana.com/api/1.0/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 247,
+          "triggers_count": 6,
+          "version": "20261116_01",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/asana",
+          "app_url": "https://asana.com/",
+          "docs_url": "https://developers.asana.com/reference/rest-api-reference",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Monday.com": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "monday"
+      ],
+      "mcp_slugs": [
+        "monday_mcp"
+      ],
+      "all_slugs": [
+        "monday",
+        "monday_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 218,
+      "total_triggers_count": 17,
+      "logo": "https://logos.composio.dev/api/monday",
+      "toolkits": [
+        {
+          "slug": "monday",
+          "name": "Monday",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "188ff974-cf3c-4d7e-bad0-e064faa9c1ca",
+            "getCurrentUserEndpoint": "https://api.monday.com/mondaydotcom/boards",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 122,
+          "triggers_count": 17,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/monday",
+          "app_url": "https://monday.com/",
+          "docs_url": "https://developer.monday.com/api-reference/reference/about-the-api-reference",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "monday_mcp",
+          "name": "Monday MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f5418638-d823-47ff-9954-38a7226972b6",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 96,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/monday_mcp",
+          "app_url": "https://mcp.monday.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "ClickUp": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "clickup"
+      ],
+      "mcp_slugs": [
+        "clickup_mcp"
+      ],
+      "all_slugs": [
+        "clickup",
+        "clickup_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 221,
+      "total_triggers_count": 21,
+      "logo": "https://logos.composio.dev/api/clickup",
+      "toolkits": [
+        {
+          "slug": "clickup",
+          "name": "ClickUp",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "e8b880d2-125c-41da-b8ad-7f8190c0f555",
+            "getCurrentUserEndpoint": "https://api.clickup.com/api/v2/user",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "{{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 163,
+          "triggers_count": 21,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/clickup",
+          "app_url": "https://clickup.com",
+          "docs_url": "https://developer.clickup.com/docs/index",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "clickup_mcp",
+          "name": "ClickUp MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "ae71c87f-9df8-4371-8465-a6e838ede9f1",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 58,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/clickup_mcp",
+          "app_url": "https://mcp.clickup.com/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Coda": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "coda"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "coda"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 109,
+      "total_triggers_count": 4,
+      "logo": "https://logos.composio.dev/api/coda",
+      "toolkits": [
+        {
+          "slug": "coda",
+          "name": "Coda",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "1f3d0caf-8c64-4c70-992e-781f81198aa9",
+            "getCurrentUserEndpoint": "https://coda.io/apis/v1/whoami",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 109,
+          "triggers_count": 4,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/coda",
+          "app_url": "https://coda.io/",
+          "docs_url": "https://coda.io/developers/apis/v1#tag/Docs/operation/listDocs",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Smartsheet": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "smartsheet"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "smartsheet"
+      ],
+      "auth_modes": [
+        "BEARER_TOKEN",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 180,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/smartsheet",
+      "toolkits": [
+        {
+          "slug": "smartsheet",
+          "name": "Smartsheet",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3ac26928-1ba0-4a76-85b7-629c68caca7d",
+            "getCurrentUserEndpoint": "https://api.smartsheet.com/2.0/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{access_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "smartsheet-integration-source": "APPLICATION,Composio,Personal-API-Token"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "BEARER_TOKEN"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 180,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/smartsheet",
+          "app_url": "https://www.smartsheet.com",
+          "docs_url": "https://developers.smartsheet.com/api/smartsheet",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Harvest": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "harvest"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "harvest"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 57,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/harvest",
+      "toolkits": [
+        {
+          "slug": "harvest",
+          "name": "Harvest",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "4fb064f6-9397-4b19-bba4-29edf5eb49d0",
+            "getCurrentUserEndpoint": "https://api.harvestapp.com/v2/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 57,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/harvest",
+          "app_url": "https://www.getharvest.com/",
+          "docs_url": "https://help.getharvest.com/api-v2/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Stripe": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "stripe"
+      ],
+      "mcp_slugs": [
+        "stripe_mcp"
+      ],
+      "all_slugs": [
+        "stripe",
+        "stripe_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 438,
+      "total_triggers_count": 40,
+      "logo": "https://logos.composio.dev/api/stripe",
+      "toolkits": [
+        {
+          "slug": "stripe",
+          "name": "Stripe",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "3ff781de-0918-4e8c-801c-e6b1c1d0b1c7",
+            "getCurrentUserEndpoint": "https://api.stripe.com/v1/account",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 428,
+          "triggers_count": 40,
+          "version": "20261116_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/stripe",
+          "app_url": "https://stripe.com",
+          "docs_url": "https://docs.stripe.com/api",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "stripe_mcp",
+          "name": "Stripe MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "300bd39e-debb-4f6f-b387-97d1fd968af2",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 10,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/stripe_mcp",
+          "app_url": "https://mcp.stripe.com",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Plaid": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "plaid"
+      ],
+      "mcp_slugs": [
+        "plaid_mcp"
+      ],
+      "all_slugs": [
+        "plaid",
+        "plaid_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 75,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/plaid",
+      "toolkits": [
+        {
+          "slug": "plaid",
+          "name": "Plaid",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "8bc4ccfa-fbbe-4cbb-9d49-b3648a12759b",
+            "getCurrentUserEndpoint": "N/A",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "base_url": "https://{{base_url_host}}",
+                  "headers": {
+                    "PLAID-CLIENT-ID": "{{generic_api_key}}",
+                    "PLAID-SECRET": "{{generic_secret}}",
+                    "Plaid-Version": "2020-09-14",
+                    "Content-Type": "application/json",
+                    "X-Plaid-Access-Token": "{{generic_token}}",
+                    "X-Plaid-User-Token": "{{generic_id}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 70,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/plaid",
+          "app_url": "https://plaid.com",
+          "docs_url": "https://plaid.com/docs/api/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "plaid_mcp",
+          "name": "Plaid MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "d15f691f-7248-4e7b-b19b-491dc8318b09",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 5,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/plaid_mcp",
+          "app_url": "https://api.dashboard.plaid.com/mcp/",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Binance": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Paygent Connect": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "iPayX": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "QuickBooks": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "quickbooks"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "quickbooks"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 119,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/quickbooks",
+      "toolkits": [
+        {
+          "slug": "quickbooks",
+          "name": "QuickBooks",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "7249fc93-504b-4aa1-8dc6-60e87bd96ec6",
+            "getCurrentUserEndpoint": "https://accounts.platform.intuit.com/v1/openid_connect/userinfo",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "x-minor-version": "{{generic_id}}",
+                    "x-quickbooks-realm-id": "{{realm_id}}",
+                    "Authorization": "Bearer {{access_token}}",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "id_token": "{{id_token}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "x-minor-version": "{{generic_id}}",
+                    "x-quickbooks-realm-id": "{{realm_id}}",
+                    "Authorization": "Bearer {{token}}",
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "id_token": "{{id_token}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 119,
+          "triggers_count": 0,
+          "version": "20261120_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/quickbooks",
+          "app_url": "https://quickbooks.intuit.com",
+          "docs_url": "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Xero": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "xero"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "xero"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 109,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/xero",
+      "toolkits": [
+        {
+          "slug": "xero",
+          "name": "Xero",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "09289b88-d278-48d2-a09d-db6dadd8294c",
+            "getCurrentUserEndpoint": "https://api.xero.com/connections",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 109,
+          "triggers_count": 0,
+          "version": "20261120_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/xero",
+          "app_url": "https://www.xero.com/",
+          "docs_url": "https://developer.xero.com/documentation/guides/oauth2/auth-flow",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Brex": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "brex"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "brex"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 84,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/brex",
+      "toolkits": [
+        {
+          "slug": "brex",
+          "name": "Brex",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "e5ae6dc7-8b0b-4bb0-8a3b-bd43493408b8",
+            "getCurrentUserEndpoint": "https://platform.brexapis.com/v2/users/me",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 84,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/brex",
+          "app_url": "https://www.brex.com/",
+          "docs_url": "https://developer.brex.com/",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Ramp": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "ramp"
+      ],
+      "mcp_slugs": [
+        "ramp_mcp"
+      ],
+      "all_slugs": [
+        "ramp",
+        "ramp_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 399,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/ramp",
+      "toolkits": [
+        {
+          "slug": "ramp",
+          "name": "Ramp",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "0aaa61b2-2b7b-4295-bb26-aca2430e2bee",
+            "getCurrentUserEndpoint": "https://api.ramp.com/developer/v1/business/balance",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 186,
+          "triggers_count": 0,
+          "version": "20261104_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/ramp",
+          "app_url": "https://ramp.com/",
+          "docs_url": "https://docs.ramp.com/developer-api/v1",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "ramp_mcp",
+          "name": "Ramp MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "6ac9cdd0-1894-45bd-8dc2-5814c4f02ed2",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 213,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/ramp_mcp",
+          "app_url": "https://mcp.ramp.com/mcp",
+          "docs_url": "https://support.ramp.com/ramp-mcp",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "PitchBook": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "pitchbook"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "pitchbook"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 130,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/pitchbook",
+      "toolkits": [
+        {
+          "slug": "pitchbook",
+          "name": "PitchBook",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "ace10783-817b-4889-8ed9-7faeff1a5b33",
+            "getCurrentUserEndpoint": "https://api.pitchbook.com/limits",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "PB-Token {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 130,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/pitchbook",
+          "app_url": "https://pitchbook.com",
+          "docs_url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "NotebookLM": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "notebook_lm"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "notebook_lm"
+      ],
+      "auth_modes": [
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 11,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/notebooklm",
+      "toolkits": [
+        {
+          "slug": "notebook_lm",
+          "name": "NotebookLM",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "9d53a700-3dd3-4e04-8fb4-c22fa1b19bdd",
+            "getCurrentUserEndpoint": "https://discoveryengine.googleapis.com/v1alpha/projects/{{prefix_one}}/locations/global/notebooks:listRecentlyViewed?pageSize=1",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 11,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/notebooklm",
+          "app_url": "https://notebooklm.google.com/enterprise",
+          "docs_url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Otter AI": {
+      "coverage": "Provider MCP Only",
+      "api_slugs": [],
+      "mcp_slugs": [
+        "otter_ai_mcp"
+      ],
+      "all_slugs": [
+        "otter_ai_mcp"
+      ],
+      "auth_modes": [
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 3,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/otter_ai_mcp",
+      "toolkits": [
+        {
+          "slug": "otter_ai_mcp",
+          "name": "Otter.ai MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "303218e0-db4a-4d6d-8521-91ea50088730",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 3,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/otter_ai_mcp",
+          "app_url": "https://mcp.otter.ai/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Fathom": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "fathom"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "fathom"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "OAUTH2"
+      ],
+      "composio_managed_auth_schemes": [
+        "OAUTH2"
+      ],
+      "total_tools_count": 10,
+      "total_triggers_count": 1,
+      "logo": "https://logos.composio.dev/api/fathom",
+      "toolkits": [
+        {
+          "slug": "fathom",
+          "name": "Fathom",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "dbcc3046-5148-4bf4-89e8-cb49d2be6706",
+            "getCurrentUserEndpoint": "https://fathom.video/external/v1/meetings",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {}
+              },
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "X-Api-Key": "{{generic_api_key}}"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "OAUTH2",
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [
+            "OAUTH2"
+          ],
+          "tools_count": 10,
+          "triggers_count": 1,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/fathom",
+          "app_url": "https://fathom.video",
+          "docs_url": "https://developers.fathom.ai",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Consensus": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "consensus"
+      ],
+      "mcp_slugs": [
+        "consensus_mcp"
+      ],
+      "all_slugs": [
+        "consensus",
+        "consensus_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 2,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/consensus",
+      "toolkits": [
+        {
+          "slug": "consensus",
+          "name": "Consensus",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "17d60a39-cea0-4a54-9a6f-1286cc00354f",
+            "getCurrentUserEndpoint": "N/A",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "x-api-key": "{{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 1,
+          "triggers_count": 0,
+          "version": "20261101_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/consensus",
+          "app_url": "https://consensus.app",
+          "docs_url": "https://docs.consensus.app/",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "consensus_mcp",
+          "name": "Consensus MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "b6975389-7f6c-469e-a08b-4a242426a76c",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 1,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/consensus_mcp",
+          "app_url": "https://mcp.consensus.app/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Reducto": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "Devin": {
+      "coverage": "Provider MCP Only",
+      "api_slugs": [],
+      "mcp_slugs": [
+        "devin_mcp"
+      ],
+      "all_slugs": [
+        "devin_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 23,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/devin_mcp",
+      "toolkits": [
+        {
+          "slug": "devin_mcp",
+          "name": "Devin MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "fe264ab7-5a53-4167-82f1-59485905000e",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 23,
+          "triggers_count": 0,
+          "version": "20261030_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/devin_mcp",
+          "app_url": "https://mcp.devin.ai/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "higgsfield": {
+      "coverage": "Both Built + Provider MCP",
+      "api_slugs": [
+        "higgsfield"
+      ],
+      "mcp_slugs": [
+        "higgsfield_mcp"
+      ],
+      "all_slugs": [
+        "higgsfield",
+        "higgsfield_mcp"
+      ],
+      "auth_modes": [
+        "API_KEY",
+        "DCR_OAUTH"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 114,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/higgsfield",
+      "toolkits": [
+        {
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "6630330d-116f-4264-b901-86b7f854fac1",
+            "getCurrentUserEndpoint": "N/A",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Key {{generic_api_key}}:{{generic_token}}",
+                    "Content-Type": "application/json"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 13,
+          "triggers_count": 0,
+          "version": "20261111_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/higgsfield",
+          "app_url": "https://cloud.higgsfield.ai",
+          "docs_url": "https://docs.higgsfield.ai/docs",
+          "auth_guide_url": null
+        },
+        {
+          "slug": "higgsfield_mcp",
+          "name": "Higgsfield MCP",
+          "toolkit_type": "mcp",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "f39ae123-c779-4714-a318-a3f0d4659ce1",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "DCR_OAUTH",
+                "proxy": {}
+              }
+            ]
+          },
+          "auth_modes": [
+            "DCR_OAUTH"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 101,
+          "triggers_count": 0,
+          "version": "20261018_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/higgsfield_mcp",
+          "app_url": "https://mcp.higgsfield.ai/mcp",
+          "docs_url": null,
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Mermaid CLI": {
+      "coverage": "Not in Catalog",
+      "api_slugs": [],
+      "mcp_slugs": [],
+      "all_slugs": [],
+      "auth_modes": [],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 0,
+      "total_triggers_count": 0,
+      "logo": null,
+      "toolkits": []
+    },
+    "YouTube Transcript": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "youtube_transcript"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "youtube_transcript"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 9,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/youtube_transcript",
+      "toolkits": [
+        {
+          "slug": "youtube_transcript",
+          "name": "YouTube Transcript",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "eccfb538-4e77-4bd3-a8ee-5ee261038be4",
+            "getCurrentUserEndpoint": "https://www.youtubetranscript.dev/api/v2/transcripts?limit=1",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 9,
+          "triggers_count": 0,
+          "version": "20261014_00",
+          "updated_at": "Sun Nov 22 2026",
+          "logo": "https://logos.composio.dev/api/youtube_transcript",
+          "app_url": "https://www.youtubetranscript.dev",
+          "docs_url": "https://www.youtubetranscript.dev/api-docs",
+          "auth_guide_url": null
+        }
+      ]
+    },
+    "Grain": {
+      "coverage": "Built API Only",
+      "api_slugs": [
+        "grain"
+      ],
+      "mcp_slugs": [],
+      "all_slugs": [
+        "grain"
+      ],
+      "auth_modes": [
+        "API_KEY"
+      ],
+      "composio_managed_auth_schemes": [],
+      "total_tools_count": 17,
+      "total_triggers_count": 0,
+      "logo": "https://logos.composio.dev/api/grain",
+      "toolkits": [
+        {
+          "slug": "grain",
+          "name": "Grain",
+          "toolkit_type": "api",
+          "enabled": true,
+          "deprecated": {
+            "toolkitId": "eaa7eddd-e683-46c1-9169-9a88d8c9563f",
+            "getCurrentUserEndpoint": "https://api.grain.com/_/public-api/v2/token-info",
+            "rawProxyInfoByAuthSchemes": [
+              {
+                "auth_method": "API_KEY",
+                "proxy": {
+                  "headers": {
+                    "Authorization": "Bearer {{generic_api_key}}",
+                    "Public-Api-Version": "2026-10-01"
+                  }
+                }
+              },
+              {
+                "auth_method": "OAUTH2",
+                "proxy": {
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "Public-Api-Version": "2026-10-01"
+                  }
+                }
+              },
+              {
+                "auth_method": "BEARER_TOKEN",
+                "proxy": {
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "Public-Api-Version": "2026-10-01"
+                  }
+                }
+              }
+            ]
+          },
+          "auth_modes": [
+            "API_KEY"
+          ],
+          "composio_managed_auth_schemes": [],
+          "tools_count": 17,
+          "triggers_count": 0,
+          "version": "00000000_00",
+          "updated_at": "Mon Nov 23 2026",
+          "logo": "https://logos.composio.dev/api/grain",
+          "app_url": "https://grain.com",
+          "docs_url": "https://developers.grain.com/",
+          "auth_guide_url": null
+        }
+      ]
+    }
+  }
+}

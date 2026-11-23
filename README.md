@@ -1,51 +1,67 @@
-# Composio AI Product Ops — 100-App Research & Verification Agent
+# Composio AI Product Ops — 100-App Toolkit & MCP Buildability Research Agent
 
-Automated multi-pass research and verification pipeline evaluating 100 SaaS/developer/AI apps across 10 categories for AI agent toolkit and MCP buildability.
+An automated **3-pass research & verification pipeline** built with **Composio Platform SDK & MCP**, **Exa API**, and **Google Gemini (`gemini-4-hydrogen`)** to evaluate 100 SaaS, developer, fintech, and AI apps across 10 categories for AI agent toolkit buildability.
 
-## Architecture (WIP — Setup & 5-App Pilot Complete)
+- **Live Case Study (HTML):** Deployed via GitHub Pages (`index.html`)
+- **Agent-Consumable Index:** [`llms.txt`](llms.txt) & [`data/final_results.json`](data/final_results.json)
+- **Assignment Spec:** [Composio AI Product Ops Intern Take-Home](https://composio.notion.site/AI-Product-Ops-Intern-The-take-home-assignment-391f261a6dfe80e9946bee899d3a3762)
 
-1. **Composio Platform SDK (`src/composio_tools.py`, `src/fetch_composio_catalog.py`)**
-   - Uses user-scoped Composio Sessions (`composio.create(user_id=...)`) to:
-     - Cross-reference all 100 target apps against Composio's live catalog (1,842 toolkits scanned → 81 matched, 19 net-new gaps).
-     - Discover and execute live Provider MCP tools (`deepwiki_mcp` → `DEEPWIKI_MCP_READ_WIKI_STRUCTURE`) to inspect open-source / CLI apps (e.g., `sherlock-project/sherlock`, verified with `log_id`).
-2. **Pass 1 Research Agent (`src/research_agent.py`)**
-   - Uses **Exa API** (`/search` with `type="auto"`, `objective`, and `contents={"highlights": True}`) + Composio `deepwiki_mcp` + **Gemini (`gemini-4-hydrogen`)** structured outputs into strict Pydantic enums (`src/schema.py`).
-3. **Pass 2 Verification Loop (`src/verify_agent.py`)**
-   - Live HTTP link auditing (`httpx`) + **Exa `/contents`** full-page extraction (`statuses`-checked) + targeted disconfirmation searches + a **Gemini Critic Agent** that audits every Pass 1 field against live primary sources and logs field-level diffs.
+---
 
-## Quick Start
+## How Composio Is Used (4 Non-Gimmicky Integrations)
+
+1. **Live Catalog Intelligence & Ground-Truth Cross-Check (`src/fetch_composio_catalog.py`, `src/fetch_composio_deep.py`)**
+   - Uses `session.toolkits()` and `/api/v3.1/toolkits/{slug}` to scan **1,842 live Composio toolkits** and audit all matched apps for `toolkit_type` (`api` vs `mcp`), `tools_count`, `triggers_count`, `auth_config_details`, and `composio_managed_auth_schemes`.
+   - Feeds production auth & MCP schemas into the Pass 2 Critic Agent as a ground-truth verification check and powers the **Composio Roadmap Queues** (Net-New Easy Wins, Official MCP Expansion, Trigger Gaps).
+2. **GitHub MCP Repo Auditor (`src/composio_github.py`)**
+   - Uses Composio Managed OAuth (`github` toolkit, runtime discovery via `session.search()`) inside Pass 2 to audit cited GitHub MCP/OSS repositories (`owner_type`, stars, `archived`, `pushed_at`) — catching community repos misclassified as official vendor MCPs.
+3. **Open-Source Repo Forensics + Single-App Live Demo Runner (`src/composio_tools.py`, `src/research_one_composio.py`)**
+   - Uses Composio Sessions (`exa` + `deepwiki_mcp` + `github`) with runtime tool discovery and real auditable `log_id`s.
+4. **Architecture Diagram Validation (`src/render_architecture_svg.py`)**
+   - Uses Composio's no-auth `mermaid_chart_mcp` toolkit to validate the 3-pass pipeline architecture Mermaid diagram (`assets/architecture.mmd`, `data/mermaid_architecture.json`).
+
+---
+
+## 3-Pass Research & Verification Architecture
+
+| Pass | Script | What It Does | Output |
+| --- | --- | --- | --- |
+| **Pass 1** | `src/research_agent.py` | Parallel Exa `/search` (`type="auto"`, `objective`, `highlights: true`) + Composio `deepwiki_mcp` + Gemini `gemini-4-hydrogen` strict Pydantic synthesis | `data/pass1_results.json` (immutable baseline) |
+| **Pass 2** | `src/verify_agent.py` | Live HTTP link health audit + Exa `/contents` (`statuses`-checked) + disconfirmation `/search` + Composio v3.1 catalog cross-check + Composio `github` repo audit + Gemini Critic Agent | `data/pass2_verified.json` + `data/verification_diff_report.json` |
+| **Pass 3** | Stratified Human + Browser Audit | Direct live-docs & browser verification across a stratified sample (all 10 categories + hardest edge cases), scoring Pass 1 → Pass 2 → Final accuracy | `data/human_audit.json` + `data/final_results.json` |
+| **Build** | `src/analyze_patterns.py` + `src/build_case_study.py` | Computes pattern clustering, category heatmaps, roadmap queues, and builds single-file `index.html` + `llms.txt` | `index.html`, `llms.txt`, `data/analytics_summary.json` |
+
+---
+
+## Quick Start (Reproduce Locally)
 
 ```bash
 python -m venv .venv
 # Windows PowerShell:
 .\.venv\Scripts\Activate.ps1
+# macOS / Linux:
+# source .venv/bin/activate
+
 pip install -r requirements.txt
-
-# Copy .env.example to .env and fill in your keys:
 cp .env.example .env
+# Add COMPOSIO_API_KEY, GEMINI_API_KEY, GEMINI_MODEL=gemini-4-hydrogen, EXA_API_KEY to .env
 
-# 1. Verify Composio, Exa, and Gemini connections
+# 1. Verify environment & connections
 python src/verify_setup.py
 
-# 2. Run verified Composio session tool call
-python src/composio_tools.py
+# 2. Authorize GitHub & Exa via Composio Connect Links (one-time)
+python src/connect_integrations.py --toolkits github,exa
 
-# 3. Cross-reference all 100 apps against Composio's live catalog
+# 3. Run the live single-app Composio Session demo (auditable log_ids)
+python src/research_one_composio.py --app "Stripe"
+
+# 4. Run full 100-app pipeline (resumable checkpoints every 5 apps)
 python src/fetch_composio_catalog.py
-
-# 4. Run Pass 1 research (pilot or full 100 apps)
-python src/research_agent.py --ids 2,10,28,58,92 --out data/pilot_results.json
+python src/fetch_composio_deep.py
 python src/research_agent.py --all --resume --concurrency 6
-
-# 5. Run Pass 2 automated verification loop
 python src/verify_agent.py --input data/pass1_results.json --output data/pass2_verified.json --all --resume --concurrency 5
-```
 
-## Status
-- [x] Environment, skills (`composio`, `build-with-exa`), and live API verification
-- [x] 100-app seed list (`data/apps.json`) & strict schema (`src/schema.py`)
-- [x] Live Composio catalog match (`data/composio_catalog_match.json`)
-- [x] Pass 1 & Pass 2 agents built & piloted on 5 apps
-- [ ] Full 100-app Pass 1 + Pass 2 run
-- [ ] Pass 3 human & browser-based accuracy audit
-- [ ] Deployed single-page HTML case study
+# 5. Rebuild analytics + HTML case study + llms.txt
+python src/analyze_patterns.py
+python src/build_case_study.py
+```

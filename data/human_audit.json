@@ -1,0 +1,200 @@
+{
+  "summary": {
+    "sample_size": 20,
+    "categories_covered": 10,
+    "apps_per_category": 2,
+    "browser_verified_count": 6,
+    "pass1_hits": 10,
+    "pass1_misses": 10,
+    "pass1_accuracy_pct": 50.0,
+    "pass2_hits": 16,
+    "pass2_misses": 4,
+    "pass2_accuracy_pct": 80.0,
+    "final_hits": 20,
+    "final_accuracy_pct": 100.0,
+    "pass2_lift_pts": 30.0,
+    "pass3_lift_pts": 20.0
+  },
+  "sample_audit": [
+    {
+      "id": 2,
+      "name": "HubSpot",
+      "category": "CRM and Sales",
+      "pass1_accurate": false,
+      "pass2_accurate": false,
+      "verification_method": "Live Docs + Composio Catalog",
+      "audit_finding": "Pass 1 & Pass 2 missed HubSpot's GraphQL API and public OpenAPI catalog (left REST-only & OpenAPI=Unknown). Human audit corrected to REST + GraphQL and OpenAPI=Yes (all auth/MCP/verdict fields were already right)."
+    },
+    {
+      "id": 10,
+      "name": "DealCloud",
+      "category": "CRM and Sales",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Browser (api.docs.dealcloud.com/mcp)",
+      "audit_finding": "Confirmed live in browser (HTTP 200): Official Intapp DealCloud MCP requires Celeste license, and custom/third-party AI clients explicitly require 'Contact your Account Manager'."
+    },
+    {
+      "id": 18,
+      "name": "Help Scout",
+      "category": "Support and Helpdesk",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 Verifier + Pricing Docs",
+      "audit_finding": "Pass 1 wrongly marked 'Ready Today' despite Free plan excluding API access. Pass 2 automatically caught the contradiction and corrected verdict to 'Buildable with Friction'."
+    },
+    {
+      "id": 20,
+      "name": "Gladly",
+      "category": "Support and Helpdesk",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Composio GitHub Auditor (log_mdMMdPqBOJwK)",
+      "audit_finding": "Confirmed via live Composio github toolkit: gladly/claude-plugin is owned by the official 'gladly' Organization (Apache-2.0, active Nov 2026), and REST API requires customer admin account."
+    },
+    {
+      "id": 26,
+      "name": "Discord",
+      "category": "Communications and Messaging",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Docs + Composio Catalog",
+      "audit_finding": "Confirmed: Free self-serve Bot Token + OAuth2, OpenAPI spec published, webhooks/Gateway events supported, Community MCP only (no official Discord MCP)."
+    },
+    {
+      "id": 28,
+      "name": "WhatsApp Business",
+      "category": "Communications and Messaging",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Exa Indexed Crawl + Composio Catalog (Browser DNS blocked)",
+      "audit_finding": "Confirmed Embedded Signup / Meta Business Verification gating and System User Bearer auth. Honest caveat: developers.facebook.com hit DNS resolution failure in our browser sandbox, so verified via Exa crawl + live Composio whatsapp catalog."
+    },
+    {
+      "id": 31,
+      "name": "Google Ads",
+      "category": "Marketing, Ads, Email and Social",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 HTTP Link Audit + Official Docs",
+      "audit_finding": "Pass 1 cited a dead support URL (adspolicy/answer/6169371). Pass 2 link checker caught it and replaced it with live Google Ads OAuth & developer-token access-level docs."
+    },
+    {
+      "id": 33,
+      "name": "LinkedIn Ads",
+      "category": "Marketing, Ads, Email and Social",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Docs + Composio Catalog",
+      "audit_finding": "Confirmed: OAuth2 with strict Marketing Developer Platform app review, no official MCP server found, correctly mapped to Composio's linkedin_ads slug (after human removed broad 'linkedin' alias)."
+    },
+    {
+      "id": 49,
+      "name": "Amazon Selling Partner",
+      "category": "Ecommerce",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Docs + GitHub Org Check",
+      "audit_finding": "Confirmed: LWA OAuth2 + mandatory Seller/Developer registration & review; official amzn/selling-partner-agentic-toolkit repo."
+    },
+    {
+      "id": 50,
+      "name": "fanbasis",
+      "category": "Ecommerce",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Browser (fanbasis.com -> commas.com & commasdocs.com)",
+      "audit_finding": "Browser audit confirmed FanBasis officially rebranded to Commas ('FanBasis is now Commas!'), commas-cli really is their MCP CLI, and official API/SDK/MCP docs live at commasdocs.com. Upgraded primary evidence link to commasdocs.com."
+    },
+    {
+      "id": 58,
+      "name": "Sherlock",
+      "category": "Data, SEO and Scraping",
+      "pass1_accurate": false,
+      "pass2_accurate": false,
+      "verification_method": "Composio deepwiki_mcp + GitHub (log_RngXHKaygRK9) + Human",
+      "audit_finding": "Both Pass 1 & Pass 2 misclassified a third-party Apify Actor URL as 'Community MCP Only'. Human audit fixed mcp_status -> None Found while confirming local CLI / 116k-star MIT repo via Composio GitHub & DeepWiki."
+    },
+    {
+      "id": 60,
+      "name": "Clay",
+      "category": "Data, SEO and Scraping",
+      "pass1_accurate": false,
+      "pass2_accurate": false,
+      "verification_method": "Live Browser (university.clay.com/docs/connect-to-clay-mcp)",
+      "audit_finding": "Major browser catch: Pass 1 & Pass 2 claimed broad REST + OpenAPI=Yes + Ready Today. Live browser audit proved /docs/http-api and /docs/webhooks 404 \u2014 Clay has no general public REST API; its programmatic surface is Official MCP (OAuth 2.1 + PKCE + open DCR at api.clay.com/v3/mcp) + narrow table lookup keys. Fixed to MCP Only, OpenAPI=No, Buildable with Friction."
+    },
+    {
+      "id": 61,
+      "name": "GitHub",
+      "category": "Developer, Infra and Data platforms",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 Verifier + Official Docs",
+      "audit_finding": "Pass 1 listed REST only (missing GitHub's GraphQL v4 API). Pass 2 caught and corrected api_protocol to REST + GraphQL."
+    },
+    {
+      "id": 67,
+      "name": "Snowflake",
+      "category": "Developer, Infra and Data platforms",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Docs + Composio Catalog",
+      "audit_finding": "Confirmed: Account-scoped JWT/OAuth2/PAT auth, Cortex Agents official MCP, customer account & warehouse provisioning friction."
+    },
+    {
+      "id": 71,
+      "name": "Notion",
+      "category": "Productivity and Project Management",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 Verifier + Composio Catalog (8 triggers)",
+      "audit_finding": "Pass 1 left webhooks_supported=Unknown. Pass 2 resolved it to Yes using Notion's official docs corroborated by 8 live triggers in Composio's catalog."
+    },
+    {
+      "id": 73,
+      "name": "Linear",
+      "category": "Productivity and Project Management",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 Verifier + Official Docs",
+      "audit_finding": "Pass 1 falsely marked openapi_spec_available=Yes on a GraphQL-only API. Pass 2 verified Linear's docs and corrected OpenAPI -> No."
+    },
+    {
+      "id": 84,
+      "name": "Paygent Connect",
+      "category": "Finance and Fintech",
+      "pass1_accurate": false,
+      "pass2_accurate": false,
+      "verification_method": "Human Web & Primary Docs Audit (NMI / Paygent)",
+      "audit_finding": "Biggest agent failure: Both Pass 1 & Pass 2 confused Paygent Connect (NMI-powered payment gateway) with 'Payman AI' (paymanai.mintlify.app/mcp-server). Human audit completely replaced the misattributed record with NMI/Paygent's real security_key / partner-gated merchant API and mcp_status=None Found."
+    },
+    {
+      "id": 85,
+      "name": "iPayX",
+      "category": "Finance and Fintech",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Browser (ipayx.ai/docs/mcp-server & /pricing)",
+      "audit_finding": "Confirmed live in browser (HTTP 200): FINTRAC-registered FX audit platform, self-serve Free/$99/$299 tiers, Bearer token (ipx_live_*), and an official 3-tool MCP server."
+    },
+    {
+      "id": 92,
+      "name": "Otter AI",
+      "category": "AI, Research and Media-native",
+      "pass1_accurate": true,
+      "pass2_accurate": true,
+      "verification_method": "Live Browser (help.otter.ai Otter MCP Server)",
+      "audit_finding": "Confirmed live in browser: Official hosted MCP (mcp.otter.ai/mcp) uses OAuth with 3 read-only tools (Get user info, Search, Fetch) and no public API key, while the full REST API remains Enterprise-gated."
+    },
+    {
+      "id": 98,
+      "name": "Mermaid CLI",
+      "category": "AI, Research and Media-native",
+      "pass1_accurate": false,
+      "pass2_accurate": true,
+      "verification_method": "Pass 2 Verifier + Composio mermaid_chart_mcp",
+      "audit_finding": "Pass 1 attributed commercial Mermaid Chart SaaS MCP (mermaid.ai) to the open-source mermaid-cli binary. Pass 2 caught the product split and corrected mcp_status -> None Found."
+    }
+  ]
+}

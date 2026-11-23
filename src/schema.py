@@ -124,6 +124,34 @@ class AppResearchRecord(BaseModel):
         default_factory=list,
         description="Matching toolkit slugs discovered live from Composio's catalog.",
     )
+    composio_coverage: str = Field(
+        default="Not in Catalog",
+        description="Live Composio coverage tier: Built API Only, Provider MCP Only, Both Built + Provider MCP, or Not in Catalog.",
+    )
+    composio_tools_count: int = Field(
+        default=0,
+        description="Total agent-callable tools currently shipped in Composio across matched slugs.",
+    )
+    composio_triggers_count: int = Field(
+        default=0,
+        description="Total event triggers currently shipped in Composio across matched slugs.",
+    )
+    composio_auth_modes: list[str] = Field(
+        default_factory=list,
+        description="Live auth modes configured in Composio's production catalog (e.g. OAUTH2, DCR_OAUTH, API_KEY).",
+    )
+    composio_managed_auth: bool = Field(
+        default=False,
+        description="Whether Composio provides managed OAuth out-of-the-box for this toolkit.",
+    )
+    composio_logo: str | None = Field(
+        default=None,
+        description="Official toolkit logo URL from Composio catalog.",
+    )
+    github_mcp_audit: dict | None = Field(
+        default=None,
+        description="Optional GitHub repo verification metadata (stars, owner, archived, pushed_at, composio_log_id) via Composio github toolkit.",
+    )
     url_health: dict[str, int | str] = Field(
         default_factory=dict,
         description="HTTP status code or error for each evidence URL.",

@@ -32,6 +32,7 @@ from google.genai import types
 from pydantic import BaseModel, Field
 
 from composio import Composio
+from llm_utils import generate_content_throttled
 from schema import (
     AccessModel,
     ApiBreadth,
@@ -51,7 +52,7 @@ CATALOG_PATH = ROOT / "data" / "composio_catalog_match.json"
 PASS1_OUT = ROOT / "data" / "pass1_results.json"
 PASS1_TRACE = ROOT / "data" / "pass1_traces.json"
 
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-4-hydrogen")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
 
 # Known GitHub repos for open-source / CLI apps where Composio's deepwiki_mcp adds primary-source evidence
 GITHUB_REPO_HINTS = {
@@ -234,7 +235,8 @@ CRITICAL RUBRIC RULES:
 5. Be brutally honest with `confidence`: set `Low` or `Medium` whenever official docs were missing, thin, behind a login wall, or contradictory.
 """
 
-    response = gemini_client.models.generate_content(
+    response = generate_content_throttled(
+        gemini_client,
         model=GEMINI_MODEL,
         contents=prompt,
         config=types.GenerateContentConfig(

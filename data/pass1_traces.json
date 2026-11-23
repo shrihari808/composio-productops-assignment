@@ -1,28 +1,8 @@
 [
   {
-    "id": 2,
-    "name": "HubSpot",
-    "elapsed_sec": 17.1,
-    "exa_api_urls_count": 6,
-    "exa_mcp_urls_count": 4,
-    "composio_tool_call": null,
-    "confidence": "High",
-    "buildability_verdict": "Ready Today (Easy Win)"
-  },
-  {
-    "id": 10,
-    "name": "DealCloud",
-    "elapsed_sec": 15.66,
-    "exa_api_urls_count": 6,
-    "exa_mcp_urls_count": 4,
-    "composio_tool_call": null,
-    "confidence": "High",
-    "buildability_verdict": "Gated / Needs Outreach"
-  },
-  {
-    "id": 28,
-    "name": "WhatsApp Business",
-    "elapsed_sec": 17.92,
+    "id": 1,
+    "name": "Salesforce",
+    "elapsed_sec": 23.32,
     "exa_api_urls_count": 6,
     "exa_mcp_urls_count": 4,
     "composio_tool_call": null,
@@ -30,28 +10,1018 @@
     "buildability_verdict": "Buildable with Friction"
   },
   {
+    "id": 2,
+    "name": "HubSpot",
+    "elapsed_sec": 20.33,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "elapsed_sec": 20.74,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 4,
+    "name": "Attio",
+    "elapsed_sec": 29.52,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "elapsed_sec": 21.59,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": {
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "repo": "twentyhq/twenty",
+      "log_id": "log_g-j8SGG7FGB2",
+      "result_type": "completed"
+    },
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "elapsed_sec": 18.49,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "elapsed_sec": 15.38,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "elapsed_sec": 16.64,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "elapsed_sec": 27.4,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "elapsed_sec": 17.62,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Gated / Needs Outreach"
+  },
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "elapsed_sec": 32.3,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "elapsed_sec": 16.9,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 13,
+    "name": "Freshdesk",
+    "elapsed_sec": 22.76,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "elapsed_sec": 26.03,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "elapsed_sec": 21.67,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "elapsed_sec": 17.7,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "elapsed_sec": 18.51,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "elapsed_sec": 21.36,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "elapsed_sec": 17.08,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "elapsed_sec": 19.91,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 21,
+    "name": "Slack",
+    "elapsed_sec": 22.44,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "elapsed_sec": 16.53,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "elapsed_sec": 15.26,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 24,
+    "name": "Lark (Larksuite)",
+    "elapsed_sec": 19.07,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "elapsed_sec": 21.46,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "elapsed_sec": 17.76,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 27,
+    "name": "Telegram",
+    "elapsed_sec": 27.26,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "elapsed_sec": 18.63,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "elapsed_sec": 35.34,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 30,
+    "name": "Vonage",
+    "elapsed_sec": 19.92,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "elapsed_sec": 23.18,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 32,
+    "name": "Meta Ads",
+    "elapsed_sec": 17.36,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "elapsed_sec": 28.15,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "elapsed_sec": 19.73,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "elapsed_sec": 20.21,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "elapsed_sec": 16.13,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "elapsed_sec": 20.24,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "elapsed_sec": 19.11,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "elapsed_sec": 17.16,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 40,
+    "name": "SendGrid",
+    "elapsed_sec": 24.86,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 41,
+    "name": "Shopify",
+    "elapsed_sec": 20.8,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 42,
+    "name": "WooCommerce",
+    "elapsed_sec": 26.58,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 43,
+    "name": "BigCommerce",
+    "elapsed_sec": 27.27,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 44,
+    "name": "Salesforce Commerce Cloud",
+    "elapsed_sec": 21.73,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Gated / Needs Outreach"
+  },
+  {
+    "id": 45,
+    "name": "Magento (Adobe Commerce)",
+    "elapsed_sec": 20.2,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 46,
+    "name": "Squarespace",
+    "elapsed_sec": 17.51,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 47,
+    "name": "Ecwid",
+    "elapsed_sec": 22.59,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 48,
+    "name": "Gumroad",
+    "elapsed_sec": 15.81,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 49,
+    "name": "Amazon Selling Partner",
+    "elapsed_sec": 20.62,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 50,
+    "name": "fanbasis",
+    "elapsed_sec": 15.52,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 51,
+    "name": "DataForSEO",
+    "elapsed_sec": 20.62,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 52,
+    "name": "SE Ranking",
+    "elapsed_sec": 21.01,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 53,
+    "name": "Ahrefs",
+    "elapsed_sec": 17.22,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 54,
+    "name": "MrScraper",
+    "elapsed_sec": 27.85,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 55,
+    "name": "Apify",
+    "elapsed_sec": 18.34,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 56,
+    "name": "Firecrawl",
+    "elapsed_sec": 17.92,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": {
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "repo": "mendableai/firecrawl",
+      "log_id": "log_deOUjkHkqv93",
+      "result_type": "completed"
+    },
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 57,
+    "name": "Bright Data",
+    "elapsed_sec": 16.82,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
     "id": 58,
     "name": "Sherlock",
-    "elapsed_sec": 21.21,
+    "elapsed_sec": 19.52,
     "exa_api_urls_count": 6,
     "exa_mcp_urls_count": 4,
     "composio_tool_call": {
       "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
       "repo": "sherlock-project/sherlock",
-      "log_id": "log_QGyNIBqRLD99",
+      "log_id": "log_mvmNFDhp8GsH",
       "result_type": "completed"
     },
     "confidence": "High",
     "buildability_verdict": "Blocked / Not API-Native"
   },
   {
-    "id": 92,
-    "name": "Otter AI",
-    "elapsed_sec": 21.93,
+    "id": 59,
+    "name": "Waterfall.io",
+    "elapsed_sec": 15.69,
     "exa_api_urls_count": 6,
     "exa_mcp_urls_count": 4,
     "composio_tool_call": null,
     "confidence": "High",
     "buildability_verdict": "Gated / Needs Outreach"
+  },
+  {
+    "id": 60,
+    "name": "Clay",
+    "elapsed_sec": 22.48,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 61,
+    "name": "GitHub",
+    "elapsed_sec": 14.45,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 62,
+    "name": "Vercel",
+    "elapsed_sec": 16.21,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 63,
+    "name": "Netlify",
+    "elapsed_sec": 15.23,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 64,
+    "name": "Cloudflare",
+    "elapsed_sec": 19.06,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 65,
+    "name": "Supabase",
+    "elapsed_sec": 20.3,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": {
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "repo": "supabase/supabase",
+      "log_id": "log_XSwZ-ioEHVk9",
+      "result_type": "completed"
+    },
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 66,
+    "name": "Neo4j",
+    "elapsed_sec": 17.45,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 67,
+    "name": "Snowflake",
+    "elapsed_sec": 19.61,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 68,
+    "name": "MongoDB Atlas",
+    "elapsed_sec": 19.92,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 69,
+    "name": "Datadog",
+    "elapsed_sec": 21.16,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 70,
+    "name": "Sentry",
+    "elapsed_sec": 15.67,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 71,
+    "name": "Notion",
+    "elapsed_sec": 23.15,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 72,
+    "name": "Airtable",
+    "elapsed_sec": 13.71,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 73,
+    "name": "Linear",
+    "elapsed_sec": 15.38,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 74,
+    "name": "Jira",
+    "elapsed_sec": 18.89,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "elapsed_sec": 17.09,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 76,
+    "name": "Monday.com",
+    "elapsed_sec": 17.8,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 77,
+    "name": "ClickUp",
+    "elapsed_sec": 15.39,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 78,
+    "name": "Coda",
+    "elapsed_sec": 21.06,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 79,
+    "name": "Smartsheet",
+    "elapsed_sec": 12.67,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 80,
+    "name": "Harvest",
+    "elapsed_sec": 15.99,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 81,
+    "name": "Stripe",
+    "elapsed_sec": 20.17,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 82,
+    "name": "Plaid",
+    "elapsed_sec": 20.03,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 83,
+    "name": "Binance",
+    "elapsed_sec": 21.06,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 84,
+    "name": "Paygent Connect",
+    "elapsed_sec": 25.81,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "elapsed_sec": 18.38,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 86,
+    "name": "QuickBooks",
+    "elapsed_sec": 17.07,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "Medium",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 87,
+    "name": "Xero",
+    "elapsed_sec": 17.95,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 88,
+    "name": "Brex",
+    "elapsed_sec": 18.21,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 89,
+    "name": "Ramp",
+    "elapsed_sec": 24.89,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 90,
+    "name": "PitchBook",
+    "elapsed_sec": 19.52,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Gated / Needs Outreach"
+  },
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "elapsed_sec": 26.31,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 92,
+    "name": "Otter AI",
+    "elapsed_sec": 21.9,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 93,
+    "name": "Fathom",
+    "elapsed_sec": 21.12,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "elapsed_sec": 24.11,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 95,
+    "name": "Reducto",
+    "elapsed_sec": 15.39,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 96,
+    "name": "Devin",
+    "elapsed_sec": 20.94,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "elapsed_sec": 15.54,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 98,
+    "name": "Mermaid CLI",
+    "elapsed_sec": 24.27,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": {
+      "tool_slug": "DEEPWIKI_MCP_READ_WIKI_STRUCTURE",
+      "repo": "mermaid-js/mermaid-cli",
+      "log_id": "log_9APXAPGzX39w",
+      "result_type": "completed"
+    },
+    "confidence": "High",
+    "buildability_verdict": "Blocked / Not API-Native"
+  },
+  {
+    "id": 99,
+    "name": "YouTube Transcript",
+    "elapsed_sec": 19.18,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Ready Today (Easy Win)"
+  },
+  {
+    "id": 100,
+    "name": "Grain",
+    "elapsed_sec": 19.02,
+    "exa_api_urls_count": 6,
+    "exa_mcp_urls_count": 4,
+    "composio_tool_call": null,
+    "confidence": "High",
+    "buildability_verdict": "Buildable with Friction"
   }
 ]
