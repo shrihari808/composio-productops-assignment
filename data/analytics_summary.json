@@ -1194,7 +1194,547 @@
         ],
         "tools_count": 17
       }
-    ]
+    ],
+    "build_vs_wrap": {
+      "both_count": 22,
+      "both_avg_api_tools": 195.8,
+      "both_avg_mcp_tools": 68.8,
+      "both_depth_ratio": 2.8,
+      "api_beats_mcp_count": 14,
+      "mcp_beats_api_count": 7,
+      "tie_count": 1,
+      "mcp_only_count": 5,
+      "mcp_only_avg_tools": 16.6,
+      "mcp_only_median_tools": 12,
+      "mcp_only_with_triggers": 0,
+      "mcp_only_with_managed_oauth": 0,
+      "both_apps": [
+        {
+          "id": 61,
+          "name": "GitHub",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 883,
+          "mcp_tools": 44,
+          "delta": 839,
+          "winner": "api"
+        },
+        {
+          "id": 68,
+          "name": "MongoDB Atlas",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 496,
+          "mcp_tools": 41,
+          "delta": 455,
+          "winner": "api"
+        },
+        {
+          "id": 81,
+          "name": "Stripe",
+          "category": "Finance and Fintech",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 428,
+          "mcp_tools": 10,
+          "delta": 418,
+          "winner": "api"
+        },
+        {
+          "id": 62,
+          "name": "Vercel",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 399,
+          "mcp_tools": 37,
+          "delta": 362,
+          "winner": "api"
+        },
+        {
+          "id": 70,
+          "name": "Sentry",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 210,
+          "mcp_tools": 9,
+          "delta": 201,
+          "winner": "api"
+        },
+        {
+          "id": 65,
+          "name": "Supabase",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 230,
+          "mcp_tools": 32,
+          "delta": 198,
+          "winner": "api"
+        },
+        {
+          "id": 55,
+          "name": "Apify",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 184,
+          "mcp_tools": 12,
+          "delta": 172,
+          "winner": "api"
+        },
+        {
+          "id": 64,
+          "name": "Cloudflare",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 171,
+          "mcp_tools": 3,
+          "delta": 168,
+          "winner": "api"
+        },
+        {
+          "id": 12,
+          "name": "Intercom",
+          "category": "Support and Helpdesk",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 138,
+          "mcp_tools": 15,
+          "delta": 123,
+          "winner": "api"
+        },
+        {
+          "id": 77,
+          "name": "ClickUp",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 163,
+          "mcp_tools": 58,
+          "delta": 105,
+          "winner": "api"
+        },
+        {
+          "id": 82,
+          "name": "Plaid",
+          "category": "Finance and Fintech",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 70,
+          "mcp_tools": 5,
+          "delta": 65,
+          "winner": "api"
+        },
+        {
+          "id": 17,
+          "name": "Plain",
+          "category": "Support and Helpdesk",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 119,
+          "mcp_tools": 80,
+          "delta": 39,
+          "winner": "api"
+        },
+        {
+          "id": 76,
+          "name": "Monday.com",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 122,
+          "mcp_tools": 96,
+          "delta": 26,
+          "winner": "api"
+        },
+        {
+          "id": 71,
+          "name": "Notion",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 57,
+          "mcp_tools": 42,
+          "delta": 15,
+          "winner": "api"
+        },
+        {
+          "id": 94,
+          "name": "Consensus",
+          "category": "AI, Research and Media-native",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 1,
+          "mcp_tools": 1,
+          "delta": 0,
+          "winner": "tie"
+        },
+        {
+          "id": 60,
+          "name": "Clay",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 15,
+          "mcp_tools": 17,
+          "delta": -2,
+          "winner": "mcp"
+        },
+        {
+          "id": 89,
+          "name": "Ramp",
+          "category": "Finance and Fintech",
+          "access_model": "Admin / Customer Account Required",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 186,
+          "mcp_tools": 213,
+          "delta": -27,
+          "winner": "mcp"
+        },
+        {
+          "id": 73,
+          "name": "Linear",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 47,
+          "mcp_tools": 78,
+          "delta": -31,
+          "winner": "mcp"
+        },
+        {
+          "id": 8,
+          "name": "Close",
+          "category": "CRM and Sales",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 75,
+          "mcp_tools": 114,
+          "delta": -39,
+          "winner": "mcp"
+        },
+        {
+          "id": 97,
+          "name": "higgsfield",
+          "category": "AI, Research and Media-native",
+          "access_model": "Self-Serve Paid Plan",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 13,
+          "mcp_tools": 101,
+          "delta": -88,
+          "winner": "mcp"
+        },
+        {
+          "id": 53,
+          "name": "Ahrefs",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Paid Plan",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 46,
+          "mcp_tools": 135,
+          "delta": -89,
+          "winner": "mcp"
+        },
+        {
+          "id": 69,
+          "name": "Datadog",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Admin / Customer Account Required",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 255,
+          "mcp_tools": 370,
+          "delta": -115,
+          "winner": "mcp"
+        }
+      ],
+      "api_moat_apps": [
+        {
+          "id": 61,
+          "name": "GitHub",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 883,
+          "mcp_tools": 44,
+          "delta": 839,
+          "winner": "api"
+        },
+        {
+          "id": 68,
+          "name": "MongoDB Atlas",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 496,
+          "mcp_tools": 41,
+          "delta": 455,
+          "winner": "api"
+        },
+        {
+          "id": 81,
+          "name": "Stripe",
+          "category": "Finance and Fintech",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 428,
+          "mcp_tools": 10,
+          "delta": 418,
+          "winner": "api"
+        },
+        {
+          "id": 62,
+          "name": "Vercel",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 399,
+          "mcp_tools": 37,
+          "delta": 362,
+          "winner": "api"
+        },
+        {
+          "id": 70,
+          "name": "Sentry",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 210,
+          "mcp_tools": 9,
+          "delta": 201,
+          "winner": "api"
+        },
+        {
+          "id": 65,
+          "name": "Supabase",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 230,
+          "mcp_tools": 32,
+          "delta": 198,
+          "winner": "api"
+        },
+        {
+          "id": 55,
+          "name": "Apify",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 184,
+          "mcp_tools": 12,
+          "delta": 172,
+          "winner": "api"
+        },
+        {
+          "id": 64,
+          "name": "Cloudflare",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 171,
+          "mcp_tools": 3,
+          "delta": 168,
+          "winner": "api"
+        },
+        {
+          "id": 12,
+          "name": "Intercom",
+          "category": "Support and Helpdesk",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 138,
+          "mcp_tools": 15,
+          "delta": 123,
+          "winner": "api"
+        },
+        {
+          "id": 77,
+          "name": "ClickUp",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 163,
+          "mcp_tools": 58,
+          "delta": 105,
+          "winner": "api"
+        },
+        {
+          "id": 82,
+          "name": "Plaid",
+          "category": "Finance and Fintech",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 70,
+          "mcp_tools": 5,
+          "delta": 65,
+          "winner": "api"
+        },
+        {
+          "id": 17,
+          "name": "Plain",
+          "category": "Support and Helpdesk",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 119,
+          "mcp_tools": 80,
+          "delta": 39,
+          "winner": "api"
+        },
+        {
+          "id": 76,
+          "name": "Monday.com",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 122,
+          "mcp_tools": 96,
+          "delta": 26,
+          "winner": "api"
+        },
+        {
+          "id": 71,
+          "name": "Notion",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 57,
+          "mcp_tools": 42,
+          "delta": 15,
+          "winner": "api"
+        }
+      ],
+      "mcp_leads_apps": [
+        {
+          "id": 69,
+          "name": "Datadog",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Admin / Customer Account Required",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 255,
+          "mcp_tools": 370,
+          "delta": -115,
+          "winner": "mcp"
+        },
+        {
+          "id": 53,
+          "name": "Ahrefs",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Paid Plan",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 46,
+          "mcp_tools": 135,
+          "delta": -89,
+          "winner": "mcp"
+        },
+        {
+          "id": 97,
+          "name": "higgsfield",
+          "category": "AI, Research and Media-native",
+          "access_model": "Self-Serve Paid Plan",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 13,
+          "mcp_tools": 101,
+          "delta": -88,
+          "winner": "mcp"
+        },
+        {
+          "id": 8,
+          "name": "Close",
+          "category": "CRM and Sales",
+          "access_model": "Self-Serve Dev + App Review",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 75,
+          "mcp_tools": 114,
+          "delta": -39,
+          "winner": "mcp"
+        },
+        {
+          "id": 73,
+          "name": "Linear",
+          "category": "Productivity and Project Management",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Ready Today (Easy Win)",
+          "api_tools": 47,
+          "mcp_tools": 78,
+          "delta": -31,
+          "winner": "mcp"
+        },
+        {
+          "id": 89,
+          "name": "Ramp",
+          "category": "Finance and Fintech",
+          "access_model": "Admin / Customer Account Required",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 186,
+          "mcp_tools": 213,
+          "delta": -27,
+          "winner": "mcp"
+        },
+        {
+          "id": 60,
+          "name": "Clay",
+          "category": "Data, SEO and Scraping",
+          "access_model": "Self-Serve Free / Trial",
+          "buildability_verdict": "Buildable with Friction",
+          "api_tools": 15,
+          "mcp_tools": 17,
+          "delta": -2,
+          "winner": "mcp"
+        }
+      ],
+      "mcp_only_apps": [
+        {
+          "id": 34,
+          "name": "GoHighLevel",
+          "category": "Marketing, Ads, Email and Social",
+          "access_model": "Self-Serve Dev + App Review",
+          "tools_count": 36,
+          "triggers_count": 0,
+          "managed_oauth": false
+        },
+        {
+          "id": 96,
+          "name": "Devin",
+          "category": "AI, Research and Media-native",
+          "access_model": "Self-Serve Paid Plan",
+          "tools_count": 23,
+          "triggers_count": 0,
+          "managed_oauth": false
+        },
+        {
+          "id": 15,
+          "name": "Pylon",
+          "category": "Support and Helpdesk",
+          "access_model": "Admin / Customer Account Required",
+          "tools_count": 12,
+          "triggers_count": 0,
+          "managed_oauth": false
+        },
+        {
+          "id": 63,
+          "name": "Netlify",
+          "category": "Developer, Infra and Data platforms",
+          "access_model": "Self-Serve Free / Trial",
+          "tools_count": 9,
+          "triggers_count": 0,
+          "managed_oauth": false
+        },
+        {
+          "id": 92,
+          "name": "Otter AI",
+          "category": "AI, Research and Media-native",
+          "access_model": "Partner / Sales-Gated",
+          "tools_count": 3,
+          "triggers_count": 0,
+          "managed_oauth": false
+        }
+      ]
+    }
   },
   "verification": {
     "pass2_diff_summary": {

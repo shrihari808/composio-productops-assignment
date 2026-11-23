@@ -72,6 +72,7 @@ def build_llms_txt(records: list[dict], analytics: dict, human_audit: dict) -> s
             f"Pass 2 automated {s.get('pass2_accuracy_pct')}% -> "
             f"Final audited {s.get('final_accuracy_pct')}%"
         )
+    bvw = rm.get("build_vs_wrap", {})
     lines.extend([
         "",
         "## Strategic Composio Action Queues",
@@ -80,6 +81,7 @@ def build_llms_txt(records: list[dict], analytics: dict, human_audit: dict) -> s
         f"- Net-New Partner/Outreach Queue: {[x['name'] for x in rm.get('net_new_outreach', [])]}",
         f"- Net-New Non-API Blockers: {[x['name'] for x in rm.get('net_new_blocked', [])]}",
         f"- Official MCP Expansion Candidates (Built API Only in Composio, Official Vendor MCP exists): {[x['name'] for x in rm.get('mcp_expansion_candidates', [])]}",
+        f"- Build vs. Wrap Depth Split ({bvw.get('both_count', 0)} Both Built + Provider MCP apps): Built API avg {bvw.get('both_avg_api_tools', 0)} tools vs. Provider MCP avg {bvw.get('both_avg_mcp_tools', 0)} tools ({bvw.get('both_depth_ratio', 0)}x); Provider MCP leads on {bvw.get('mcp_beats_api_count', 0)}/{bvw.get('both_count', 0)} apps ({[x['name'] for x in bvw.get('mcp_leads_apps', [])]}); Provider MCP Only ({bvw.get('mcp_only_count', 0)} apps) avg {bvw.get('mcp_only_avg_tools', 0)} tools (median {bvw.get('mcp_only_median_tools', 0)}), {bvw.get('mcp_only_with_triggers', 0)} triggers, {bvw.get('mcp_only_with_managed_oauth', 0)} managed OAuth.",
         "",
         "## Machine-Readable Artifacts",
         "- Final Verified Dataset: data/final_results.json",
@@ -148,6 +150,36 @@ def generate_html(
     easiest_cats = sorted(cat_matrix, key=lambda x: x["ready_today"], reverse=True)[:2]
     hardest_cats = sorted(cat_matrix, key=lambda x: x["gated_outreach"] + x["gated_or_review_count"], reverse=True)[:2]
     top_mcp_cats = sorted(cat_matrix, key=lambda x: x["mcp_official"], reverse=True)[:2]
+
+    bvw = rm.get("build_vs_wrap", {})
+    bvw_both_n = bvw.get("both_count", 22)
+    bvw_avg_api = bvw.get("both_avg_api_tools", 195.8)
+    bvw_avg_mcp = bvw.get("both_avg_mcp_tools", 68.8)
+    bvw_ratio = bvw.get("both_depth_ratio", 2.8)
+    bvw_api_wins = bvw.get("api_beats_mcp_count", 14)
+    bvw_mcp_wins = bvw.get("mcp_beats_api_count", 7)
+    bvw_mcp_only_n = bvw.get("mcp_only_count", 5)
+    bvw_mcp_only_avg = bvw.get("mcp_only_avg_tools", 16.6)
+    bvw_mcp_only_med = bvw.get("mcp_only_median_tools", 12)
+
+    def bvw_pair_links(items: list[dict], limit: int = 8, mode: str = "pair") -> str:
+        out = []
+        for it in items[:limit]:
+            nm = html.escape(str(it.get("name", "")))
+            if mode == "api":
+                stat = f"{it['api_tools']} vs {it['mcp_tools']}"
+                badge_cls = "q-badge q-badge--teal"
+            elif mode == "mcp":
+                stat = f"{it['mcp_tools']} vs {it['api_tools']}"
+                badge_cls = "q-badge q-badge--ochre"
+            else:
+                stat = f"{it['tools_count']} tools"
+                badge_cls = "q-badge q-badge--muted"
+            out.append(
+                f'<a href="#matrix" class="q-link" onclick="selectAppAndJump({it["id"]}); return false;">'
+                f'<span>{nm}</span><span class="{badge_cls}">{stat}</span></a>'
+            )
+        return "".join(out)
 
     # Machine-readable payload embedded for agents & client-side app-frame explorer
     embedded_payload = {
@@ -585,6 +617,43 @@ def generate_html(
   .finding__n {{ font-family: var(--font-mono); font-size: var(--t-label); color: var(--muted); }}
   .finding h3 {{ margin: 0 0 var(--s-2); color: var(--ink); }}
   .finding p {{ font-size: var(--t-small); line-height: 1.55; margin: 0; color: var(--ink); }}
+  .finding-feature {{
+    margin-top: var(--s-5);
+    border-top: 1px solid var(--line-strong);
+    padding-top: var(--s-4);
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: var(--s-4) var(--gutter);
+    align-items: start;
+  }}
+  .finding-feature__copy h3 {{ margin: 0 0 var(--s-2); color: var(--ink); }}
+  .finding-feature__copy p {{ font-size: var(--t-small); line-height: 1.55; margin: 0; color: var(--ink); }}
+  .finding-feature__metrics {{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-3);
+    margin: 0;
+  }}
+  .finding-feature__metrics div {{
+    border-top: 1px solid var(--line);
+    padding-top: var(--s-2);
+  }}
+  .finding-feature__metrics dt {{ font-size: var(--t-label); color: var(--muted); }}
+  .finding-feature__metrics dd {{
+    margin: 4px 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--t-card);
+    font-weight: 500;
+    color: var(--ink);
+  }}
+  .finding-feature__metrics dd small {{
+    display: block;
+    font-family: var(--font-text);
+    font-size: var(--t-label);
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 2px;
+  }}
 
   /* Chart boxes (explicit stable heights so Chart.js never drops categorical axis labels) */
   .chart-grid {{
@@ -605,6 +674,7 @@ def generate_html(
   .chart-box p {{ font-size: var(--t-small); color: var(--muted); margin: 0 0 var(--s-3); }}
   .chart-canvas {{ position: relative; height: 260px; width: 100%; }}
   .chart-canvas--catalog {{ height: 280px; }}
+  .chart-canvas--bvw {{ height: 380px; }}
   .chart-canvas--catbar {{ height: 220px; }}
   .chart-canvas--acc {{ height: 280px; }}
   .chart-canvas--fixes {{ height: 250px; }}
@@ -662,6 +732,18 @@ def generate_html(
     background: color-mix(in srgb, #8f2d2d 13%, var(--bg));
     padding: 1px 5px;
     border-radius: var(--r-sm);
+  }}
+  .q-badge--teal {{
+    color: #0b3d41;
+    background: color-mix(in srgb, #0f5257 15%, var(--bg));
+  }}
+  .q-badge--ochre {{
+    color: #5c3f0b;
+    background: color-mix(in srgb, #8c6218 16%, var(--bg));
+  }}
+  .q-badge--muted {{
+    color: var(--ink);
+    background: color-mix(in srgb, var(--ink) 9%, var(--bg));
   }}
   .q-toggle {{ font-size: var(--t-label); font-family: var(--font-mono); color: var(--muted); }}
   .q-toggle:hover {{ color: var(--action); }}
@@ -1202,7 +1284,7 @@ def generate_html(
 
   /* Tablet & mobile responsiveness */
   @media (max-width: 1023px) {{
-    .finding-grid, .chart-grid, .proof-grid, .hitl-grid, .dossier__grid {{
+    .finding-grid, .finding-feature, .chart-grid, .proof-grid, .hitl-grid, .dossier__grid {{
       grid-template-columns: 1fr;
     }}
     .matrix-controls {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
@@ -1213,6 +1295,7 @@ def generate_html(
     .app-frame__detail {{ padding: var(--s-4); }}
     .chart-canvas {{ height: 220px; }}
     .chart-canvas--catalog {{ height: 220px; }}
+    .chart-canvas--bvw {{ height: 320px; }}
     .chart-canvas--catbar {{ height: 200px; }}
     .chart-canvas--acc {{ height: 220px; }}
     .chart-canvas--fixes {{ height: 230px; }}
@@ -1220,6 +1303,7 @@ def generate_html(
   @media (max-width: 639px) {{
     main > :is(section, .section) {{ padding: var(--s-7) 0 !important; }}
     .hero-facts {{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3); }}
+    .finding-feature__metrics {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }}
     .hero__text > * + * {{ margin-top: var(--s-3); }}
     .hero__text > .btn-row {{ margin-top: var(--s-4); }}
     .preview-mcp {{ display: none; }}
@@ -1316,7 +1400,7 @@ def generate_html(
     <div class="wrap">
       <div class="group">
         <div class="section-head">
-          <h2 id="patterns-h">Six patterns across 100 apps. <span class="muted">Dual auth and vendor MCPs now lead.</span></h2>
+          <h2 id="patterns-h">Seven patterns across 100 apps. <span class="muted">Dual auth and vendor MCPs now lead.</span></h2>
           <p class="measure">Clustered from 432 live documentation links and 1,842 production Composio toolkit schemas.</p>
         </div>
         <div class="finding-grid">
@@ -1351,6 +1435,18 @@ def generate_html(
             <p>{webhooks_yes} vendors document webhooks, yet only {cat_sum.get('with_triggers', 23)} matched Composio toolkits ship triggers. {len(rm.get('trigger_expansion_candidates', []))} existing Composio toolkits support vendor webhooks today with 0 triggers—a direct retention win.</p>
           </article>
         </div>
+        <article class="finding-feature" aria-label="Pattern 7 Build vs wrap">
+          <div class="finding-feature__copy">
+            <div class="finding__top"><p class="finding__k">Pattern 7 · Build vs. wrap law</p><span class="finding__n">{bvw_ratio}x native depth</span></div>
+            <h3>Built APIs remain Composio's depth moat, while Provider MCPs win on high-friction apps</h3>
+            <p>Across the {bvw_both_n} apps shipping both a Built API and Provider MCP in Composio, native APIs average {bvw_avg_api} tools versus {bvw_avg_mcp} for vendor MCPs—leading on mature developer and payments platforms like GitHub, Stripe and Vercel. Yet Provider MCPs outgun Built APIs on {bvw_mcp_wins}/{bvw_both_n} mostly GraphQL or enterprise-gated apps (Datadog, Ramp, Ahrefs, Close, higgsfield, Linear, Clay). <a class="link" href="#build-vs-wrap">Inspect the Build vs. Wrap breakdown</a>.</p>
+          </div>
+          <dl class="finding-feature__metrics">
+            <div><dt>Both (n={bvw_both_n})</dt><dd>{bvw_avg_api} vs {bvw_avg_mcp}<small>Avg API vs MCP tools</small></dd></div>
+            <div><dt>MCP beats API</dt><dd>{bvw_mcp_wins}/{bvw_both_n}<small>GraphQL &amp; gated apps</small></dd></div>
+            <div><dt>MCP only (n={bvw_mcp_only_n})</dt><dd>{bvw_mcp_only_avg}<small>Avg tools · 0 triggers</small></dd></div>
+          </dl>
+        </article>
       </div>
 
       <div class="group">
@@ -1427,6 +1523,46 @@ def generate_html(
               <div class="q-links">{queue_links(rm.get('net_new_blocked', []), 10)}</div>
               <p class="queue-sublabel">Existing Composio toolkits with vendor webhooks but 0 live triggers:</p>
               <div class="q-links">{queue_links(rm.get('trigger_expansion_candidates', []), 10)}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group" id="build-vs-wrap">
+        <div class="section-head">
+          <h3>Build vs. wrap: Built API depth versus Provider MCP depth</h3>
+          <p class="measure">Measured live across all {bvw_both_n} dual-shipped Composio apps ({bvw_avg_api} avg API tools vs. {bvw_avg_mcp} avg MCP tools) and {bvw_mcp_only_n} Provider-MCP-only toolkits.</p>
+        </div>
+        <div class="grid roadmap-split">
+          <div class="chart-box span-6">
+            <h3>Built API vs. Provider MCP tool count</h3>
+            <p>Top {min(6, len(bvw.get('api_moat_apps', [])))} API-dominant platforms alongside all {bvw_mcp_wins} apps where Provider MCP leads</p>
+            <div class="chart-canvas chart-canvas--bvw"><canvas id="chartBuildVsWrap" role="img" aria-label="Built API versus Provider MCP tool counts across dual-shipped apps"></canvas></div>
+          </div>
+          <div class="queue-list span-6">
+            <div class="queue-row">
+              <div class="queue-row__head">
+                <h3>Native Built API is the depth moat</h3>
+                <span class="mono-pill">{bvw_api_wins}/{bvw_both_n} apps · {bvw_ratio}x avg</span>
+              </div>
+              <p>Mature developer and commerce platforms expose narrow, curated MCP slices while Composio's native REST wrappers unlock full workflows and event triggers (API vs MCP tools):</p>
+              <div class="q-links">{bvw_pair_links(bvw.get('api_moat_apps', []), 8, mode='api')}</div>
+            </div>
+            <div class="queue-row">
+              <div class="queue-row__head">
+                <h3>Provider MCP outguns Built API</h3>
+                <span class="mono-pill">{bvw_mcp_wins}/{bvw_both_n} apps</span>
+              </div>
+              <p>Clustered in GraphQL/MCP-first or high-friction paid and enterprise platforms where maintaining custom REST wrappers is costly (MCP vs API tools):</p>
+              <div class="q-links">{bvw_pair_links(bvw.get('mcp_leads_apps', []), 10, mode='mcp')}</div>
+            </div>
+            <div class="queue-row">
+              <div class="queue-row__head">
+                <h3>Provider MCP only is a wedge, not parity</h3>
+                <span class="mono-pill">{bvw_mcp_only_n} apps · median {bvw_mcp_only_med} tools</span>
+              </div>
+              <p>Fastest path to day-one coverage, but averages {bvw_mcp_only_avg} tools with 0 triggers and 0 managed OAuth—use as an entry wedge, then layer native APIs for depth:</p>
+              <div class="q-links">{bvw_pair_links(bvw.get('mcp_only_apps', []), 10, mode='only')}</div>
             </div>
           </div>
         </div>
@@ -2298,6 +2434,23 @@ def generate_html(
       }}]
     }},
     options: {{ animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: {{ padding: {{ left: 10, right: 8 }} }}, plugins: {{ legend: {{ display: false }} }}, scales: {{ x: {{ grid: {{ color: 'rgba(20,20,20,0.08)' }} }}, y: {{ grid: {{ display: false }}, ticks: {{ autoSkip: false }} }} }} }}
+  }});
+
+  const bvwData = (ANALYTICS.composio_roadmap && ANALYTICS.composio_roadmap.build_vs_wrap) || {{}};
+  const bvwChartRows = [
+    ...(bvwData.api_moat_apps || []).slice(0, 6),
+    ...(bvwData.mcp_leads_apps || [])
+  ];
+  new Chart(document.getElementById('chartBuildVsWrap'), {{
+    type: 'bar',
+    data: {{
+      labels: bvwChartRows.map(r => r.name),
+      datasets: [
+        {{ label: 'Built API tools', data: bvwChartRows.map(r => r.api_tools), backgroundColor: '#0f5257', borderRadius: 2 }},
+        {{ label: 'Provider MCP tools', data: bvwChartRows.map(r => r.mcp_tools), backgroundColor: '#8c6218', borderRadius: 2 }}
+      ]
+    }},
+    options: {{ animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: {{ padding: {{ left: 6, right: 8 }} }}, plugins: {{ legend: {{ position: 'bottom', labels: {{ boxWidth: 10, padding: 12 }} }} }}, scales: {{ x: {{ grid: {{ color: 'rgba(20,20,20,0.08)' }} }}, y: {{ grid: {{ display: false }}, ticks: {{ autoSkip: false, font: {{ size: 12 }} }} }} }} }}
   }});
 
   const cmList = ANALYTICS.category_matrix || [];

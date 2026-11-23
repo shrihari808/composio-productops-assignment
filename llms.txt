@@ -20,6 +20,7 @@
 - Net-New Partner/Outreach Queue: ['DealCloud', 'Salesforce Commerce Cloud', 'Waterfall.io', 'Paygent Connect']
 - Net-New Non-API Blockers: ['Sherlock', 'Mermaid CLI']
 - Official MCP Expansion Candidates (Built API Only in Composio, Official Vendor MCP exists): ['Salesforce', 'HubSpot', 'Pipedrive', 'Attio', 'Twenty', 'Podio', 'Zoho CRM', 'Copper', 'Zendesk', 'Freshdesk', 'Front', 'Help Scout', 'Gorgias', 'Slack', 'Twilio', 'Zoho Cliq', 'Lark (Larksuite)', 'Pumble', 'WhatsApp Business', 'Aircall', 'Google Ads', 'Meta Ads', 'Mailchimp', 'Klaviyo', 'Pinterest', 'Shopify', 'BigCommerce', 'Gumroad', 'Amazon Selling Partner', 'DataForSEO', 'MrScraper', 'Firecrawl', 'Bright Data', 'Neo4j', 'Snowflake', 'Airtable', 'Jira', 'Asana', 'Coda', 'Smartsheet', 'Harvest', 'QuickBooks', 'Xero', 'Brex', 'PitchBook', 'NotebookLM', 'Fathom', 'YouTube Transcript', 'Grain']
+- Build vs. Wrap Depth Split (22 Both Built + Provider MCP apps): Built API avg 195.8 tools vs. Provider MCP avg 68.8 tools (2.8x); Provider MCP leads on 7/22 apps (['Datadog', 'Ahrefs', 'higgsfield', 'Close', 'Linear', 'Ramp', 'Clay']); Provider MCP Only (5 apps) avg 16.6 tools (median 12), 0 triggers, 0 managed OAuth.
 
 ## Machine-Readable Artifacts
 - Final Verified Dataset: data/final_results.json

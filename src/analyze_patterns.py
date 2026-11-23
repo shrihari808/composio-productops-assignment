@@ -199,6 +199,75 @@ def compute_analytics(
         and int(r.get("composio_triggers_count") or 0) == 0
     ]
 
+    # Build vs. Wrap: Built API vs. Provider MCP tool depth across live Composio catalog
+    deep_by_app = deep_catalog.get("by_app", {}) if isinstance(deep_catalog, dict) else {}
+    both_rows: list[dict[str, Any]] = []
+    mcp_only_rows: list[dict[str, Any]] = []
+    for r in final_records:
+        cov = r.get("composio_coverage", "Not in Catalog")
+        d_entry = deep_by_app.get(r["name"], {})
+        toolkits = d_entry.get("toolkits", []) if isinstance(d_entry, dict) else []
+        if cov == "Both Built + Provider MCP":
+            api_tools = sum(int(t.get("tools_count") or 0) for t in toolkits if t.get("toolkit_type") == "api")
+            mcp_tools = sum(int(t.get("tools_count") or 0) for t in toolkits if t.get("toolkit_type") == "mcp")
+            winner = "api" if api_tools > mcp_tools else ("mcp" if mcp_tools > api_tools else "tie")
+            both_rows.append({
+                "id": r["id"],
+                "name": r["name"],
+                "category": r["category"],
+                "access_model": r["access_model"],
+                "buildability_verdict": r["buildability_verdict"],
+                "api_tools": api_tools,
+                "mcp_tools": mcp_tools,
+                "delta": api_tools - mcp_tools,
+                "winner": winner,
+            })
+        elif cov == "Provider MCP Only":
+            mcp_only_rows.append({
+                "id": r["id"],
+                "name": r["name"],
+                "category": r["category"],
+                "access_model": r["access_model"],
+                "tools_count": int(r.get("composio_tools_count") or 0),
+                "triggers_count": int(r.get("composio_triggers_count") or 0),
+                "managed_oauth": bool(r.get("composio_managed_auth")),
+            })
+
+    both_rows.sort(key=lambda x: x["delta"], reverse=True)
+    mcp_only_rows.sort(key=lambda x: x["tools_count"], reverse=True)
+    both_n = len(both_rows)
+    both_avg_api = round(sum(x["api_tools"] for x in both_rows) / both_n, 1) if both_n else 0.0
+    both_avg_mcp = round(sum(x["mcp_tools"] for x in both_rows) / both_n, 1) if both_n else 0.0
+    both_ratio = round(both_avg_api / both_avg_mcp, 1) if both_avg_mcp else 0.0
+
+    mcp_only_n = len(mcp_only_rows)
+    mcp_only_counts = sorted(x["tools_count"] for x in mcp_only_rows)
+    mcp_only_avg = round(sum(mcp_only_counts) / mcp_only_n, 1) if mcp_only_n else 0.0
+    mcp_only_median = mcp_only_counts[mcp_only_n // 2] if mcp_only_n else 0
+
+    api_moat_apps = [x for x in both_rows if x["winner"] == "api"]
+    mcp_leads_apps = sorted([x for x in both_rows if x["winner"] == "mcp"], key=lambda x: x["mcp_tools"] - x["api_tools"], reverse=True)
+    tie_apps = [x for x in both_rows if x["winner"] == "tie"]
+
+    build_vs_wrap = {
+        "both_count": both_n,
+        "both_avg_api_tools": both_avg_api,
+        "both_avg_mcp_tools": both_avg_mcp,
+        "both_depth_ratio": both_ratio,
+        "api_beats_mcp_count": len(api_moat_apps),
+        "mcp_beats_api_count": len(mcp_leads_apps),
+        "tie_count": len(tie_apps),
+        "mcp_only_count": mcp_only_n,
+        "mcp_only_avg_tools": mcp_only_avg,
+        "mcp_only_median_tools": mcp_only_median,
+        "mcp_only_with_triggers": sum(1 for x in mcp_only_rows if x["triggers_count"] > 0),
+        "mcp_only_with_managed_oauth": sum(1 for x in mcp_only_rows if x["managed_oauth"]),
+        "both_apps": both_rows,
+        "api_moat_apps": api_moat_apps,
+        "mcp_leads_apps": mcp_leads_apps,
+        "mcp_only_apps": mcp_only_rows,
+    }
+
     # URL health totals
     url_stats = Counter()
     total_urls_checked = 0
@@ -264,6 +333,7 @@ def compute_analytics(
             "net_new_blocked": net_new_blocked,
             "mcp_expansion_candidates": mcp_expansion_candidates,
             "trigger_expansion_candidates": trigger_expansion_candidates,
+            "build_vs_wrap": build_vs_wrap,
         },
         "verification": {
             "pass2_diff_summary": {
