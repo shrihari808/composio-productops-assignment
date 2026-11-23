@@ -2,8 +2,8 @@
 
 An automated **3-pass research & verification pipeline** built with **Composio Platform SDK & MCP**, **Exa API**, and **Google Gemini (`gemini-4-hydrogen`)** to evaluate 100 SaaS, developer, fintech, and AI apps across 10 categories for AI agent toolkit buildability.
 
-- **Live Case Study (HTML):** Deployed via GitHub Pages (`index.html`)
-- **Agent-Consumable Index:** [`llms.txt`](llms.txt) & [`data/final_results.json`](data/final_results.json)
+- **Live Case Study (HTML):** https://composio-productops-assignment.vercel.app
+- **Agent-Consumable Index:** https://composio-productops-assignment.vercel.app/llms.txt & https://composio-productops-assignment.vercel.app/data/final_results.json
 - **Assignment Spec:** [Composio AI Product Ops Intern Take-Home](https://composio.notion.site/AI-Product-Ops-Intern-The-take-home-assignment-391f261a6dfe80e9946bee899d3a3762)
 
 ---
