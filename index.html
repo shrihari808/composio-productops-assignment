@@ -56,6 +56,54 @@
 
 <!-- Scoped visual & data-workspace CSS obeying tasteskill spacing, single h3 scale, 7:1 body contrast, and zero-violet tokens -->
 <style>
+  /* Override rigid 100svh/200svh section locking from system.css so content NEVER clips, crushes, or bleeds across sections at any viewport height */
+  html { scroll-behavior: smooth; }
+  main > :is(section, .section),
+  footer.closing {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  main > :is(section, .section) {
+    padding: var(--s-9) 0 var(--s-8) !important;
+    scroll-margin-top: var(--nav);
+  }
+  main > .hero {
+    min-height: min(100svh, 860px) !important;
+    padding: calc(var(--nav) + var(--hgap)) 0 var(--s-8) !important;
+    display: flex;
+    align-items: center;
+  }
+  #thesis.statement {
+    min-height: 52svh !important;
+    padding: var(--s-9) 0 !important;
+    display: flex;
+    align-items: center;
+  }
+  main > :is(section, .section) > :is(.wrap, .container),
+  footer.closing > .wrap {
+    height: auto !important;
+  }
+  main > :is(section, .section).g2 > :is(.wrap, .container) {
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--s-8) !important;
+  }
+  main > :is(section, .section).g2 > :is(.wrap, .container) > .group {
+    flex: none !important;
+  }
+  main > :is(section, .section) > .wrap > .fill {
+    flex: none !important;
+  }
+  footer.closing {
+    padding: var(--s-9) 0 var(--s-7) !important;
+  }
+  footer.closing .closing__cta {
+    margin-bottom: var(--s-8);
+  }
+  main > .section .section-head {
+    margin-bottom: var(--s-6);
+  }
+
   /* Uniform h3 scale across all main sections */
   main h3 {
     font-family: var(--font-text);
@@ -171,17 +219,18 @@
   }
   .ic-inv { filter: invert(1) brightness(1.08); }
 
-  /* Hero compact metrics line */
+  /* Hero compact 6-metric grid (always visible, never hidden on tablet/mobile) */
   .hero-facts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--s-4);
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-4) var(--s-5);
     margin-top: var(--s-6);
     padding-top: var(--s-5);
     border-top: 1px solid var(--line);
   }
   .hero-facts dt { font-size: var(--t-label); color: var(--muted); font-weight: 500; }
-  .hero-facts dd { margin: 4px 0 0; font-size: var(--t-h3); font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
+  .hero-facts dd { margin: 4px 0 0; font-size: var(--t-h3); font-weight: 500; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .hero-facts dd small { font-size: var(--t-label); font-weight: 400; color: var(--muted); display: block; margin-top: 2px; letter-spacing: 0; }
 
   /* Pattern ledger cards (open ruled items with clear numeric anchors) */
   .finding-grid {
@@ -204,15 +253,13 @@
   .finding__k { font-size: var(--t-label); font-weight: 500; color: var(--accent); margin: 0; }
   .finding__n { font-family: var(--font-mono); font-size: var(--t-label); color: var(--muted); }
   .finding h3 { margin: 0 0 var(--s-2); color: var(--ink); }
-  .finding p { font-size: var(--t-body); line-height: 1.5; margin: 0; color: var(--ink); }
+  .finding p { font-size: var(--t-small); line-height: 1.55; margin: 0; color: var(--ink); }
 
-  /* Chart boxes */
+  /* Chart boxes (explicit stable heights so Chart.js never drops categorical axis labels) */
   .chart-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--gutter);
-    flex: 1 1 auto;
-    min-height: 0;
   }
   .chart-box {
     background: var(--surface);
@@ -225,15 +272,14 @@
   }
   .chart-box h3 { margin: 0 0 4px; color: var(--ink); }
   .chart-box p { font-size: var(--t-small); color: var(--muted); margin: 0 0 var(--s-3); }
-  .chart-canvas { position: relative; height: 320px; width: 100%; flex: 1 1 auto; min-height: 220px; }
-  .chart-canvas--catalog { height: 360px; min-height: 330px; }
-  .chart-canvas--catbar { height: 155px; min-height: 150px; }
-  .chart-canvas--acc { height: 310px; min-height: 290px; }
-  .chart-canvas--fixes { height: 170px; min-height: 160px; }
-  #verification .section-head { margin-bottom: var(--s-5); }
-  .roadmap-cat-chart { margin-bottom: var(--s-3); background: transparent; border: 0; padding: 0; }
+  .chart-canvas { position: relative; height: 260px; width: 100%; }
+  .chart-canvas--catalog { height: 280px; }
+  .chart-canvas--catbar { height: 220px; }
+  .chart-canvas--acc { height: 280px; }
+  .chart-canvas--fixes { height: 250px; }
+  .roadmap-cat-chart { margin-bottom: var(--s-5); background: var(--surface); border: 1px solid var(--line); padding: var(--s-5); border-radius: var(--r-md); }
 
-  /* Roadmap asymmetric layout: chart left (span-6) + open ruled single-column queues right (span-6, aligned at x=732) */
+  /* Roadmap asymmetric layout: chart left (span-6) + open ruled single-column queues right (span-6) */
   .roadmap-split {
     align-items: start;
     row-gap: var(--s-5);
@@ -241,11 +287,11 @@
   .queue-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--s-3);
+    gap: var(--s-4);
   }
   .queue-row {
     border-top: 1px solid var(--line);
-    padding-top: var(--s-2);
+    padding-top: var(--s-3);
     min-width: 0;
   }
   .queue-row__head {
@@ -253,14 +299,15 @@
     align-items: baseline;
     justify-content: space-between;
     gap: var(--s-2);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   .queue-row__head h3 { margin: 0; color: var(--ink); }
-  .queue-row p { font-size: var(--t-small); color: var(--ink); margin: 0 0 var(--s-2); line-height: 1.4; }
+  .queue-row p { font-size: var(--t-small); color: var(--ink); margin: 0 0 var(--s-2); line-height: 1.45; }
+  .queue-sublabel { font-size: var(--t-label); font-weight: 500; color: var(--muted); margin: var(--s-3) 0 6px !important; }
   .q-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 14px;
+    gap: 6px 14px;
     align-items: center;
   }
   .q-link {
@@ -270,17 +317,29 @@
     color: var(--action);
     font-size: var(--t-small);
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.35;
     border-bottom: 1px solid transparent;
     transition: border-color var(--m-in, 150ms) var(--ease);
   }
   .q-link:hover { border-bottom-color: var(--action); }
-  .q-more { font-size: var(--t-label); color: var(--muted); font-family: var(--font-mono); }
+  .q-link--extra { display: none; }
+  .q-links.is-expanded .q-link--extra { display: inline-flex; }
+  .q-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #6e1c1c;
+    background: color-mix(in srgb, #8f2d2d 13%, var(--bg));
+    padding: 1px 5px;
+    border-radius: var(--r-sm);
+  }
+  .q-toggle { font-size: var(--t-label); font-family: var(--font-mono); color: var(--muted); }
+  .q-toggle:hover { color: var(--action); }
 
-  /* Data tables (clean 1px hairline ledger on section's own ground — no top border rule) */
+  /* Data tables (clean 1px hairline ledger on section's own ground — horizontal scroll on narrow screens instead of hiding columns) */
   .ledger-wrap {
     width: 100%;
-    overflow-x: clip;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .ledger {
     width: 100%;
@@ -299,13 +358,15 @@
   .ledger th:first-child, .ledger td:first-child { padding-left: 0; }
   .ledger th:last-child, .ledger td:last-child { padding-right: 0; }
   .ledger td {
-    padding: 10px var(--s-3);
+    padding: 11px var(--s-3);
     border-bottom: 1px solid var(--line);
     color: var(--ink);
     vertical-align: top;
-    line-height: 1.42;
+    line-height: 1.48;
   }
   .ledger tr:last-child td { border-bottom: 0; }
+  .td-app { white-space: nowrap; min-width: 160px; }
+  .td-finding { min-width: 280px; max-width: 560px; overflow-wrap: break-word; }
   .td-strong { font-weight: 500; }
   .td-num { text-align: right; font-family: var(--font-mono); white-space: nowrap; }
   .td-ready { color: #0f5257; font-weight: 500; }
@@ -313,10 +374,14 @@
   .td-gated { color: #8f2d2d; font-weight: 500; }
   .td-accent { color: var(--accent); font-weight: 500; }
   .td-sub { display: block; font-size: var(--t-label); color: var(--muted); }
-  .td-method { font-size: var(--t-label); color: var(--muted); }
-  .mono-cell { font-family: var(--font-mono); font-size: var(--t-label); }
-  .diff-old { color: #7d2222; }
-  .diff-new { color: #0f5257; font-weight: 500; }
+  .td-method { font-size: var(--t-label); color: var(--muted); min-width: 170px; }
+  .mono-cell { font-family: var(--font-mono); font-size: var(--t-label); white-space: nowrap; }
+  .diff-old { color: #7d2222; min-width: 120px; max-width: 230px; overflow-wrap: anywhere; word-break: break-word; }
+  .diff-new { color: #0f5257; font-weight: 500; min-width: 120px; max-width: 230px; overflow-wrap: anywhere; word-break: break-word; }
+  .audit-row--extra, .diff-row--extra { display: none; }
+  .ledger-wrap.is-expanded .audit-row--extra,
+  .ledger-wrap.is-expanded .diff-row--extra { display: table-row; }
+  .fix-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s-3); }
   .link-btn {
     color: var(--action);
     font-weight: 500;
@@ -346,7 +411,7 @@
   }
   .stat-cell dt { font-size: var(--t-label); color: var(--muted); }
   .stat-cell dd { margin: 2px 0 0; font-size: var(--t-card); font-weight: 500; font-family: var(--font-mono); color: var(--ink); }
-  .verify-copy { font-size: var(--t-small); line-height: 1.5; color: var(--ink); margin: 0 0 var(--s-4); }
+  .verify-copy { font-size: var(--t-small); line-height: 1.55; color: var(--ink); margin: 0 0 var(--s-4); }
 
   .audit-bar {
     display: flex;
@@ -364,24 +429,33 @@
     justify-content: space-between;
     gap: var(--s-3);
   }
+  .audit-foot__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+  }
 
-  /* Dark Band: Pipeline Diagram + 4 Open Ruled Composio Proof Columns (fits 1 screen cleanly) */
-  #agent .section-head { margin-bottom: var(--s-4); }
+  /* Dark Band: Pipeline Diagram + 4 Open Ruled Composio Proof Columns + Agent vs Human + Rendered Mermaid Proof */
+  #agent .section-head { margin-bottom: var(--s-5); }
   #agent .dg-panel {
     position: relative;
     height: 270px;
+    min-height: 270px;
+    flex-shrink: 0;
     background: var(--p-inv-surface);
     border: 1px solid color-mix(in srgb, var(--p-inv-ink) 16%, transparent);
     border-radius: var(--r-md);
     padding: 0;
     overflow: clip;
-    margin-bottom: var(--s-4);
+    margin-bottom: var(--s-6);
   }
   #agent .dg-panel > .dg { position: absolute; inset: 0; height: 100%; }
   .proof-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--gutter);
+    margin-bottom: var(--s-6);
   }
   .proof-col {
     border-top: 1px solid color-mix(in srgb, var(--p-inv-ink) 22%, transparent);
@@ -400,13 +474,53 @@
   .proof-meta dt { color: var(--p-inv-muted); }
   .proof-meta dd { margin: 0; color: var(--p-inv-ink); }
   .proof-log { color: #f0d38c !important; }
-  .proof-col__desc { margin: 2px 0 0; font-size: var(--t-small); color: var(--p-inv-ink); line-height: 1.42; }
+  .proof-col__desc { margin: 2px 0 0; font-size: var(--t-small); color: var(--p-inv-ink); line-height: 1.45; }
+
+  /* Restored Agent vs Human 2-column analysis inside dark band */
+  .hitl-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-6) var(--gutter);
+    margin-bottom: var(--s-6);
+  }
+  .hitl-col {
+    border-top: 1px solid color-mix(in srgb, var(--p-inv-ink) 22%, transparent);
+    padding-top: var(--s-4);
+    min-width: 0;
+  }
+  .hitl-col__k {
+    font-family: var(--font-mono);
+    font-size: var(--t-label);
+    margin: 0 0 var(--s-2);
+    color: #8fd3c9;
+  }
+  .hitl-col--human .hitl-col__k { color: #f0d38c; }
+  .hitl-col h3 { color: var(--p-inv-ink); margin: 0 0 var(--s-3); }
+  .hitl-list {
+    display: grid;
+    gap: var(--s-3);
+    margin: 0;
+    padding-left: 18px;
+    list-style: disc;
+    font-size: var(--t-small);
+    line-height: 1.52;
+    color: var(--p-inv-ink);
+  }
+  .hitl-list strong { color: #ffffff; font-weight: 500; }
+  .hitl-list code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 1px 5px;
+    border-radius: var(--r-sm);
+    background: color-mix(in srgb, var(--p-inv-ink) 12%, transparent);
+    color: var(--p-inv-ink);
+  }
 
   .mermaid-proof {
-    margin-top: var(--s-3);
+    margin-top: 0;
     border: 1px solid color-mix(in srgb, var(--p-inv-ink) 18%, transparent);
     border-radius: var(--r-md);
-    padding: var(--s-2) var(--s-4);
+    padding: var(--s-3) var(--s-4);
     background: var(--p-inv-surface);
   }
   .mermaid-proof summary {
@@ -414,19 +528,40 @@
     font-size: var(--t-small);
     font-weight: 500;
     color: var(--p-inv-ink);
+    user-select: none;
+  }
+  .mermaid-stage {
+    margin-top: var(--s-4);
+    padding: var(--s-4);
+    background: #101214;
+    border: 1px solid color-mix(in srgb, var(--p-inv-ink) 14%, transparent);
+    border-radius: var(--r-sm);
+    overflow-x: auto;
+  }
+  .mermaid-stage svg {
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+  .mermaid-src-toggle {
+    margin-top: var(--s-3);
+    font-size: var(--t-label);
+    color: var(--p-inv-muted);
   }
   .mermaid-proof pre {
-    margin: var(--s-3) 0 0;
+    margin: var(--s-2) 0 0;
     padding: var(--s-3);
     overflow-x: auto;
+    max-height: 360px;
     font-family: var(--font-mono);
-    font-size: var(--t-label);
+    font-size: 12px;
+    line-height: 1.5;
     color: var(--p-inv-ink);
     background: #0d0e0f;
     border-radius: var(--r-sm);
   }
 
-  /* Software App-Frame 100-App Split Workspace (no popup modal) */
+  /* Section 5: Interactive 100-App Research Matrix (Matrix Table + Split Dossier, zero overflow onto footer) */
   .matrix-controls {
     display: grid;
     grid-template-columns: 2fr repeat(4, minmax(0, 1fr));
@@ -476,20 +611,107 @@
     align-items: center;
     gap: 6px;
     cursor: pointer;
-    min-height: 44px;
+    min-height: 40px;
+  }
+  .matrix-toolbar-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-3);
   }
   .matrix-exports {
     display: flex;
     flex-wrap: wrap;
     gap: var(--s-2);
   }
-  .app-frame {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
+
+  /* Full Multi-Column Matrix Table View */
+  .matrix-table-shell {
     border: 1px solid var(--line);
     border-radius: var(--r-md);
     background: var(--surface);
-    min-height: 520px;
+    overflow: hidden;
+  }
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--t-small);
+  }
+  .matrix-table th {
+    font-size: var(--t-label);
+    font-weight: 500;
+    color: var(--muted);
+    padding: 11px var(--s-3);
+    border-bottom: 1px solid var(--line-strong);
+    background: color-mix(in srgb, var(--ink) 3%, var(--surface));
+    white-space: nowrap;
+  }
+  .matrix-table td {
+    padding: 11px var(--s-3);
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .matrix-table tbody tr {
+    cursor: pointer;
+    transition: background var(--m-in, 150ms) var(--ease);
+  }
+  .matrix-table tbody tr:hover {
+    background: color-mix(in srgb, var(--ink) 4%, var(--bg));
+  }
+  .matrix-table tbody tr.is-active {
+    background: var(--bg);
+    box-shadow: inset 3px 0 0 var(--action);
+  }
+  .matrix-table tbody tr:last-child td { border-bottom: 0; }
+  .mt-app { display: flex; align-items: flex-start; gap: 10px; min-width: 190px; }
+  .mt-app__name { font-weight: 500; color: var(--ink); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .mt-app__cat { font-size: var(--t-label); color: var(--muted); display: block; }
+  .mt-app__one { font-size: 12px; color: var(--muted); margin-top: 2px; max-width: 280px; }
+  .mt-auth { display: flex; flex-wrap: wrap; gap: 4px; max-width: 190px; }
+  .mt-pill {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: var(--r-sm);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: color-mix(in srgb, var(--ink) 7%, transparent);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .mt-pill--audit { background: color-mix(in srgb, #0f5257 16%, var(--bg)); color: #0b3d41; }
+  .mt-pill--fix { background: color-mix(in srgb, #8c6218 16%, var(--bg)); color: #5c3f0b; }
+  .mt-comp-slugs { font-family: var(--font-mono); font-size: 12px; color: var(--action); word-break: break-word; max-width: 170px; }
+  .mt-comp-meta { font-size: 11px; color: var(--muted); margin-top: 2px; white-space: nowrap; }
+  .mt-blocker { font-size: 12px; color: var(--muted); margin-top: 4px; max-width: 210px; }
+  .matrix-table-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-3);
+    padding: var(--s-3) var(--s-4);
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    font-size: var(--t-small);
+  }
+  .matrix-table-foot__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+  }
+
+  /* Split Dossier App-Frame (bounded sticky sidebar + auto-height dossier, ZERO overflow) */
+  .app-frame {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    overflow: hidden;
   }
   .app-frame__side {
     display: flex;
@@ -497,10 +719,14 @@
     border-right: 1px solid var(--line);
     background: var(--bg);
     min-width: 0;
+    position: sticky;
+    top: calc(var(--nav) + 16px);
+    max-height: 820px;
   }
   .app-frame__list {
     flex: 1 1 auto;
     min-width: 0;
+    overflow-y: auto;
   }
   .app-pager {
     display: flex;
@@ -511,6 +737,7 @@
     border-top: 1px solid var(--line);
     font-size: var(--t-small);
     background: var(--surface);
+    flex-shrink: 0;
   }
   .app-pager__info { font-family: var(--font-mono); font-size: var(--t-label); color: var(--muted); }
   .app-item {
@@ -567,6 +794,7 @@
     padding: var(--s-5) var(--s-6);
     background: var(--surface);
     min-width: 0;
+    height: auto;
   }
   .dossier__head {
     display: flex;
@@ -595,7 +823,7 @@
     min-width: 0;
   }
   .dossier__block h4 { font-size: var(--t-label); font-weight: 500; color: var(--muted); margin: 0 0 6px; }
-  .dossier__block p { font-size: var(--t-small); line-height: 1.5; margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+  .dossier__block p { font-size: var(--t-small); line-height: 1.52; margin: 0; color: var(--ink); overflow-wrap: anywhere; }
   .dossier__block a.link { overflow-wrap: anywhere; word-break: break-word; }
   .dossier__urls { list-style: none; margin: 0; padding: 0; }
   .dossier__urls li {
@@ -643,79 +871,33 @@
 
   /* Tablet & mobile responsiveness */
   @media (max-width: 1023px) {
-    .finding-grid, .chart-grid, .proof-grid, .dossier__grid {
+    .finding-grid, .chart-grid, .proof-grid, .hitl-grid, .dossier__grid {
       grid-template-columns: 1fr;
     }
     .matrix-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .matrix-controls .field--search { grid-column: 1 / -1; }
     .stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .app-frame { grid-template-columns: 1fr; height: auto; min-height: 0; flex: none !important; }
-    .app-frame__side { border-right: 0; border-bottom: 1px solid var(--line); }
+    .app-frame { grid-template-columns: 1fr; }
+    .app-frame__side { position: static; max-height: 360px; border-right: 0; border-bottom: 1px solid var(--line); }
     .app-frame__detail { padding: var(--s-4); }
-    .chart-canvas { height: 180px; min-height: 165px; }
-    .chart-canvas--catalog { height: 180px; min-height: 165px; }
-    .chart-canvas--catbar { height: 150px; min-height: 140px; }
-    .chart-canvas--acc { height: 170px; min-height: 160px; }
-    .chart-canvas--fixes { height: 150px; min-height: 140px; }
+    .chart-canvas { height: 220px; }
+    .chart-canvas--catalog { height: 220px; }
+    .chart-canvas--catbar { height: 200px; }
+    .chart-canvas--acc { height: 220px; }
+    .chart-canvas--fixes { height: 230px; }
   }
   @media (max-width: 639px) {
-    /* Fit split hero cleanly inside 1 mobile screen (<= 844px) */
+    main > :is(section, .section) { padding: var(--s-7) 0 !important; }
+    .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3); }
     .hero__text > * + * { margin-top: var(--s-3); }
     .hero__text > .btn-row { margin-top: var(--s-4); }
-    .audit-window .preview-row:nth-child(n+3) { display: none; }
-    .audit-window .ly-float { display: none; }
     .preview-mcp { display: none; }
     .preview-row { padding: var(--s-2) 0; }
     .audit-window__bar { padding: var(--s-2) var(--s-4); }
     .audit-window__list { padding: var(--s-1) var(--s-4); }
-
-    /* Keep all 2-screen sections strictly <= 2 mobile screens (<= 1680px) */
-    main > .section .section-head { margin-bottom: var(--s-4); }
-    .col-desk { display: none; }
-    .finding-grid { gap: 10px; margin-top: 0; }
-    .finding { padding-top: 10px; }
-    .finding h3 { margin-bottom: 4px; font-size: 16px; }
-    .finding p { font-size: 14px; line-height: 1.38; }
-    .chart-box { padding: 12px var(--s-3); }
-    .chart-box p { display: none; }
-    .chart-box h3 { font-size: 16px; margin-bottom: 8px; }
-    .chart-canvas { height: 125px; min-height: 120px; }
-    .chart-canvas--catalog { height: 130px; min-height: 125px; }
-    .chart-canvas--catbar { height: 115px; min-height: 110px; }
-    .chart-canvas--acc { height: 130px; min-height: 125px; }
-    .chart-canvas--fixes { height: 115px; min-height: 110px; }
-    .roadmap-cat-chart { margin-bottom: var(--s-3); padding: 10px var(--s-3); }
-    .queue-list { gap: 10px; }
-    .queue-row { padding-top: 8px; }
-    .queue-row p { margin-bottom: 4px; font-size: 14px; }
-    .q-link:nth-child(n+4) { display: none; }
-    #agent .dg-panel { height: 350px; margin-bottom: var(--s-3); }
-    .proof-grid { gap: 12px; }
-    .proof-col { padding-top: 10px; }
-    .proof-col__desc { font-size: 14px; }
-
-    /* Strict mobile table width (<= 342px) with zero horizontal bleed or clipping */
-    .ledger { table-layout: fixed; width: 100%; font-size: 13px; }
-    .ledger th, .ledger td { padding: 6px 4px; overflow-wrap: break-word; word-break: break-word; white-space: normal; }
-    .ledger .td-num { text-align: right; white-space: nowrap; }
-    #roadmap .ledger th:nth-child(1) { width: 46%; }
-    #roadmap .ledger th:nth-child(2) { width: 16%; }
-    #roadmap .ledger th:nth-child(6) { width: 19%; }
-    #roadmap .ledger th:nth-child(8) { width: 19%; }
-    #panelHuman .ledger th:nth-child(1) { width: 32%; }
-    #panelHuman .ledger th:nth-child(3) { width: 28%; }
-    #panelHuman .ledger th:nth-child(5) { width: 40%; }
-    #panelHuman .ledger td:nth-child(3) { text-align: left; }
-
-    /* 44px touch targets on narrow phones */
-    .link-btn, .q-link, .dossier__urls a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-    }
-    .q-links { gap: 0 12px; }
+    #agent .dg-panel { height: 320px; min-height: 320px; }
     .dossier__head { flex-direction: column; gap: var(--s-2); }
-    .matrix-exports .btn { width: 100%; }
+    .matrix-exports .btn { flex: 1 1 auto; }
   }
   @media (max-width: 360px) {
     .nav__logo { font-size: 15px; }
@@ -764,9 +946,12 @@
             <a class="btn btn--secondary" href="https://github.com/shrihari808/composio-productops-assignment" target="_blank" rel="noopener">View source repo</a>
           </div>
           <dl class="hero-facts">
-            <div><dt>Ready today</dt><dd>50/100</dd></div>
-            <div><dt>Official MCPs</dt><dd>89/100</dd></div>
-            <div><dt>Audit accuracy</dt><dd>100%</dd></div>
+            <div><dt>Ready today</dt><dd>50/100<small>Self-serve &amp; documented</small></dd></div>
+            <div><dt>With friction</dt><dd>43/100<small>Paywall or app review</small></dd></div>
+            <div><dt>Gated / blocked</dt><dd>7/100<small>5 outreach · 2 CLI</small></dd></div>
+            <div><dt>Official MCPs</dt><dd>89/100<small>+5 community only</small></dd></div>
+            <div><dt>OAuth2 adoption</dt><dd>88%<small>86 multi-auth apps</small></dd></div>
+            <div><dt>Audit accuracy</dt><dd>100%<small>Up from 50% in Pass 1</small></dd></div>
           </dl>
         </div>
 
@@ -788,15 +973,15 @@
   </section>
 
   <!-- DEALT MOMENT 1: WORD-HIGHLIGHT STATEMENT -->
-  <section class="section statement" id="thesis" data-moment="word-highlight" aria-label="Headline finding">
+  <section class="section statement" id="thesis" data-moment="word-highlight" data-moment-opts='{"from": 0.92, "to": 0.65}' aria-label="Headline finding">
     <div class="wrap">
       <p class="t-label">Headline finding</p>
       <p class="mo-wh__text">Half of the 100 requested apps are ready to build today, <strong>89 vendors ship official MCP servers</strong>, and 35 sit behind production review, admin or partner gates that raw LLM research misses.</p>
     </div>
   </section>
 
-  <!-- SECTION 1: PATTERNS & CHARTS (2 screens via native .g2) -->
-  <section class="section g2 bg-band" id="patterns" style="--h: 2; --hm: 2" aria-labelledby="patterns-h">
+  <!-- SECTION 1: PATTERNS & CHARTS -->
+  <section class="section g2 bg-band" id="patterns" aria-labelledby="patterns-h">
     <div class="wrap">
       <div class="group">
         <div class="section-head">
@@ -805,34 +990,34 @@
         </div>
         <div class="finding-grid">
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">Authentication</p><span class="finding__n">88 OAuth2</span></div>
-            <h3>OAuth2 plus static key is standard</h3>
-            <p>OAuth2 appears in 88 apps, API Key in 64, and Bearer Token in 62. 86 apps expose two or more auth schemes.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 1 · Auth landscape</p><span class="finding__n">88 OAuth2</span></div>
+            <h3>Dual-auth (OAuth2 + API Key/Bearer) is standard</h3>
+            <p>OAuth2 appears in 88/100 apps, followed by API Key (64) and Bearer Token (62). 86/100 apps expose two or more auth schemes, so supporting both managed OAuth and static key fallback unlocks the widest coverage.</p>
           </article>
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">Self-serve wins</p><span class="finding__n">50 ready</span></div>
-            <h3>Dev and productivity stay open</h3>
-            <p>Productivity and Project Management and Communications and Messaging deliver the highest share of self-serve sandboxes and documented specs.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 2 · Self-serve wins</p><span class="finding__n">50 ready</span></div>
+            <h3>Dev/Infra and Productivity stay nearly 100% open</h3>
+            <p>Productivity and Project Management and Communications and Messaging deliver the highest density of Ready Today builds, pairing free developer sandboxes, clean OpenAPI/GraphQL specs and instant token provisioning.</p>
           </article>
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">Access blockers</p><span class="finding__n">35 gated</span></div>
-            <h3>Dev portals hide production gates</h3>
-            <p>35 apps require app review, paying admin accounts or partner contracts, concentrated in Finance and Fintech and Ecommerce.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 3 · Hidden gate trap</p><span class="finding__n">35 gated</span></div>
+            <h3>Self-serve portal does not equal production access</h3>
+            <p>35/100 apps require app review, paying customer admin accounts or partner contracts—concentrated in Finance and Fintech and Ecommerce (Google Ads, Meta Ads, LinkedIn Ads, WhatsApp Business and Amazon SP-API).</p>
           </article>
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">MCP adoption</p><span class="finding__n">89 official</span></div>
-            <h3>89 vendors host official MCPs</h3>
-            <p>Led by CRM and Sales and Support and Helpdesk. Split models such as Otter AI gate full REST APIs behind Enterprise while opening OAuth MCPs.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 4 · MCP inflection</p><span class="finding__n">89 official</span></div>
+            <h3>89/100 vendors ship official MCP servers</h3>
+            <p>Led by CRM and Sales and Support and Helpdesk, reaching enterprise tools like DealCloud and Otter AI. Several vendors (e.g., Otter AI) gate full REST APIs behind Enterprise while exposing narrower self-serve OAuth MCP endpoints.</p>
           </article>
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">Non-API edge cases</p><span class="finding__n">2 CLIs</span></div>
-            <h3>2 tools are local CLI binaries</h3>
-            <p>Sherlock and Mermaid CLI ship no hosted REST API. Running them requires a cloud actor, Mermaid Chart MCP or a sandboxed workbench.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 5 · Non-API edge cases</p><span class="finding__n">2 CLIs</span></div>
+            <h3>2 tools are local CLI binaries, not cloud APIs</h3>
+            <p>Sherlock and Mermaid CLI ship no hosted REST API, while YouTube Transcript is a scraper wrapper. Turning them into agent tools requires wrapping a hosted runner (Apify / Mermaid Chart MCP) or a sandboxed workbench.</p>
           </article>
           <article class="finding">
-            <div class="finding__top"><p class="finding__k">Trigger headroom</p><span class="finding__n">57 vs 23</span></div>
-            <h3>Webhooks outpace Composio triggers</h3>
-            <p>57 vendors document webhooks, yet only 23 matched Composio toolkits currently ship event triggers.</p>
+            <div class="finding__top"><p class="finding__k">Pattern 6 · Trigger headroom</p><span class="finding__n">57 vs 23</span></div>
+            <h3>Webhooks outpace live Composio event triggers</h3>
+            <p>57 vendors document webhooks, yet only 23 matched Composio toolkits ship triggers. 27 existing Composio toolkits support vendor webhooks today with 0 triggers—a direct retention win.</p>
           </article>
         </div>
       </div>
@@ -863,8 +1048,8 @@
     </div>
   </section>
 
-  <!-- SECTION 2: COMPOSIO ROADMAP & CATEGORY MATRIX (2 screens via native .g2) -->
-  <section class="section g2" id="roadmap" style="--h: 2; --hm: 2" aria-labelledby="roadmap-h">
+  <!-- SECTION 2: COMPOSIO ROADMAP & CATEGORY MATRIX -->
+  <section class="section g2" id="roadmap" aria-labelledby="roadmap-h">
     <div class="wrap">
       <div class="group">
         <div class="section-head">
@@ -880,35 +1065,37 @@
           <div class="queue-list span-6">
             <div class="queue-row">
               <div class="queue-row__head">
-                <h3>Net-new builds ready today</h3>
+                <h3>Queue A · Net-new easy wins (build next)</h3>
                 <span class="mono-pill">7 apps</span>
               </div>
-              <p>Missing from Composio today, with free or trial credentials and clear public APIs.</p>
-              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(16); return false;"><span>LiveAgent</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(30); return false;"><span>Vonage</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(37); return false;"><span>systeme.io</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(42); return false;"><img class="ic ic-16 ic-land" src="assets/icons/woocommerce.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>WooCommerce</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(50); return false;"><span>fanbasis</span></a><span class="q-more">+2 more</span></div>
+              <p>Missing from Composio today, with free or trial credentials and clear public APIs. Click any app to open its dossier:</p>
+              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(16); return false;"><span>#16 LiveAgent</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(30); return false;"><span>#30 Vonage</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(37); return false;"><span>#37 systeme.io</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(42); return false;"><img class="ic ic-16 ic-land" src="assets/icons/woocommerce.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#42 WooCommerce</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(50); return false;"><span>#50 fanbasis</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(52); return false;"><span>#52 SE Ranking</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(95); return false;"><span>#95 Reducto</span></a></div>
             </div>
             <div class="queue-row">
               <div class="queue-row__head">
-                <h3>Official MCP expansion</h3>
+                <h3>Queue B · Official MCP expansion</h3>
                 <span class="mono-pill">49 apps</span>
               </div>
-              <p>Built API toolkits in Composio where the vendor now ships an official remote MCP.</p>
-              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(1); return false;"><img class="ic ic-16 ic-land" src="assets/icons/salesforce.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>Salesforce</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(2); return false;"><img class="ic ic-16 ic-wide" src="assets/icons/hubspot.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>HubSpot</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(3); return false;"><span>Pipedrive</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(4); return false;"><span>Attio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(5); return false;"><span>Twenty</span></a><span class="q-more">+44 more</span></div>
+              <p>Built API toolkits in Composio where the vendor now ships an official remote MCP ready to onboard as a sibling:</p>
+              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(1); return false;"><img class="ic ic-16 ic-land" src="assets/icons/salesforce.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#1 Salesforce</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(2); return false;"><img class="ic ic-16 ic-wide" src="assets/icons/hubspot.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#2 HubSpot</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(3); return false;"><span>#3 Pipedrive</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(4); return false;"><span>#4 Attio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(5); return false;"><span>#5 Twenty</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(6); return false;"><span>#6 Podio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(7); return false;"><span>#7 Zoho CRM</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(9); return false;"><span>#9 Copper</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(11); return false;"><img class="ic ic-16 ic-land" src="assets/icons/zendesk.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#11 Zendesk</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(13); return false;"><span>#13 Freshdesk</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(14); return false;"><span>#14 Front</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(18); return false;"><span>#18 Help Scout</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(19); return false;"><span>#19 Gorgias</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(21); return false;"><img class="ic ic-16" src="assets/icons/slack.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#21 Slack</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(22); return false;"><img class="ic ic-16" src="assets/icons/twilio.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#22 Twilio</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(23); return false;"><span>#23 Zoho Cliq</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(24); return false;"><span>#24 Lark (Larksuite)</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(25); return false;"><span>#25 Pumble</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(28); return false;"><span>#28 WhatsApp Business</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(29); return false;"><span>#29 Aircall</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(31); return false;"><span>#31 Google Ads</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(32); return false;"><span>#32 Meta Ads</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(35); return false;"><img class="ic ic-16 ic-ink" src="assets/icons/mailchimp.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#35 Mailchimp</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(36); return false;"><span>#36 Klaviyo</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(38); return false;"><span>#38 Pinterest</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(41); return false;"><img class="ic ic-16" src="assets/icons/shopify.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#41 Shopify</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(43); return false;"><span>#43 BigCommerce</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(48); return false;"><span>#48 Gumroad</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(49); return false;"><span>#49 Amazon Selling Partner</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(51); return false;"><span>#51 DataForSEO</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(54); return false;"><span>#54 MrScraper</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(56); return false;"><span>#56 Firecrawl</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(57); return false;"><span>#57 Bright Data</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(66); return false;"><span>#66 Neo4j</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(67); return false;"><img class="ic ic-16" src="assets/icons/snowflake.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#67 Snowflake</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(72); return false;"><img class="ic ic-16" src="assets/icons/airtable.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#72 Airtable</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(74); return false;"><img class="ic ic-16" src="assets/icons/jira.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#74 Jira</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(75); return false;"><img class="ic ic-16" src="assets/icons/asana.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#75 Asana</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(78); return false;"><span>#78 Coda</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(79); return false;"><span>#79 Smartsheet</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(80); return false;"><span>#80 Harvest</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(86); return false;"><img class="ic ic-16" src="assets/icons/quickbooks.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#86 QuickBooks</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(87); return false;"><img class="ic ic-16" src="assets/icons/xero.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#87 Xero</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(88); return false;"><span>#88 Brex</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(90); return false;"><span>#90 PitchBook</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(91); return false;"><span>#91 NotebookLM</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(93); return false;"><span>#93 Fathom</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(99); return false;"><span>#99 YouTube Transcript</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(100); return false;"><span>#100 Grain</span></a><button type="button" class="link-btn q-toggle" data-more="Show all 49 (+37)" data-less="Show fewer" onclick="toggleQueue(this)">Show all 49 (+37)</button></div>
             </div>
             <div class="queue-row">
               <div class="queue-row__head">
-                <h3>Net-new friction and outreach</h3>
-                <span class="mono-pill">10 apps</span>
+                <h3>Queue C · Net-new friction and outreach</h3>
+                <span class="mono-pill">6 friction · 4 outreach</span>
               </div>
-              <p>Missing from Composio and gated by paid plans, customer admin walls or enterprise sales.</p>
-              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(20); return false;"><span>Gladly</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(45); return false;"><span>Magento (Adobe Commerce)</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(46); return false;"><img class="ic ic-16 ic-land ic-ink" src="assets/icons/squarespace.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>Squarespace</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(47); return false;"><span>Ecwid</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(83); return false;"><span>Binance</span></a><span class="q-more">+5 more</span></div>
+              <p>Missing from Composio and gated by paid plans, customer admin walls or enterprise sales:</p>
+              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(20); return false;"><span>#20 Gladly</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(45); return false;"><span>#45 Magento (Adobe Commerce)</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(46); return false;"><img class="ic ic-16 ic-land ic-ink" src="assets/icons/squarespace.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#46 Squarespace</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(47); return false;"><span>#47 Ecwid</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(83); return false;"><span>#83 Binance</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(85); return false;"><span>#85 iPayX</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(10); return false;"><span>#10 DealCloud</span><span class="q-badge">outreach</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(44); return false;"><span>#44 Salesforce Commerce Cloud</span><span class="q-badge">outreach</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(59); return false;"><span>#59 Waterfall.io</span><span class="q-badge">outreach</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(84); return false;"><span>#84 Paygent Connect</span><span class="q-badge">outreach</span></a></div>
             </div>
             <div class="queue-row">
               <div class="queue-row__head">
-                <h3>Non-API blockers and triggers</h3>
-                <span class="mono-pill">2 blocked · 27 triggers</span>
+                <h3>Queue D · Non-API blockers and trigger gaps</h3>
+                <span class="mono-pill">2 blocked · 27 trigger gaps</span>
               </div>
-              <p>CLI tools needing sandbox wrappers, plus webhook-ready Composio toolkits with zero triggers.</p>
-              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(58); return false;"><span>Sherlock</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(98); return false;"><span>Mermaid CLI</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(4); return false;"><span>Attio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(5); return false;"><span>Twenty</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(6); return false;"><span>Podio</span></a><span class="q-more">+1 more</span></div>
+              <p class="queue-sublabel">Net-new CLI / non-API blockers (require hosted runner or sandbox workbench):</p>
+              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(58); return false;"><span>#58 Sherlock</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(98); return false;"><span>#98 Mermaid CLI</span></a></div>
+              <p class="queue-sublabel">Existing Composio toolkits with vendor webhooks but 0 live triggers:</p>
+              <div class="q-links"><a href="#matrix" class="q-link" onclick="selectAppAndJump(4); return false;"><span>#4 Attio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(5); return false;"><span>#5 Twenty</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(6); return false;"><span>#6 Podio</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(12); return false;"><img class="ic ic-16 ic-ink" src="assets/icons/intercom.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#12 Intercom</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(13); return false;"><span>#13 Freshdesk</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(15); return false;"><span>#15 Pylon</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(18); return false;"><span>#18 Help Scout</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(23); return false;"><span>#23 Zoho Cliq</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(24); return false;"><span>#24 Lark (Larksuite)</span></a><a href="#matrix" class="q-link" onclick="selectAppAndJump(27); return false;"><span>#27 Telegram</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(29); return false;"><span>#29 Aircall</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(34); return false;"><span>#34 GoHighLevel</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(39); return false;"><span>#39 Threads (Meta)</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(40); return false;"><span>#40 SendGrid</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(43); return false;"><span>#43 BigCommerce</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(48); return false;"><span>#48 Gumroad</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(51); return false;"><span>#51 DataForSEO</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(56); return false;"><span>#56 Firecrawl</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(68); return false;"><img class="ic ic-16 ic-tall" src="assets/icons/mongodb.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#68 MongoDB Atlas</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(70); return false;"><img class="ic ic-16" src="assets/icons/sentry.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#70 Sentry</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(79); return false;"><span>#79 Smartsheet</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(82); return false;"><span>#82 Plaid</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(87); return false;"><img class="ic ic-16" src="assets/icons/xero.svg" alt="" aria-hidden="true" width="16" height="16" loading="lazy"><span>#87 Xero</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(89); return false;"><span>#89 Ramp</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(92); return false;"><span>#92 Otter AI</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(97); return false;"><span>#97 higgsfield</span></a><a href="#matrix" class="q-link q-link--extra" onclick="selectAppAndJump(100); return false;"><span>#100 Grain</span></a><button type="button" class="link-btn q-toggle" data-more="Show all 27 (+17)" data-less="Show fewer" onclick="toggleQueue(this)">Show all 27 (+17)</button></div>
             </div>
           </div>
         </div>
@@ -917,25 +1104,25 @@
       <div class="group">
         <div class="chart-box roadmap-cat-chart">
           <h3>Readiness and Composio coverage by category</h3>
-          <p>Ready-today builds versus live Composio presence across all 10 categories</p>
+          <p>Ready-today builds versus live Composio presence across all 10 categories (10 apps each)</p>
           <div class="chart-canvas chart-canvas--catbar"><canvas id="chartCategoryBar" role="img" aria-label="Category readiness and Composio coverage chart"></canvas></div>
         </div>
         <div class="ledger-wrap">
           <table class="ledger">
             <thead>
               <tr>
-                <th>Category</th>
+                <th>Category (10 apps each)</th>
                 <th class="td-num">Ready</th>
-                <th class="td-num col-desk">Friction</th>
-                <th class="td-num col-desk">Gated</th>
-                <th class="td-num col-desk">Blocked</th>
-                <th class="td-num">MCP</th>
-                <th class="td-num col-desk">OAuth2</th>
-                <th class="td-num">Live</th>
+                <th class="td-num">Friction</th>
+                <th class="td-num">Gated</th>
+                <th class="td-num">Blocked</th>
+                <th class="td-num">Official MCP</th>
+                <th class="td-num">OAuth2</th>
+                <th class="td-num">In Composio</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td class="td-strong">CRM and Sales</td><td class="td-num td-ready">6</td><td class="td-num td-friction col-desk">3</td><td class="td-num td-gated col-desk">1</td><td class="td-num col-desk">0</td><td class="td-num td-accent">10/10</td><td class="td-num col-desk">10/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Support and Helpdesk</td><td class="td-num td-ready">2</td><td class="td-num td-friction col-desk">8</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">0</td><td class="td-num td-accent">10/10</td><td class="td-num col-desk">10/10</td><td class="td-num">8/10</td></tr><tr><td class="td-strong">Communications and Messaging</td><td class="td-num td-ready">7</td><td class="td-num td-friction col-desk">3</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">0</td><td class="td-num td-accent">8/10</td><td class="td-num col-desk">9/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Marketing, Ads, Email and Social</td><td class="td-num td-ready">4</td><td class="td-num td-friction col-desk">6</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">0</td><td class="td-num td-accent">7/10</td><td class="td-num col-desk">8/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Ecommerce</td><td class="td-num td-ready">4</td><td class="td-num td-friction col-desk">5</td><td class="td-num td-gated col-desk">1</td><td class="td-num col-desk">0</td><td class="td-num td-accent">8/10</td><td class="td-num col-desk">8/10</td><td class="td-num">4/10</td></tr><tr><td class="td-strong">Data, SEO and Scraping</td><td class="td-num td-ready">6</td><td class="td-num td-friction col-desk">2</td><td class="td-num td-gated col-desk">1</td><td class="td-num col-desk">1</td><td class="td-num td-accent">8/10</td><td class="td-num col-desk">8/10</td><td class="td-num">7/10</td></tr><tr><td class="td-strong">Developer, Infra and Data platforms</td><td class="td-num td-ready">7</td><td class="td-num td-friction col-desk">3</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">0</td><td class="td-num td-accent">10/10</td><td class="td-num col-desk">10/10</td><td class="td-num">10/10</td></tr><tr><td class="td-strong">Productivity and Project Management</td><td class="td-num td-ready">9</td><td class="td-num td-friction col-desk">1</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">0</td><td class="td-num td-accent">10/10</td><td class="td-num col-desk">10/10</td><td class="td-num">10/10</td></tr><tr><td class="td-strong">Finance and Fintech</td><td class="td-num td-ready">1</td><td class="td-num td-friction col-desk">7</td><td class="td-num td-gated col-desk">2</td><td class="td-num col-desk">0</td><td class="td-num td-accent">9/10</td><td class="td-num col-desk">8/10</td><td class="td-num">7/10</td></tr><tr><td class="td-strong">AI, Research and Media-native</td><td class="td-num td-ready">4</td><td class="td-num td-friction col-desk">5</td><td class="td-num td-gated col-desk">0</td><td class="td-num col-desk">1</td><td class="td-num td-accent">9/10</td><td class="td-num col-desk">7/10</td><td class="td-num">8/10</td></tr>
+              <tr><td class="td-strong">CRM and Sales</td><td class="td-num td-ready">6</td><td class="td-num td-friction">3</td><td class="td-num td-gated">1</td><td class="td-num">0</td><td class="td-num td-accent">10/10</td><td class="td-num">10/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Support and Helpdesk</td><td class="td-num td-ready">2</td><td class="td-num td-friction">8</td><td class="td-num td-gated">0</td><td class="td-num">0</td><td class="td-num td-accent">10/10</td><td class="td-num">10/10</td><td class="td-num">8/10</td></tr><tr><td class="td-strong">Communications and Messaging</td><td class="td-num td-ready">7</td><td class="td-num td-friction">3</td><td class="td-num td-gated">0</td><td class="td-num">0</td><td class="td-num td-accent">8/10</td><td class="td-num">9/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Marketing, Ads, Email and Social</td><td class="td-num td-ready">4</td><td class="td-num td-friction">6</td><td class="td-num td-gated">0</td><td class="td-num">0</td><td class="td-num td-accent">7/10</td><td class="td-num">8/10</td><td class="td-num">9/10</td></tr><tr><td class="td-strong">Ecommerce</td><td class="td-num td-ready">4</td><td class="td-num td-friction">5</td><td class="td-num td-gated">1</td><td class="td-num">0</td><td class="td-num td-accent">8/10</td><td class="td-num">8/10</td><td class="td-num">4/10</td></tr><tr><td class="td-strong">Data, SEO and Scraping</td><td class="td-num td-ready">6</td><td class="td-num td-friction">2</td><td class="td-num td-gated">1</td><td class="td-num">1</td><td class="td-num td-accent">8/10</td><td class="td-num">8/10</td><td class="td-num">7/10</td></tr><tr><td class="td-strong">Developer, Infra and Data platforms</td><td class="td-num td-ready">7</td><td class="td-num td-friction">3</td><td class="td-num td-gated">0</td><td class="td-num">0</td><td class="td-num td-accent">10/10</td><td class="td-num">10/10</td><td class="td-num">10/10</td></tr><tr><td class="td-strong">Productivity and Project Management</td><td class="td-num td-ready">9</td><td class="td-num td-friction">1</td><td class="td-num td-gated">0</td><td class="td-num">0</td><td class="td-num td-accent">10/10</td><td class="td-num">10/10</td><td class="td-num">10/10</td></tr><tr><td class="td-strong">Finance and Fintech</td><td class="td-num td-ready">1</td><td class="td-num td-friction">7</td><td class="td-num td-gated">2</td><td class="td-num">0</td><td class="td-num td-accent">9/10</td><td class="td-num">8/10</td><td class="td-num">7/10</td></tr><tr><td class="td-strong">AI, Research and Media-native</td><td class="td-num td-ready">4</td><td class="td-num td-friction">5</td><td class="td-num td-gated">0</td><td class="td-num">1</td><td class="td-num td-accent">9/10</td><td class="td-num">7/10</td><td class="td-num">8/10</td></tr>
             </tbody>
           </table>
         </div>
@@ -943,8 +1130,8 @@
     </div>
   </section>
 
-  <!-- SECTION 3: VERIFICATION LOOPS & HONEST ACCURACY (2 screens via native .g2) -->
-  <section class="section g2" id="verification" style="--h: 2; --hm: 2" aria-labelledby="verification-h">
+  <!-- SECTION 3: VERIFICATION LOOPS & HONEST ACCURACY -->
+  <section class="section g2" id="verification" aria-labelledby="verification-h">
     <div class="wrap">
       <div class="group">
         <div class="section-head">
@@ -964,11 +1151,12 @@
               <div class="stat-cell"><dt>URLs checked</dt><dd>432</dd></div>
               <div class="stat-cell"><dt>Repos audited</dt><dd>16</dd></div>
             </dl>
-            <p class="verify-copy"><strong>Four automated Pass 2 checks:</strong> HTTP link verification (separating dead 404/410s from bot-shielded portals), Exa <code>/contents</code> extraction plus disconfirmation search, live Composio v3.1 catalog cross-check, and live Composio <code>github</code> repo audits.</p>
+            <p class="verify-copy"><strong>Four automated Pass 2 checks:</strong> (1) HTTP link verification separating dead 404/410s from bot-shielded portals; (2) Exa <code>/contents</code> extraction plus disconfirmation search hunting hidden paywalls and MCP launches; (3) live Composio v3.1 catalog cross-check; and (4) live Composio <code>github</code> repo audits checking org ownership, stars and archived flags.</p>
             <div class="chart-box">
               <h3>Pass 2 corrections by field</h3>
-              <p>Automated fixes before human review</p>
+              <p>All 30 automated fixes before human review</p>
               <div class="chart-canvas chart-canvas--fixes"><canvas id="chartFixes" role="img" aria-label="Pass 2 field corrections breakdown chart"></canvas></div>
+              <div class="fix-pills"><span class="mono-pill">openapi spec available: 8</span><span class="mono-pill">webhooks supported: 10</span><span class="mono-pill">access model: 5</span><span class="mono-pill">buildability verdict: 2</span><span class="mono-pill">evidence urls: 2</span><span class="mono-pill">api protocol: 1</span><span class="mono-pill">mcp status: 1</span><span class="mono-pill">auth methods: 1</span></div>
             </div>
           </div>
         </div>
@@ -977,12 +1165,12 @@
       <div class="group">
         <div class="audit-bar">
           <div>
-            <h3>Audit ledger highlights</h3>
-            <p class="muted" style="margin: 2px 0 0; font-size: var(--t-small);">Highest-signal human catches and automated Pass 2 field diffs.</p>
+            <h3>Full audit ledger (20 human-audited apps &amp; 30 Pass 2 diffs)</h3>
+            <p class="muted" style="margin: 2px 0 0; font-size: var(--t-small);">Complete untruncated findings across the stratified human/browser sample and automated critic diffs.</p>
           </div>
           <div class="tabs" role="tablist" aria-label="Audit tables">
-            <button type="button" class="tab" role="tab" id="tabHuman" aria-selected="true" aria-controls="panelHuman" onclick="switchAuditTab('human')">Human audit highlights</button>
-            <button type="button" class="tab" role="tab" id="tabDiffs" aria-selected="false" aria-controls="panelDiffs" onclick="switchAuditTab('diffs')">Pass 2 diff sample</button>
+            <button type="button" class="tab" role="tab" id="tabHuman" aria-selected="true" aria-controls="panelHuman" onclick="switchAuditTab('human')">Human audit (20)</button>
+            <button type="button" class="tab" role="tab" id="tabDiffs" aria-selected="false" aria-controls="panelDiffs" onclick="switchAuditTab('diffs')">Pass 2 diffs (30)</button>
           </div>
         </div>
 
@@ -991,17 +1179,20 @@
             <thead>
               <tr>
                 <th>App</th>
-                <th class="td-num col-desk">Pass 1</th>
+                <th class="td-num">Pass 1</th>
                 <th class="td-num">Pass 2</th>
-                <th class="col-desk">Verification method</th>
-                <th>Finding</th>
+                <th>Verification method</th>
+                <th>Honest finding (untruncated)</th>
               </tr>
             </thead>
-            <tbody><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(84); return false;">#84 Paygent Connect</a><span class="td-sub col-desk">Finance and Fintech</span></td><td class="td-num col-desk"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method col-desk">Human Web &amp; Primary Docs Audit (NMI / Paygent)</td><td>Biggest agent failure: Both Pass 1 &amp; Pass 2 confused Paygent Connect (NMI-powered payment gateway)...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(60); return false;">#60 Clay</a><span class="td-sub col-desk">Data, SEO and Scraping</span></td><td class="td-num col-desk"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method col-desk">Live Browser (university.clay.com/docs/connect-to-clay-mcp)</td><td>Major browser catch: Pass 1 &amp; Pass 2 claimed broad REST + OpenAPI=Yes + Ready Today. Live browser...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(58); return false;">#58 Sherlock</a><span class="td-sub col-desk">Data, SEO and Scraping</span></td><td class="td-num col-desk"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method col-desk">Composio deepwiki_mcp + GitHub (log_RngXHKaygRK9) + Human</td><td>Both Pass 1 &amp; Pass 2 misclassified a third-party Apify Actor URL as &#x27;Community MCP Only&#x27;. Human audit...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(2); return false;">#2 HubSpot</a><span class="td-sub col-desk">CRM and Sales</span></td><td class="td-num col-desk"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method col-desk">Live Docs + Composio Catalog</td><td>Pass 1 &amp; Pass 2 missed HubSpot&#x27;s GraphQL API and public OpenAPI catalog (left REST-only &amp;...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(50); return false;">#50 fanbasis</a><span class="td-sub col-desk">Ecommerce</span></td><td class="td-num col-desk"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method col-desk">Live Browser (fanbasis.com -&gt; commas.com &amp; commasdocs.com)</td><td>Browser audit confirmed FanBasis officially rebranded to Commas (&#x27;FanBasis is now Commas&#x27;),...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(28); return false;">#28 WhatsApp Business</a><span class="td-sub col-desk">Communications and Messaging</span></td><td class="td-num col-desk"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method col-desk">Exa Indexed Crawl + Composio Catalog (Browser DNS blocked)</td><td>Confirmed Embedded Signup / Meta Business Verification gating and System User Bearer auth. Honest...</td></tr></tbody>
+            <tbody><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(84); return false;">#84 Paygent Connect</a><span class="td-sub">Finance and Fintech</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method">Human Web &amp; Primary Docs Audit (NMI / Paygent)</td><td class="td-finding">Biggest agent failure: Both Pass 1 &amp; Pass 2 confused Paygent Connect (NMI-powered payment gateway) with &#x27;Payman AI&#x27; (paymanai.mintlify.app/mcp-server). Human audit completely replaced the misattributed record with NMI/Paygent&#x27;s real security_key / partner-gated merchant API and mcp_status=None Found.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(60); return false;">#60 Clay</a><span class="td-sub">Data, SEO and Scraping</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method">Live Browser (university.clay.com/docs/connect-to-clay-mcp)</td><td class="td-finding">Major browser catch: Pass 1 &amp; Pass 2 claimed broad REST + OpenAPI=Yes + Ready Today. Live browser audit proved /docs/http-api and /docs/webhooks 404 — Clay has no general public REST API; its programmatic surface is Official MCP (OAuth 2.1 + PKCE + open DCR at api.clay.com/v3/mcp) + narrow table lookup keys. Fixed to MCP Only, OpenAPI=No, Buildable with Friction.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(58); return false;">#58 Sherlock</a><span class="td-sub">Data, SEO and Scraping</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method">Composio deepwiki_mcp + GitHub (log_RngXHKaygRK9) + Human</td><td class="td-finding">Both Pass 1 &amp; Pass 2 misclassified a third-party Apify Actor URL as &#x27;Community MCP Only&#x27;. Human audit fixed mcp_status -&gt; None Found while confirming local CLI / 116k-star MIT repo via Composio GitHub &amp; DeepWiki.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(2); return false;">#2 HubSpot</a><span class="td-sub">CRM and Sales</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--friction">Human fix</span></td><td class="td-method">Live Docs + Composio Catalog</td><td class="td-finding">Pass 1 &amp; Pass 2 missed HubSpot&#x27;s GraphQL API and public OpenAPI catalog (left REST-only &amp; OpenAPI=Unknown). Human audit corrected to REST + GraphQL and OpenAPI=Yes (all auth/MCP/verdict fields were already right).</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(50); return false;">#50 fanbasis</a><span class="td-sub">Ecommerce</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Browser (fanbasis.com -&gt; commas.com &amp; commasdocs.com)</td><td class="td-finding">Browser audit confirmed FanBasis officially rebranded to Commas (&#x27;FanBasis is now Commas&#x27;), commas-cli really is their MCP CLI, and official API/SDK/MCP docs live at commasdocs.com. Upgraded primary evidence link to commasdocs.com.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(28); return false;">#28 WhatsApp Business</a><span class="td-sub">Communications and Messaging</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Exa Indexed Crawl + Composio Catalog (Browser DNS blocked)</td><td class="td-finding">Confirmed Embedded Signup / Meta Business Verification gating and System User Bearer auth. Honest caveat: developers.facebook.com hit DNS resolution failure in our browser sandbox, so verified via Exa crawl + live Composio whatsapp catalog.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(18); return false;">#18 Help Scout</a><span class="td-sub">Support and Helpdesk</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 Verifier + Pricing Docs</td><td class="td-finding">Pass 1 wrongly marked &#x27;Ready Today&#x27; despite Free plan excluding API access. Pass 2 automatically caught the contradiction and corrected verdict to &#x27;Buildable with Friction&#x27;.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(31); return false;">#31 Google Ads</a><span class="td-sub">Marketing, Ads, Email and Social</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 HTTP Link Audit + Official Docs</td><td class="td-finding">Pass 1 cited a dead support URL (adspolicy/answer/6169371). Pass 2 link checker caught it and replaced it with live Google Ads OAuth &amp; developer-token access-level docs.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(61); return false;">#61 GitHub</a><span class="td-sub">Developer, Infra and Data platforms</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 Verifier + Official Docs</td><td class="td-finding">Pass 1 listed REST only (missing GitHub&#x27;s GraphQL v4 API). Pass 2 caught and corrected api_protocol to REST + GraphQL.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(71); return false;">#71 Notion</a><span class="td-sub">Productivity and Project Management</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 Verifier + Composio Catalog (8 triggers)</td><td class="td-finding">Pass 1 left webhooks_supported=Unknown. Pass 2 resolved it to Yes using Notion&#x27;s official docs corroborated by 8 live triggers in Composio&#x27;s catalog.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(73); return false;">#73 Linear</a><span class="td-sub">Productivity and Project Management</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 Verifier + Official Docs</td><td class="td-finding">Pass 1 falsely marked openapi_spec_available=Yes on a GraphQL-only API. Pass 2 verified Linear&#x27;s docs and corrected OpenAPI -&gt; No.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(98); return false;">#98 Mermaid CLI</a><span class="td-sub">AI, Research and Media-native</span></td><td class="td-num"><span class="tag tag--gated">Miss</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Pass 2 Verifier + Composio mermaid_chart_mcp</td><td class="td-finding">Pass 1 attributed commercial Mermaid Chart SaaS MCP (mermaid.ai) to the open-source mermaid-cli binary. Pass 2 caught the product split and corrected mcp_status -&gt; None Found.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(10); return false;">#10 DealCloud</a><span class="td-sub">CRM and Sales</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Browser (api.docs.dealcloud.com/mcp)</td><td class="td-finding">Confirmed live in browser (HTTP 200): Official Intapp DealCloud MCP requires Celeste license, and custom/third-party AI clients explicitly require &#x27;Contact your Account Manager&#x27;.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(20); return false;">#20 Gladly</a><span class="td-sub">Support and Helpdesk</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Composio GitHub Auditor (log_mdMMdPqBOJwK)</td><td class="td-finding">Confirmed via live Composio github toolkit: gladly/claude-plugin is owned by the official &#x27;gladly&#x27; Organization (Apache-2.0, active Nov 2026), and REST API requires customer admin account.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(26); return false;">#26 Discord</a><span class="td-sub">Communications and Messaging</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Docs + Composio Catalog</td><td class="td-finding">Confirmed: Free self-serve Bot Token + OAuth2, OpenAPI spec published, webhooks/Gateway events supported, Community MCP only (no official Discord MCP).</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(33); return false;">#33 LinkedIn Ads</a><span class="td-sub">Marketing, Ads, Email and Social</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Docs + Composio Catalog</td><td class="td-finding">Confirmed: OAuth2 with strict Marketing Developer Platform app review, no official MCP server found, correctly mapped to Composio&#x27;s linkedin_ads slug (after human removed broad &#x27;linkedin&#x27; alias).</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(49); return false;">#49 Amazon Selling Partner</a><span class="td-sub">Ecommerce</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Docs + GitHub Org Check</td><td class="td-finding">Confirmed: LWA OAuth2 + mandatory Seller/Developer registration &amp; review; official amzn/selling-partner-agentic-toolkit repo.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(67); return false;">#67 Snowflake</a><span class="td-sub">Developer, Infra and Data platforms</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Docs + Composio Catalog</td><td class="td-finding">Confirmed: Account-scoped JWT/OAuth2/PAT auth, Cortex Agents official MCP, customer account &amp; warehouse provisioning friction.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(85); return false;">#85 iPayX</a><span class="td-sub">Finance and Fintech</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Browser (ipayx.ai/docs/mcp-server &amp; /pricing)</td><td class="td-finding">Confirmed live in browser (HTTP 200): FINTRAC-registered FX audit platform, self-serve Free/$99/$299 tiers, Bearer token (ipx_live_*), and an official 3-tool MCP server.</td></tr><tr class="audit-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(92); return false;">#92 Otter AI</a><span class="td-sub">AI, Research and Media-native</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-num"><span class="tag tag--ready">Hit</span></td><td class="td-method">Live Browser (help.otter.ai Otter MCP Server)</td><td class="td-finding">Confirmed live in browser: Official hosted MCP (mcp.otter.ai/mcp) uses OAuth with 3 read-only tools (Get user info, Search, Fetch) and no public API key, while the full REST API remains Enterprise-gated.</td></tr></tbody>
           </table>
           <div class="audit-foot">
-            <span class="t-small muted">Showing 6 highest-signal rows from the 20-app stratified audit.</span>
-            <a href="#matrix" class="link" onclick="jumpWithFilter('audited'); return false;">Inspect all 20 audited apps in explorer</a>
+            <span class="t-small muted" id="humanAuditSummary">Showing top 8 of 20 stratified human-audited apps (human-caught fixes first).</span>
+            <div class="audit-foot__actions">
+              <button type="button" class="link-btn" id="toggleHumanRows" onclick="toggleLedgerRows('panelHuman', 'toggleHumanRows', 'humanAuditSummary', 8, 20, 'stratified human-audited apps')">Show all 20 audited apps</button>
+              <a href="#matrix" class="link" onclick="jumpWithFilter('audited'); return false;">Filter all 20 in matrix</a>
+            </div>
           </div>
         </div>
 
@@ -1011,27 +1202,30 @@
               <tr>
                 <th>App</th>
                 <th>Field</th>
-                <th class="col-desk">Pass 1</th>
-                <th>Pass 2</th>
-                <th class="col-desk">Primary-source evidence</th>
+                <th>Pass 1 (before)</th>
+                <th>Pass 2 (after)</th>
+                <th>Primary-source evidence (untruncated)</th>
               </tr>
             </thead>
-            <tbody><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(1); return false;">#1 Salesforce</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old col-desk">Unknown</td><td class="diff-new">Yes</td><td class="col-desk">The live extracted Salesforce REST API Developer Guide...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(3); return false;">#3 Pipedrive</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old col-desk">Unknown</td><td class="diff-new">Yes</td><td class="col-desk">The official Pipedrive CRM API page (https://www.pipedrive.com/en/features/crm-api) explicitly states developers can...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(9); return false;">#9 Copper</a></td><td class="mono-cell">access_model</td><td class="diff-old col-desk">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Paid Plan</td><td class="col-desk">Copper&#x27;s pricing page (copper.com/pricing) and partner FAQ (copper.com/partners) confirm self-serve account signup with...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(11); return false;">#11 Zendesk</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old col-desk">Unknown</td><td class="diff-new">Yes</td><td class="col-desk">Zendesk&#x27;s official API authentication article...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(15); return false;">#15 Pylon</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old col-desk">Unknown</td><td class="diff-new">Yes</td><td class="col-desk">Pylon&#x27;s official pricing page (https://www.usepylon.com/pricing) explicitly lists Webhooks under Developer platform...</td></tr><tr><td><a href="#matrix" class="link-btn" onclick="selectAppAndJump(14); return false;">#14 Front</a></td><td class="mono-cell">access_model</td><td class="diff-old col-desk">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Dev + App Review</td><td class="col-desk">https://dev.frontapp.com/docs/partnering-with-front explicitly states developers can sign up for a free development...</td></tr></tbody>
+            <tbody><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(1); return false;">#1 Salesforce</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The live extracted Salesforce REST API Developer Guide (https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm) explicitly includes &#x27;Generating an OpenAPI 3.0 Document for sObjects REST API (Beta)&#x27; in its official documentation navigation.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(3); return false;">#3 Pipedrive</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The official Pipedrive CRM API page (https://www.pipedrive.com/en/features/crm-api) explicitly states developers can access what they need via webhooks and API endpoints.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(9); return false;">#9 Copper</a></td><td class="mono-cell">access_model</td><td class="diff-old">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Paid Plan</td><td class="td-finding">Copper&#x27;s pricing page (copper.com/pricing) and partner FAQ (copper.com/partners) confirm self-serve account signup with API &amp; Embedded integration SDK gated to paid Professional/Business plans, and partners required to purchase a Business license for a demo account.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(11); return false;">#11 Zendesk</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">Zendesk&#x27;s official API authentication article (https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests) explicitly documents Zendesk webhooks, the Add webhook configuration page, Test webhook functionality, and OAuth authentication for webhooks.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(15); return false;">#15 Pylon</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">Pylon&#x27;s official pricing page (https://www.usepylon.com/pricing) explicitly lists Webhooks under Developer platform features as included on Professional, Advanced, and Enterprise plans.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(14); return false;">#14 Front</a></td><td class="mono-cell">access_model</td><td class="diff-old">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Dev + App Review</td><td class="td-finding">https://dev.frontapp.com/docs/partnering-with-front explicitly states developers can sign up for a free development account (so no paid customer account is required to build), while public integrations for Front customers must use OAuth and undergo technical approval (and potential security/legal review) to be published in the Front App Store.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(17); return false;">#17 Plain</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Yes</td><td class="diff-new">No</td><td class="td-finding">Plain exposes a GraphQL-only API (https://core-api.uk.plain.com/graphql/v1) with a GraphQL SDL schema at https://core-api.uk.plain.com/graphql/v1/schema.graphql, not a REST OpenAPI specification.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(18); return false;">#18 Help Scout</a></td><td class="mono-cell">buildability_verdict</td><td class="diff-old">Ready Today (Easy Win)</td><td class="diff-new">Buildable with Friction</td><td class="td-finding">Help Scout&#x27;s Free plan explicitly excludes API access and integrations (docs.helpscout.com/article/1140-mailbox-api and helpscout.com/pricing/); paid Standard, Plus, or Pro plans are required for API/MCP access, and Plus/Pro is required for Reporting endpoints.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(22); return false;">#22 Twilio</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The primary doc https://www.twilio.com/docs/usage/requests-to-twilio explicitly covers how the Twilio APIs handle webhooks, and the live Composio production catalog confirms 45 webhook/event triggers.</td></tr><tr><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(27); return false;">#27 Telegram</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The live Telegram Bot API documentation at https://core.telegram.org/bots/api/ explicitly documents webhooks as one of the two supported methods for receiving bot updates (alongside getUpdates), including webhook URL, port, and max_webhook_connections configuration.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(29); return false;">#29 Aircall</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">Primary Aircall sources (https://aircall.io/pricing/ FAQ and https://aircall.io/blog/tech/ai-ecosystem-developer-guide/) explicitly confirm Aircall offers an open webhook framework for real-time call and contact events set up after user authorization.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(30); return false;">#30 Vonage</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The live Getting Started Overview doc (https://developer.vonage.com/en/getting-started/overview) explicitly states under the OpenAPI section: &#x27;Each of our APIs has its own OpenAPI specification.&#x27;</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(31); return false;">#31 Google Ads</a></td><td class="mono-cell">evidence_urls</td><td class="diff-old">https://support.google.com/adspolicy/answer/6169371?hl=en</td><td class="diff-new">https://developers.google.com/google-ads/api/docs/oauth/overview, https://developers.google.com/google-ads/api/docs/api-policy/developer-token, https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server, https://developers.google.com/google-ads/api/docs/api-policy/access-levels, https://developers.google.com/google-ads/api/docs/productionize/access-levels</td><td class="td-finding">Replaced 1 broken/dead URL(s): [&#x27;https://support.google.com/adspolicy/answer/6169371?hl=en&#x27;]</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(35); return false;">#35 Mailchimp</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The live Mailchimp API structure documentation at https://mailchimp.com/developer/marketing/docs/fundamentals/ explicitly states: &#x27;We use the OpenAPI Specification (formerly known as Swagger) to describe each endpoint.&#x27;</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(40); return false;">#40 SendGrid</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The official SendGrid v3 API reference (https://www.twilio.com/docs/sendgrid/api-reference) explicitly lists an OpenAPI specification under SDKs and tools.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(43); return false;">#43 BigCommerce</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The BigCommerce developer documentation at https://docs.bigcommerce.com/developer/docs/ai-agent-setup explicitly confirms that developers can download BigCommerce OpenAPI Specifications for schema-aware workflows.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(45); return false;">#45 Magento (Adobe Commerce)</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">While developer.adobe.com/commerce/webapi/get-started/ notes the core CRUD Web API framework does not support webhooks, Adobe&#x27;s official Commerce Developer Agent announcement (business.adobe.com/blog/commerce-developer-agent) confirms Adobe Commerce supports webhooks via App Builder extensibility.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(54); return false;">#54 MrScraper</a></td><td class="mono-cell">access_model</td><td class="diff-old">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Free / Trial</td><td class="td-finding">MrScraper billing docs (https://docs.mrscraper.com/docs/getting-started/billing) and pricing page (https://mrscraper.com/pricing) confirm a self-serve Scraper Free plan with no credit card required that includes monthly tokens and API token access.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(61); return false;">#61 GitHub</a></td><td class="mono-cell">api_protocol</td><td class="diff-old">REST</td><td class="diff-new">REST + GraphQL</td><td class="td-finding">The live extracted GitHub Rate Limits documentation explicitly confirms GitHub provides a GraphQL API alongside its REST API (&#x27;The GraphQL API also has a separate primary rate limit. See Rate limits and query limits for the GraphQL API.&#x27;).</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(60); return false;">#60 Clay</a></td><td class="mono-cell">access_model</td><td class="diff-old">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Free / Trial</td><td class="td-finding">Clay&#x27;s pricing page (https://www.clay.com/pricing) and MCP docs (https://university.clay.com/docs/clay-mcp-in-chatgpt) confirm a self-serve Free plan and 14-day trial that both include Public API/CLI access (100 search results/30 days) and Clay MCP, aligning with buildability_verdict &#x27;Ready Today (Easy Win)&#x27;.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(71); return false;">#71 Notion</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">Notion&#x27;s official pricing page (https://www.notion.com/pricing) explicitly lists Webhooks under API automations &amp; integrations alongside Public API, corroborated by 8 triggers in the Composio production catalog.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(73); return false;">#73 Linear</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Yes</td><td class="diff-new">No</td><td class="td-finding">Primary docs (https://linear.app/developers/graphql and https://linear.app/docs/api-and-webhooks) state that Linear&#x27;s public API is strictly GraphQL using GraphQL schema introspection (explorable via Apollo Studio) rather than REST, with no OpenAPI specification provided.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(76); return false;">#76 Monday.com</a></td><td class="mono-cell">openapi_spec_available</td><td class="diff-old">Yes</td><td class="diff-new">No</td><td class="td-finding">The primary developer documentation (https://developer.monday.com/api-reference/docs/getting-started and https://developer.monday.com/api-reference/docs/build-on-monday-with-ai) specifies that Monday.com exposes a single-endpoint GraphQL API (https://api.monday.com/v2) using a GraphQL schema and schema introspection rather than REST or an OpenAPI specification.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(77); return false;">#77 ClickUp</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">ClickUp&#x27;s official FAQ (https://clickup.com/faqs) explicitly states that webhook support is available alongside its public REST API and OAuth, corroborated by 21 triggers in the live Composio production catalog.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(87); return false;">#87 Xero</a></td><td class="mono-cell">webhooks_supported</td><td class="diff-old">Unknown</td><td class="diff-new">Yes</td><td class="td-finding">The live Xero Developer Pricing page (https://developer.xero.com/pricing) explicitly lists Webhooks under Standard features across all plans (Starter, Core, Plus, Advanced, and Enterprise).</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(98); return false;">#98 Mermaid CLI</a></td><td class="mono-cell">mcp_status</td><td class="diff-old">Official MCP</td><td class="diff-new">None Found</td><td class="td-finding">https://mermaid.ai/docs/ai/mcp-server documents the separate commercial Mermaid Chart SaaS MCP server (mcp.mermaid.ai, requiring a Mermaid Chart account), not an official MCP server for the open-source mermaid-js/mermaid-cli package, whose GitHub README and npm page contain no MCP server.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(96); return false;">#96 Devin</a></td><td class="mono-cell">access_model</td><td class="diff-old">Admin / Customer Account Required</td><td class="diff-new">Self-Serve Paid Plan</td><td class="td-finding">https://docs.devin.ai/admin/billing/self-serve and https://devin.ai/pricing confirm Devin offers self-serve signup at app.devin.ai with Free ($0), Pro ($20/mo, explicitly including MCP integrations), Max ($200/mo), and Teams ($80/mo) plans rather than requiring a pre-existing enterprise customer admin account.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(97); return false;">#97 higgsfield</a></td><td class="mono-cell">buildability_verdict</td><td class="diff-old">Ready Today (Easy Win)</td><td class="diff-new">Buildable with Friction</td><td class="td-finding">Consistent with Self-Serve Paid Plan access_model: API calls require registering a payment method and funding a prepaid USD balance ($5 minimum top-up) with zero-balance request rejection, and official MCP/CLI always deduct paid plan credits with no free generations.</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(97); return false;">#97 higgsfield</a></td><td class="mono-cell">evidence_urls</td><td class="diff-old">https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api</td><td class="diff-new">https://docs.higgsfield.ai/docs/authentication, https://docs.higgsfield.ai/docs/quickstart, https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-mcp, https://higgsfield.ai/higgsfield-api, https://higgsfield.ai/cli, https://open.higgsfield.ai/terms-of-service</td><td class="td-finding">Replaced 1 broken/dead URL(s): [&#x27;https://higgsfield.ai/creator-hub/help-center/integrations/what-is-higgsfield-api&#x27;]</td></tr><tr class="diff-row--extra"><td class="td-app"><a href="#matrix" class="link-btn" onclick="selectAppAndJump(100); return false;">#100 Grain</a></td><td class="mono-cell">auth_methods</td><td class="diff-old">OAuth2, Bearer Token</td><td class="diff-new">OAuth2, Bearer Token, API Key</td><td class="td-finding">Grain&#x27;s official support docs (https://support.grain.com/en/articles/15507288-grain-api) refer to PATs and WATs as Personal/Workspace API tokens, and the live Composio production catalog confirms API_KEY as the production auth mode for Grain.</td></tr></tbody>
           </table>
           <div class="audit-foot">
-            <span class="t-small muted">Showing 6 representative diffs from 30 automated Pass 2 fixes.</span>
-            <a href="#matrix" class="link" onclick="jumpWithFilter('changed'); return false;">Inspect all 29 corrected apps in explorer</a>
+            <span class="t-small muted" id="diffSummary">Showing top 10 of 30 automated Pass 2 field corrections.</span>
+            <div class="audit-foot__actions">
+              <button type="button" class="link-btn" id="toggleDiffRows" onclick="toggleLedgerRows('panelDiffs', 'toggleDiffRows', 'diffSummary', 10, 30, 'automated Pass 2 field corrections')">Show all 30 diffs</button>
+              <a href="#matrix" class="link" onclick="jumpWithFilter('changed'); return false;">Filter all 29 corrected apps in matrix</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: DARK BAND — PULSING DIAGRAM + LIVE COMPOSIO PROOF (DEALT MOMENT 2: line-carries-colour, 1 screen on desktop) -->
-  <section class="section ground-inverse" id="agent" style="--h: 1; --hm: 2" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}' aria-labelledby="agent-h">
+  <!-- SECTION 4: DARK BAND — PULSING DIAGRAM, LIVE COMPOSIO PROOF, AGENT VS HUMAN & RENDERED MERMAID -->
+  <section class="section ground-inverse" id="agent" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}' aria-labelledby="agent-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="agent-h">Pipeline and live Composio logs. <span class="muted">Four real tool integrations, zero mocks.</span></h2>
+        <h2 id="agent-h">Pipeline, live Composio logs and human-in-the-loop. <span class="muted">Four real tool integrations, zero mocks.</span></h2>
         <p class="measure">Composio Platform SDK v0.34, Exa semantic retrieval, and Gemini structured outputs (Pass 1 and Pass 2 on <code>gemini-4-hydrogen</code>; switched to rate-limited <code>gemini-3.8-flash</code>). Reproduce locally via <code>python src/research_one_composio.py --app "Stripe"</code>.</p>
       </div>
       <div class="dg-panel">
@@ -1040,9 +1234,38 @@
       <div class="proof-grid">
         <div class="proof-col"><div class="proof-col__top"><span class="proof-col__tk"><img class="ic ic-20 ic-inv" src="assets/icons/ui-globe.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy"><span class="mono-pill mono-pill--inv">exa</span></span><span class="proof-status">completed</span></div><p class="proof-col__slug">EXA_SEARCH</p><dl class="proof-meta"><div><dt>Session</dt><dd>trs_WrnJjYXfqA94</dd></div><div><dt>Log ID</dt><dd class="proof-log">log_KVRfY2eUAxul</dd></div></dl><p class="proof-col__desc">Single-app live web search inside Composio Session runner (src/research_one_composio.py)</p></div><div class="proof-col"><div class="proof-col__top"><span class="proof-col__tk"><img class="ic ic-20 ic-inv" src="assets/icons/github.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy"><span class="mono-pill mono-pill--inv">github</span></span><span class="proof-status">completed</span></div><p class="proof-col__slug">GITHUB_GET_A_REPOSITORY</p><dl class="proof-meta"><div><dt>Session</dt><dd>trs_WrnJjYXfqA94</dd></div><div><dt>Log ID</dt><dd class="proof-log">log_-CS4rRpxKjx4</dd></div></dl><p class="proof-col__desc">Audit GitHub repo ownership (Organization vs User), stars, archived state, and last push date for official vs community MCP verification</p></div><div class="proof-col"><div class="proof-col__top"><span class="proof-col__tk"><img class="ic ic-20 ic-inv" src="assets/icons/ui-layers.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy"><span class="mono-pill mono-pill--inv">deepwiki_mcp</span></span><span class="proof-status">completed</span></div><p class="proof-col__slug">DEEPWIKI_MCP_READ_WIKI_STRUCTURE</p><dl class="proof-meta"><div><dt>Session</dt><dd>trs_WrnJjYXfqA94</dd></div><div><dt>Log ID</dt><dd class="proof-log">log_gilIkXXa5vQA</dd></div></dl><p class="proof-col__desc">Inspect open-source repository architecture for CLI/OSS apps (e.g., sherlock-project/sherlock)</p></div><div class="proof-col"><div class="proof-col__top"><span class="proof-col__tk"><img class="ic ic-20 ic-inv" src="assets/icons/ui-shield-check.svg" alt="" aria-hidden="true" width="20" height="20" loading="lazy"><span class="mono-pill mono-pill--inv">mermaid_chart_mcp</span></span><span class="proof-status">completed</span></div><p class="proof-col__slug">MERMAID_CHART_MCP_VALIDATE_AND_RENDER_MERMAID_DIAGRAM</p><dl class="proof-meta"><div><dt>Session</dt><dd>trs_26KSZgEsBirK</dd></div><div><dt>Log ID</dt><dd class="proof-log">log_J3d6ViRpXWTW</dd></div></dl><p class="proof-col__desc">Validate and render the 3-Pass Research &amp; Verification Pipeline architecture diagram</p></div>
       </div>
-      <details class="mermaid-proof">
-        <summary>View Composio mermaid_chart_mcp validation proof (session trs_26KSZgEsBirK · log log_J3d6ViRpXWTW)</summary>
-        <pre>flowchart LR
+
+      <div class="hitl-grid">
+        <article class="hitl-col">
+          <p class="hitl-col__k">90%+ automated</p>
+          <h3>Where the agent excelled</h3>
+          <ul class="hitl-list">
+            <li><strong>Massive parallel primary-source retrieval:</strong> Researched all 100 apps across 200+ Exa semantic queries and verified 432 live doc URLs in minutes rather than days.</li>
+            <li><strong>Catching 2025-2026 official MCP launches:</strong> Found newly launched official remote MCP servers (HubSpot, DealCloud, WhatsApp Business, Otter AI, Linear, Stripe, Plaid) that static LLM memory misses.</li>
+            <li><strong>Programmatic Composio catalog auditing:</strong> Scanned 1,842 live Composio toolkits via <code>/api/v3.1/toolkits</code> to compute exact tool counts, trigger counts and auth mode cross-checks with zero manual scraping.</li>
+            <li><strong>Repo and CLI forensics:</strong> Used Composio <code>deepwiki_mcp</code> and <code>github</code> toolkits to verify whether GitHub MCP repos belong to official vendor orgs versus community forks.</li>
+          </ul>
+        </article>
+        <article class="hitl-col hitl-col--human">
+          <p class="hitl-col__k">Real failure modes caught</p>
+          <h3>Where a human was essential</h3>
+          <ul class="hitl-list">
+            <li><strong>Bot-shielded doc portals (caught in 5-app pilot):</strong> Meta (<code>developers.facebook.com</code>), LinkedIn and Cloudflare return HTTP 400/403/timeouts to headless clients. Our initial link checker mistakenly dropped valid WhatsApp URLs and swapped in a <code>?locale=zh_CN</code> page—requiring a human fix combining HTTP checks with Exa <code>/contents</code> status codes.</li>
+            <li><strong>Free dev portal vs. production app review:</strong> Pass 1 occasionally labeled Ads and Fintech apps as <code>Self-Serve Free</code> because sandbox signup is free, missing mandatory business verification or developer token review for production.</li>
+            <li><strong>Split-surface products:</strong> Products like <strong>Otter AI</strong> (Enterprise-only REST API vs. self-serve 3-tool OAuth MCP) and <strong>NotebookLM</strong> (consumer web app vs. GCP Enterprise API) required human judgment on the buildability rubric.</li>
+            <li><strong>Catalog alias disambiguation and obscure portals:</strong> Human and browser review caught false catalog matches (<code>linkedin</code> vs. <code>linkedin_ads</code>; Amazon shopping vs. SP-API), entity confusion (<code>Paygent Connect</code> vs. Payman AI), Clay's 404 HTTP API docs, and FanBasis's rebrand to Commas.</li>
+          </ul>
+        </article>
+      </div>
+
+      <details class="mermaid-proof" id="mermaidProofDetails" ontoggle="if(this.open && window.renderMermaidProof) window.renderMermaidProof()">
+        <summary>View full 3-pass architecture diagram (validated via Composio mermaid_chart_mcp · session trs_26KSZgEsBirK · log log_J3d6ViRpXWTW)</summary>
+        <div class="mermaid-stage" id="mermaidDiagramMount">
+          <p class="t-small muted">Rendering validated 3-pass flowchart...</p>
+        </div>
+        <details class="mermaid-src-toggle">
+          <summary>Inspect raw Mermaid source validated by log log_J3d6ViRpXWTW</summary>
+          <pre id="mermaidRawSource">flowchart LR
     Seed[&quot;100 Target Apps&lt;br/&gt;(10 Categories)&quot;] --&gt; P1
 
     subgraph P1[&quot;Pass 1: Broad Research Agent&quot;]
@@ -1079,16 +1302,17 @@
 
     Metrics --&gt; Out[&quot;Interactive HTML Case Study&lt;br/&gt;+ Agent-Ready JSON Export&quot;]
 </pre>
+        </details>
       </details>
     </div>
   </section>
 
-  <!-- SECTION 5: INTERACTIVE APP-FRAME 100-APP MATRIX (2 screens via native .fill, paginated with zero clipping) -->
-  <section class="section" id="matrix" style="--h: 2; --hm: 2" aria-labelledby="matrix-h">
+  <!-- SECTION 5: INTERACTIVE 100-APP RESEARCH MATRIX (TABLE + SPLIT DOSSIER, ZERO OVERFLOW) -->
+  <section class="section" id="matrix" aria-labelledby="matrix-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="matrix-h">Interactive 100-app explorer. <span class="muted">Filter by verdict, auth, MCP or catalog gap.</span></h2>
-        <p class="measure">Select any app on the left to inspect its verified dossier, Composio metadata, GitHub audit and primary-source links on the right.</p>
+        <h2 id="matrix-h">Interactive 100-app research matrix. <span class="muted">Filter by verdict, auth, MCP or catalog gap.</span></h2>
+        <p class="measure">Compare all 100 apps side-by-side in Matrix table view, or click any app to open its full verified dossier, live URL health badges, Composio metadata and Pass 2 diff log.</p>
       </div>
 
       <div class="matrix-controls">
@@ -1138,19 +1362,55 @@
           <label><input id="filterAuditedOnly" type="checkbox"> Human audited</label>
           <button type="button" class="link-btn" onclick="resetFilters()">Reset filters</button>
         </div>
-        <div class="matrix-exports">
-          <button type="button" class="btn btn--secondary" onclick="downloadJSON()">Download JSON</button>
-          <button type="button" class="btn btn--secondary" onclick="downloadCSV()">Download CSV</button>
-          <button type="button" class="btn btn--secondary" id="copyMdBtn" onclick="copyAgentMarkdown()">Copy markdown</button>
+        <div class="matrix-toolbar-right">
+          <div class="tabs" role="tablist" aria-label="Matrix view mode">
+            <button type="button" class="tab" role="tab" id="viewTabTable" aria-selected="true" aria-controls="matrixTablePanel" onclick="setMatrixView('table')">Matrix table</button>
+            <button type="button" class="tab" role="tab" id="viewTabSplit" aria-selected="false" aria-controls="matrixSplitPanel" onclick="setMatrixView('split')">Split dossier</button>
+          </div>
+          <div class="matrix-exports">
+            <button type="button" class="btn btn--secondary" onclick="downloadJSON()">JSON</button>
+            <button type="button" class="btn btn--secondary" onclick="downloadCSV()">CSV</button>
+            <button type="button" class="btn btn--secondary" id="copyMdBtn" onclick="copyAgentMarkdown()">Copy markdown</button>
+          </div>
         </div>
       </div>
 
-      <div class="app-frame fill" data-ui role="region" aria-label="100-app interactive explorer">
+      <!-- View 1: Full Multi-Column Matrix Table -->
+      <div id="matrixTablePanel" class="matrix-table-shell" role="tabpanel" aria-labelledby="viewTabTable">
+        <div class="ledger-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>App &amp; category</th>
+                <th>Auth method(s)</th>
+                <th>Access model</th>
+                <th>API &amp; MCP</th>
+                <th>Buildability verdict</th>
+                <th>Composio live</th>
+                <th>Docs</th>
+              </tr>
+            </thead>
+            <tbody id="matrixTableBody"></tbody>
+          </table>
+        </div>
+        <div class="matrix-table-foot">
+          <span class="app-pager__info" id="tablePageInfo">Page 1 of 5</span>
+          <div class="matrix-table-foot__nav">
+            <button type="button" class="link-btn" id="tableShowAllBtn" onclick="toggleShowAllTable()">Show all 100 rows</button>
+            <button type="button" class="link-btn" id="tablePrevBtn" onclick="changeTablePage(-1)">Previous</button>
+            <button type="button" class="link-btn" id="tableNextBtn" onclick="changeTablePage(1)">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- View 2: Split Dossier Workspace -->
+      <div id="matrixSplitPanel" class="app-frame" data-ui role="tabpanel" aria-labelledby="viewTabSplit" hidden>
         <div class="app-frame__side">
           <div id="appList" class="app-frame__list" role="listbox" aria-label="Filtered apps"></div>
           <div class="app-pager" aria-label="App list pagination">
             <button type="button" class="link-btn" id="pagePrev" onclick="changePage(-1)">Previous</button>
-            <span class="app-pager__info" id="pageInfo">Page 1 of 10</span>
+            <span class="app-pager__info" id="pageInfo">Page 1 of 7</span>
             <button type="button" class="link-btn" id="pageNext" onclick="changePage(1)">Next</button>
           </div>
         </div>
@@ -1225,6 +1485,49 @@
 <script type="module" src="assets/layout/layout.js"></script>
 <script type="module" src="assets/diagrams/mount.js"></script>
 
+<script type="module">
+  let mermaidMod = null;
+  let mermaidRendered = false;
+  window.renderMermaidProof = async function () {
+    if (mermaidRendered) return;
+    const mount = document.getElementById('mermaidDiagramMount');
+    const srcEl = document.getElementById('mermaidRawSource');
+    if (!mount || !srcEl) return;
+    try {
+      if (!mermaidMod) {
+        mermaidMod = (await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')).default;
+        mermaidMod.initialize({
+          startOnLoad: false,
+          theme: 'base',
+          themeVariables: {
+            background: '#101214',
+            primaryColor: '#1e282b',
+            primaryTextColor: '#e6f0f5',
+            primaryBorderColor: '#4c8c91',
+            secondaryColor: '#1b1d1f',
+            secondaryTextColor: '#c3d7e5',
+            secondaryBorderColor: '#4a5560',
+            tertiaryColor: '#16181a',
+            tertiaryTextColor: '#c3d7e5',
+            tertiaryBorderColor: '#3a424a',
+            lineColor: '#8fd3c9',
+            clusterBkg: '#161b1d',
+            clusterBorder: '#3c5c61',
+            fontFamily: '"Geist", system-ui, sans-serif',
+            fontSize: '14px'
+          }
+        });
+      }
+      const code = srcEl.textContent.trim();
+      const { svg } = await mermaidMod.render('composioPipelineSvg', code);
+      mount.innerHTML = svg;
+      mermaidRendered = true;
+    } catch (err) {
+      mount.innerHTML = '<p class="t-small muted">Could not load Mermaid renderer offline. Inspect the validated raw Mermaid source below.</p>';
+    }
+  };
+</script>
+
 <script>
   const PAYLOAD = JSON.parse(document.getElementById('composio-100-apps-dataset').textContent);
   const APPS = PAYLOAD.apps;
@@ -1233,9 +1536,16 @@
   const ICONS = PAYLOAD.icon_map || {};
   let selectedId = APPS[0] ? APPS[0].id : 1;
   let currentPage = 0;
+  let tablePage = 0;
+  let showAllTableRows = false;
+  let matrixView = 'table';
 
   function pageSize() {
-    return window.innerWidth < 640 ? 4 : 15;
+    return window.innerWidth < 640 ? 6 : 15;
+  }
+
+  function tablePageSize() {
+    return showAllTableRows ? 1000 : 20;
   }
 
   function esc(s) {
@@ -1255,6 +1565,36 @@
     return `<img class="ic ic-${size}" src="assets/icons/${f}" alt="" aria-hidden="true" width="${size}" height="${size}" loading="lazy">`;
   }
 
+  function toggleQueue(btn) {
+    const wrap = btn.closest('.q-links');
+    if (!wrap) return;
+    const expanded = wrap.classList.toggle('is-expanded');
+    btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+  }
+
+  function toggleLedgerRows(panelId, btnId, summaryId, defaultCount, totalCount, label) {
+    const panel = document.getElementById(panelId);
+    const btn = document.getElementById(btnId);
+    const sum = document.getElementById(summaryId);
+    if (!panel || !btn) return;
+    const expanded = panel.classList.toggle('is-expanded');
+    btn.textContent = expanded ? `Show top ${defaultCount}` : `Show all ${totalCount} ${label.includes('diff') ? 'diffs' : 'audited apps'}`;
+    if (sum) {
+      sum.textContent = expanded
+        ? `Showing all ${totalCount} ${label}.`
+        : `Showing top ${defaultCount} of ${totalCount} ${label}.`;
+    }
+  }
+
+  function setMatrixView(mode) {
+    matrixView = mode === 'split' ? 'split' : 'table';
+    const isTable = matrixView === 'table';
+    document.getElementById('viewTabTable').setAttribute('aria-selected', String(isTable));
+    document.getElementById('viewTabSplit').setAttribute('aria-selected', String(!isTable));
+    document.getElementById('matrixTablePanel').hidden = !isTable;
+    document.getElementById('matrixSplitPanel').hidden = isTable;
+  }
+
   // Populate category filter
   const catSel = document.getElementById('filterCategory');
   [...new Set(APPS.map(a => a.category))].forEach(c => {
@@ -1263,6 +1603,30 @@
     o.textContent = c;
     catSel.appendChild(o);
   });
+
+  function getFilteredApps() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const cat = document.getElementById('filterCategory').value;
+    const verd = document.getElementById('filterVerdict').value;
+    const mcp = document.getElementById('filterMcp').value;
+    const comp = document.getElementById('filterComposio').value;
+    const changedOnly = document.getElementById('filterChangedOnly').checked;
+    const auditedOnly = document.getElementById('filterAuditedOnly').checked;
+
+    return APPS.filter(a => {
+      if (cat && a.category !== cat) return false;
+      if (verd && a.buildability_verdict !== verd) return false;
+      if (mcp && a.mcp_status !== mcp) return false;
+      if (comp && (a.composio_coverage || 'Not in Catalog') !== comp) return false;
+      if (changedOnly && (!a.verification_changes || a.verification_changes.length === 0)) return false;
+      if (auditedOnly && !a.human_audited) return false;
+      if (q) {
+        const hay = [a.name, a.category, a.one_liner, a.auth_notes, a.access_model, a.primary_blocker, ...(a.auth_methods || []), ...(a.composio_catalog_slugs || [])].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }
 
   function renderDetail(id) {
     const a = APPS.find(x => x.id === id) || APPS[0];
@@ -1342,32 +1706,100 @@
     document.querySelectorAll('.app-item').forEach(el => {
       el.setAttribute('aria-selected', String(Number(el.dataset.id) === selectedId));
     });
+    document.querySelectorAll('#matrixTableBody tr').forEach(tr => {
+      tr.classList.toggle('is-active', Number(tr.dataset.id) === selectedId);
+    });
+  }
+
+  function openInSplitDossier(id) {
+    const filtered = getFilteredApps();
+    const idx = filtered.findIndex(x => x.id === id);
+    selectedId = id;
+    currentPage = idx >= 0 ? Math.floor(idx / pageSize()) : 0;
+    setMatrixView('split');
+    renderList();
+    document.getElementById('matrix').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderMatrixTable(filtered) {
+    const tbody = document.getElementById('matrixTableBody');
+    const infoEl = document.getElementById('tablePageInfo');
+    const prevBtn = document.getElementById('tablePrevBtn');
+    const nextBtn = document.getElementById('tableNextBtn');
+    const allBtn = document.getElementById('tableShowAllBtn');
+
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="8" style="padding:24px;color:var(--muted);">No apps match these filters.</td></tr>';
+      infoEl.textContent = '0 apps';
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      allBtn.hidden = true;
+      return;
+    }
+
+    const perPage = tablePageSize();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
+    if (tablePage >= totalPages) tablePage = 0;
+    const start = tablePage * perPage;
+    const slice = filtered.slice(start, start + perPage);
+
+    infoEl.textContent = showAllTableRows
+      ? `Showing all ${filtered.length} filtered apps`
+      : `Page ${tablePage + 1} of ${totalPages} (${start + 1}-${Math.min(filtered.length, start + slice.length)} of ${filtered.length})`;
+    prevBtn.disabled = showAllTableRows || tablePage <= 0;
+    nextBtn.disabled = showAllTableRows || tablePage >= totalPages - 1;
+    allBtn.hidden = filtered.length <= 20;
+    allBtn.textContent = showAllTableRows ? 'Paginate (20/page)' : `Show all ${filtered.length} rows`;
+
+    tbody.innerHTML = slice.map(a => {
+      const firstUrl = (a.evidence_urls && a.evidence_urls[0]) || '#';
+      const auditTag = a.human_audited ? '<span class="mt-pill mt-pill--audit">Audited</span>' : '';
+      const fixTag = (a.verification_changes && a.verification_changes.length)
+        ? `<span class="mt-pill mt-pill--fix">${a.verification_changes.length} fix</span>` : '';
+      const compHtml = (a.composio_catalog_slugs && a.composio_catalog_slugs.length)
+        ? `<div class="mt-comp-slugs">${a.composio_catalog_slugs.map(esc).join(', ')}</div><div class="mt-comp-meta">${a.composio_tools_count || 0} tools · ${a.composio_triggers_count || 0} triggers</div>`
+        : `<span class="tag tag--gated">Not in catalog</span>`;
+      const blockerHtml = (a.primary_blocker && a.primary_blocker !== 'None')
+        ? `<div class="mt-blocker">${esc(a.primary_blocker)}</div>` : '';
+      return `
+        <tr data-id="${a.id}" class="${a.id === selectedId ? 'is-active' : ''}" onclick="openInSplitDossier(${a.id})">
+          <td class="mono-cell">${String(a.id).padStart(2, '0')}</td>
+          <td>
+            <div class="mt-app">
+              ${appIconHtml(a.name, 20)}
+              <div>
+                <div class="mt-app__name">${esc(a.name)} ${auditTag} ${fixTag}</div>
+                <span class="mt-app__cat">${esc(a.category)}</span>
+                <div class="mt-app__one">${esc(a.one_liner)}</div>
+              </div>
+            </div>
+          </td>
+          <td><div class="mt-auth">${(a.auth_methods || []).map(m => `<span class="mt-pill">${esc(m)}</span>`).join('')}</div></td>
+          <td>${esc(a.access_model)}</td>
+          <td>
+            <div>${esc(a.api_protocol)}</div>
+            <div style="margin-top:4px;"><span class="mt-pill">${esc(a.mcp_status)}</span></div>
+          </td>
+          <td>
+            ${verdictTag(a.buildability_verdict)}
+            ${blockerHtml}
+          </td>
+          <td>${compHtml}</td>
+          <td onclick="event.stopPropagation()" style="white-space:nowrap;">
+            <a class="link-btn" href="${esc(firstUrl)}" target="_blank" rel="noopener">Docs</a>
+            <div class="mt-comp-meta">${(a.evidence_urls || []).length} link${(a.evidence_urls || []).length === 1 ? '' : 's'}</div>
+          </td>
+        </tr>
+      `;
+    }).join('');
   }
 
   function renderList() {
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
-    const cat = document.getElementById('filterCategory').value;
-    const verd = document.getElementById('filterVerdict').value;
-    const mcp = document.getElementById('filterMcp').value;
-    const comp = document.getElementById('filterComposio').value;
-    const changedOnly = document.getElementById('filterChangedOnly').checked;
-    const auditedOnly = document.getElementById('filterAuditedOnly').checked;
-
-    const filtered = APPS.filter(a => {
-      if (cat && a.category !== cat) return false;
-      if (verd && a.buildability_verdict !== verd) return false;
-      if (mcp && a.mcp_status !== mcp) return false;
-      if (comp && (a.composio_coverage || 'Not in Catalog') !== comp) return false;
-      if (changedOnly && (!a.verification_changes || a.verification_changes.length === 0)) return false;
-      if (auditedOnly && !a.human_audited) return false;
-      if (q) {
-        const hay = [a.name, a.category, a.one_liner, a.auth_notes, a.access_model, a.primary_blocker, ...(a.auth_methods || []), ...(a.composio_catalog_slugs || [])].join(' ').toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    });
-
+    const filtered = getFilteredApps();
     document.getElementById('resultCount').textContent = `Showing ${filtered.length} of ${APPS.length} apps`;
+
+    renderMatrixTable(filtered);
+
     const listEl = document.getElementById('appList');
     const pageInfoEl = document.getElementById('pageInfo');
     const prevBtn = document.getElementById('pagePrev');
@@ -1375,6 +1807,7 @@
 
     if (!filtered.length) {
       listEl.innerHTML = '<div style="padding:24px;color:var(--muted);">No apps match these filters.</div>';
+      document.getElementById('appDetail').innerHTML = '<p class="muted">Adjust your filters to inspect an app dossier.</p>';
       pageInfoEl.textContent = 'Page 0 of 0';
       prevBtn.disabled = true;
       nextBtn.disabled = true;
@@ -1419,25 +1852,40 @@
     renderList();
   }
 
+  function changeTablePage(delta) {
+    tablePage = Math.max(0, tablePage + delta);
+    renderList();
+    document.getElementById('matrixTablePanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function toggleShowAllTable() {
+    showAllTableRows = !showAllTableRows;
+    tablePage = 0;
+    renderList();
+  }
+
   function selectAppAndJump(id) {
-    resetFilters();
+    resetFilters(false);
     selectedId = id;
     const idx = APPS.findIndex(x => x.id === id);
     currentPage = idx >= 0 ? Math.floor(idx / pageSize()) : 0;
+    setMatrixView('split');
     renderList();
-    document.getElementById('matrix').scrollIntoView();
+    document.getElementById('matrix').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function jumpWithFilter(kind) {
-    resetFilters();
+    resetFilters(false);
     if (kind === 'audited') document.getElementById('filterAuditedOnly').checked = true;
     if (kind === 'changed') document.getElementById('filterChangedOnly').checked = true;
     currentPage = 0;
+    tablePage = 0;
+    setMatrixView('table');
     renderList();
-    document.getElementById('matrix').scrollIntoView();
+    document.getElementById('matrix').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function resetFilters() {
+  function resetFilters(shouldRender = true) {
     document.getElementById('searchInput').value = '';
     document.getElementById('filterCategory').value = '';
     document.getElementById('filterVerdict').value = '';
@@ -1446,7 +1894,8 @@
     document.getElementById('filterChangedOnly').checked = false;
     document.getElementById('filterAuditedOnly').checked = false;
     currentPage = 0;
-    renderList();
+    tablePage = 0;
+    if (shouldRender) renderList();
   }
 
   function switchAuditTab(which) {
@@ -1458,8 +1907,8 @@
   }
 
   ['searchInput','filterCategory','filterVerdict','filterMcp','filterComposio','filterChangedOnly','filterAuditedOnly'].forEach(id => {
-    document.getElementById(id).addEventListener('input', renderList);
-    document.getElementById(id).addEventListener('change', renderList);
+    document.getElementById(id).addEventListener('input', () => { currentPage = 0; tablePage = 0; renderList(); });
+    document.getElementById(id).addEventListener('change', () => { currentPage = 0; tablePage = 0; renderList(); });
   });
 
   function downloadJSON() {
@@ -1501,7 +1950,7 @@
     setTimeout(() => btn.textContent = 'Copy markdown', 1800);
   }
 
-  // Charts strictly using swap-pastels palette tokens (zero violet)
+  // Charts strictly using swap-pastels palette tokens (zero violet; autoSkip: false on all categorical axes so zero labels disappear)
   Chart.defaults.font.family = '"Geist", system-ui, sans-serif';
   Chart.defaults.font.size = 13;
   Chart.defaults.color = '#141414';
@@ -1529,7 +1978,7 @@
       labels: authEntries.map(e => e[0]),
       datasets: [{ data: authEntries.map(e => e[1]), backgroundColor: '#0f5257', borderRadius: 3 }]
     },
-    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false } } } }
+    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: { padding: { left: 10, right: 8 } }, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false }, ticks: { autoSkip: false } } } }
   });
 
   const ac = ANALYTICS.distributions.access_models || {};
@@ -1540,6 +1989,7 @@
     if (lbl.includes('Review')) return 'App Review';
     if (lbl.includes('Paid')) return 'SS: Paid Plan';
     if (lbl.includes('Free')) return 'SS: Free / Trial';
+    if (lbl.includes('Open-Source')) return 'Open-Source / Local';
     return lbl.replace('Self-Serve ', 'SS: ');
   };
   new Chart(document.getElementById('chartAccess'), {
@@ -1548,7 +1998,7 @@
       labels: accEntries.map(e => shortAccess(e[0])),
       datasets: [{ data: accEntries.map(e => e[1]), backgroundColor: ['#0f5257','#2b6d73','#8c6218','#5c667a','#8f2d2d','#141414'], borderRadius: 3 }]
     },
-    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false } } } }
+    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: { padding: { left: 10, right: 8 } }, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false }, ticks: { autoSkip: false } } } }
   });
 
   const cc = ANALYTICS.distributions.composio_coverage || {};
@@ -1562,7 +2012,7 @@
         borderRadius: 3
       }]
     },
-    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false } } } }
+    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: { padding: { left: 10, right: 8 } }, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false }, ticks: { autoSkip: false } } } }
   });
 
   const cmList = ANALYTICS.category_matrix || [];
@@ -1575,14 +2025,14 @@
         { label: 'In Composio', data: cmList.map(c => c.in_composio), backgroundColor: '#4a5068', borderRadius: 3 }
       ]
     },
-    options: { animation: false, responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10 } } }, scales: { y: { min: 0, max: 10, ticks: { stepSize: 2 }, grid: { color: 'rgba(20,20,20,0.08)' } }, x: { grid: { display: false } } } }
+    options: { animation: false, responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10 } } }, scales: { y: { min: 0, max: 10, ticks: { stepSize: 2 }, grid: { color: 'rgba(20,20,20,0.08)' } }, x: { grid: { display: false }, ticks: { autoSkip: false } } } }
   });
 
   const haS = HUMAN_AUDIT.summary || {};
   new Chart(document.getElementById('chartAccuracy'), {
     type: 'bar',
     data: {
-      labels: ['Pass 1', 'Pass 2', 'Final audited'],
+      labels: ['Pass 1 (Raw)', 'Pass 2 (Auto)', 'Final audited'],
       datasets: [{
         label: 'Verified accuracy (%)',
         data: [haS.pass1_accuracy_pct || 0, haS.pass2_accuracy_pct || 0, haS.final_accuracy_pct || 0],
@@ -1590,7 +2040,7 @@
         borderRadius: 3
       }]
     },
-    options: { animation: false, responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100, ticks: { callback: v => v + '%' } }, x: { grid: { display: false } } } }
+    options: { animation: false, responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100, ticks: { callback: v => v + '%' } }, x: { grid: { display: false }, ticks: { autoSkip: false } } } }
   });
 
   const fixMap = (ANALYTICS.verification && ANALYTICS.verification.pass2_diff_summary && ANALYTICS.verification.pass2_diff_summary.corrections_by_field) || {};
@@ -1601,7 +2051,7 @@
       labels: fixEntries.map(e => e[0].replace(/_/g, ' ')),
       datasets: [{ data: fixEntries.map(e => e[1]), backgroundColor: '#0f5257', borderRadius: 3 }]
     },
-    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { stepSize: 2 }, grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false } } } }
+    options: { animation: false, indexAxis: 'y', responsive: true, maintainAspectRatio: false, layout: { padding: { left: 12, right: 8 } }, plugins: { legend: { display: false } }, scales: { x: { ticks: { stepSize: 2 }, grid: { color: 'rgba(20,20,20,0.08)' } }, y: { grid: { display: false }, ticks: { autoSkip: false, font: { size: 12 } } } } }
   });
 
   renderList();
