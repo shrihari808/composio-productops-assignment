@@ -43,64 +43,167 @@ def clean_prose(text: str) -> str:
     return str(text or "").replace("!", "")
 
 
-def build_llms_txt(records: list[dict], analytics: dict, human_audit: dict) -> str:
+def build_llms_txt(
+    records: list[dict],
+    analytics: dict,
+    human_audit: dict,
+    proof: dict | None = None,
+) -> str:
+    generated_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     dist = analytics.get("distributions", {})
+    hl = analytics.get("highlights", {})
+    cat_matrix = analytics.get("category_matrix", [])
     rm = analytics.get("composio_roadmap", {})
+    cat_sum = rm.get("catalog_summary", {})
+    bvw = rm.get("build_vs_wrap", {})
     p2 = analytics.get("verification", {}).get("pass2_diff_summary", {})
+    ha_sum = (human_audit or {}).get("summary", {})
+
+    def fmt_names(items: list[dict]) -> str:
+        return ", ".join(str(x.get("name", "")) for x in items) if items else "None"
+
+    def md_cell(val: Any) -> str:
+        return str(val or "").replace("\r", " ").replace("\n", " ").replace("|", "\\|").strip()
+
+    verdicts = dist.get("buildability_verdicts", {})
+    auth_dist = dist.get("auth_methods", {})
+    mcp_dist = dist.get("mcp_status", {})
+    webhooks_yes = dist.get("webhooks_supported", {}).get("Yes", 0)
+    easiest_cats = sorted(cat_matrix, key=lambda x: x["ready_today"], reverse=True)[:2]
+    hardest_cats = sorted(cat_matrix, key=lambda x: x["gated_outreach"] + x["gated_or_review_count"], reverse=True)[:2]
+    top_mcp_cats = sorted(cat_matrix, key=lambda x: x["mcp_official"], reverse=True)[:2]
 
     lines = [
         "# Composio AI Product Ops — 100-App Toolkit & MCP Buildability Research",
         "",
-        f"> Automated 3-pass research and verification study of {len(records)} SaaS, developer, fintech, and AI apps across 10 categories.",
-        f"> Live Case Study: {LIVE_URL}",
-        f"> Source Repo: {REPO_URL}",
+        f"> Automated 3-pass research and verification study of {len(records)} SaaS, developer, fintech, and AI apps across 10 categories, cross-checked against {cat_sum.get('total_composio_toolkits_scanned', 1842):,} live Composio v3.1 toolkits.",
+        f"> Generated: {generated_iso} | Live Case Study: {LIVE_URL} | Source Repo: {REPO_URL}",
+        "",
+        "## Machine-Readable Artifacts",
+        f"- [Final Verified Dataset]({LIVE_URL}/data/final_results.json): All {len(records)} verified app records with auth, access model, API surface, MCP status, Composio catalog metadata, URL health, and verification change logs.",
+        f"- [Aggregated Analytics Summary]({LIVE_URL}/data/analytics_summary.json): Distributions, 10-category cross-tab matrix, Build vs. Wrap tool depth breakdown, and prioritized Composio action queues.",
+        f"- [Deep Composio Catalog Audit]({LIVE_URL}/data/composio_catalog_deep.json): Live `/api/v3.1/toolkits` scan across {cat_sum.get('total_composio_toolkits_scanned', 1842):,} toolkits ({cat_sum.get('apps_matched', 81)} matched apps, {cat_sum.get('total_tools_across_matched', 14555):,} tools, auth modes, triggers).",
+        f"- [Human & Browser Audit Log]({LIVE_URL}/data/human_audit.json): Stratified {ha_sum.get('sample_size', 20)}-app live-docs and browser audit scoring Pass 1 ({ha_sum.get('pass1_accuracy_pct', 50.0)}%) -> Pass 2 ({ha_sum.get('pass2_accuracy_pct', 80.0)}%) -> Final ({ha_sum.get('final_accuracy_pct', 100.0)}%).",
+        f"- [Automated Pass 2 Diff Report]({LIVE_URL}/data/verification_diff_report.json): All {p2.get('total_field_corrections', 0)} automated field corrections across {p2.get('apps_modified', 0)} apps with primary-source evidence.",
+        f"- [Composio Live Execution Proof]({LIVE_URL}/data/composio_live_proof.json): Auditable Composio Platform SDK `session_id` and `log_id` records for `exa`, `github`, `deepwiki_mcp`, and `mermaid_chart_mcp`.",
+        f"- [Pass 1 Raw Baseline]({LIVE_URL}/data/pass1_results.json): Immutable Pass 1 research snapshot before automated verification.",
+        f"- [Pass 2 Verified Snapshot]({LIVE_URL}/data/pass2_verified.json): Snapshot after automated Pass 2 checks and before Pass 3 human overrides.",
+        f"- [Validated Pipeline Architecture (Mermaid)]({LIVE_URL}/assets/architecture.mmd): 3-pass research & verification architecture validated via Composio `mermaid_chart_mcp`.",
         "",
         "## Headline Metrics",
-        f"- Total Apps Analyzed: {len(records)}",
-        f"- Buildability Verdicts: {json.dumps(dist.get('buildability_verdicts', {}))}",
-        f"- Auth Methods Frequency: {json.dumps(dist.get('auth_methods', {}))}",
+        f"- Total Apps Analyzed: {len(records)} (10 categories x 10 apps)",
+        f"- Buildability Verdicts: {json.dumps(verdicts)}",
+        f"- Auth Methods Frequency (multi-select): {json.dumps(auth_dist)}",
         f"- Access Models: {json.dumps(dist.get('access_models', {}))}",
-        f"- MCP Status: {json.dumps(dist.get('mcp_status', {}))}",
-        f"- Composio Live Catalog Coverage (1,842 toolkits audited): {json.dumps(dist.get('composio_coverage', {}))}",
-        f"- Pass 2 Automated Corrections: {p2.get('total_field_corrections', 0)} field fixes across {p2.get('apps_modified', 0)} apps",
+        f"- API Protocols: {json.dumps(dist.get('api_protocols', {}))}",
+        f"- MCP Status: {json.dumps(mcp_dist)}",
+        f"- OpenAPI Spec Available: {json.dumps(dist.get('openapi_spec_available', {}))}",
+        f"- Webhooks Supported: {json.dumps(dist.get('webhooks_supported', {}))}",
+        f"- Composio Live Catalog Coverage ({cat_sum.get('total_composio_toolkits_scanned', 1842):,} toolkits audited): {json.dumps(dist.get('composio_coverage', {}))}",
+        f"- Live Composio Footprint: {cat_sum.get('total_tools_across_matched', 14555):,} tools, {cat_sum.get('with_composio_managed_oauth', 32)} managed OAuth apps, {cat_sum.get('with_triggers', 23)} trigger-enabled apps",
+        f"- URL & Repo Verification: {hl.get('total_urls_checked', 432)} live URLs checked ({json.dumps(hl.get('url_health_breakdown', {}))}); {hl.get('github_repos_audited_via_composio', 16)} GitHub MCP repos audited via Composio `github` toolkit",
+        f"- Pass 2 Automated Corrections: {p2.get('total_field_corrections', 0)} field fixes across {p2.get('apps_modified', 0)} apps ({json.dumps(p2.get('corrections_by_field', {}))})",
     ]
-    if human_audit and human_audit.get("summary"):
-        s = human_audit["summary"]
+    if ha_sum:
         lines.append(
-            f"- Human + Browser Audit ({s.get('sample_size', 0)}-app stratified sample): "
-            f"Pass 1 exact accuracy {s.get('pass1_accuracy_pct')}% -> "
-            f"Pass 2 automated {s.get('pass2_accuracy_pct')}% -> "
-            f"Final audited {s.get('final_accuracy_pct')}%"
+            f"- Human + Browser Audit ({ha_sum.get('sample_size', 0)}-app stratified sample): "
+            f"Pass 1 exact accuracy {ha_sum.get('pass1_accuracy_pct')}% -> "
+            f"Pass 2 automated {ha_sum.get('pass2_accuracy_pct')}% -> "
+            f"Final audited {ha_sum.get('final_accuracy_pct')}%"
         )
-    bvw = rm.get("build_vs_wrap", {})
+
+    lines.extend([
+        "",
+        "## Key Patterns (7 Synthesized Findings)",
+        f"1. **Dual-auth (OAuth2 + API Key/Bearer) is standard:** OAuth2 appears in {auth_dist.get('OAuth2', 88)}/100 apps, API Key in {auth_dist.get('API Key', 64)}, Bearer Token in {auth_dist.get('Bearer Token', 62)}; {hl.get('multi_auth_apps', 86)}/100 apps expose 2+ auth schemes.",
+        f"2. **Dev/Infra and Productivity stay nearly 100% self-serve:** Productivity and Project Management (9/10 ready), Developer, Infra and Data platforms (7/10 ready), and Communications and Messaging (7/10 ready) deliver the highest density of Ready Today builds.",
+        f"3. **Hidden production gate trap:** {hl.get('gated_review_admin_or_partner', 35)}/100 apps require app review, paying customer admin accounts, or partner contracts—concentrated in {hardest_cats[0]['category']} and {hardest_cats[1]['category']} (Google Ads, Meta Ads, LinkedIn Ads, WhatsApp Business, Amazon SP-API).",
+        f"4. **Official MCP inflection:** {mcp_dist.get('Official MCP', 89)}/100 vendors ship official MCP servers (+{mcp_dist.get('Community MCP Only', 5)} community-only), led by {top_mcp_cats[0]['category']} and {top_mcp_cats[1]['category']}; some enterprise-gated apps (e.g., Otter AI) expose narrower self-serve OAuth MCP endpoints while gating REST.",
+        f"5. **Non-API CLI edge cases:** {verdicts.get('Blocked / Not API-Native', 2)} tools (Sherlock, Mermaid CLI) are local CLI binaries rather than hosted web APIs and require a hosted runner (Apify, Mermaid Chart MCP) or sandboxed workbench.",
+        f"6. **Webhook-to-trigger headroom:** {webhooks_yes} vendors document webhooks, yet only {cat_sum.get('with_triggers', 23)} matched Composio toolkits ship triggers; {len(rm.get('trigger_expansion_candidates', []))} existing Composio toolkits support vendor webhooks today with 0 live triggers.",
+        f"7. **Build vs. Wrap depth law:** Across the {bvw.get('both_count', 22)} apps shipping both Built API and Provider MCP in Composio, Built APIs average {bvw.get('both_avg_api_tools', 195.8)} tools vs. {bvw.get('both_avg_mcp_tools', 68.8)} for Provider MCP ({bvw.get('both_depth_ratio', 2.8)}x deeper), dominating mature infra/payments (GitHub 883 vs 44, Stripe 428 vs 10, Vercel 399 vs 37). Provider MCPs outgun Built APIs on {bvw.get('mcp_beats_api_count', 7)}/{bvw.get('both_count', 22)} mostly GraphQL or high-friction gated apps ({fmt_names(bvw.get('mcp_leads_apps', []))}). The {bvw.get('mcp_only_count', 5)} Provider-MCP-only toolkits average {bvw.get('mcp_only_avg_tools', 16.6)} tools (median {bvw.get('mcp_only_median_tools', 12)}) with 0 triggers and 0 managed OAuth—an entry wedge rather than full parity.",
+        "",
+        "## Category Breakdown (10 Categories, 10 Apps Each)",
+        "| Category | Ready Today | Friction | Gated | Blocked | Official MCP | OAuth2 | In Composio |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
+    ])
+    for cm in cat_matrix:
+        lines.append(
+            f"| {cm['category']} | {cm['ready_today']} | {cm['buildable_friction']} | "
+            f"{cm['gated_outreach']} | {cm['blocked']} | {cm['mcp_official']}/10 | "
+            f"{cm['oauth2_count']}/10 | {cm['in_composio']}/10 |"
+        )
+
+    top_api_moat_str = ", ".join(
+        f"{x['name']} {x['api_tools']} vs {x['mcp_tools']}"
+        for x in bvw.get("api_moat_apps", [])[:6]
+    )
+    mcp_leads_str = ", ".join(
+        f"{x['name']} {x['mcp_tools']} vs {x['api_tools']}"
+        for x in bvw.get("mcp_leads_apps", [])
+    )
+    mcp_only_str = ", ".join(
+        f"{x['name']} ({x['tools_count']})"
+        for x in bvw.get("mcp_only_apps", [])
+    )
     lines.extend([
         "",
         "## Strategic Composio Action Queues",
-        f"- Net-New Easy Wins (Not in Composio + Ready Today): {[x['name'] for x in rm.get('net_new_easy_wins', [])]}",
-        f"- Net-New Friction (Not in Composio + Buildable w/ Friction): {[x['name'] for x in rm.get('net_new_friction', [])]}",
-        f"- Net-New Partner/Outreach Queue: {[x['name'] for x in rm.get('net_new_outreach', [])]}",
-        f"- Net-New Non-API Blockers: {[x['name'] for x in rm.get('net_new_blocked', [])]}",
-        f"- Official MCP Expansion Candidates (Built API Only in Composio, Official Vendor MCP exists): {[x['name'] for x in rm.get('mcp_expansion_candidates', [])]}",
-        f"- Build vs. Wrap Depth Split ({bvw.get('both_count', 0)} Both Built + Provider MCP apps): Built API avg {bvw.get('both_avg_api_tools', 0)} tools vs. Provider MCP avg {bvw.get('both_avg_mcp_tools', 0)} tools ({bvw.get('both_depth_ratio', 0)}x); Provider MCP leads on {bvw.get('mcp_beats_api_count', 0)}/{bvw.get('both_count', 0)} apps ({[x['name'] for x in bvw.get('mcp_leads_apps', [])]}); Provider MCP Only ({bvw.get('mcp_only_count', 0)} apps) avg {bvw.get('mcp_only_avg_tools', 0)} tools (median {bvw.get('mcp_only_median_tools', 0)}), {bvw.get('mcp_only_with_triggers', 0)} triggers, {bvw.get('mcp_only_with_managed_oauth', 0)} managed OAuth.",
+        f"- **Queue A — Net-New Easy Wins ({len(rm.get('net_new_easy_wins', []))} apps; not in Composio + Ready Today):** {fmt_names(rm.get('net_new_easy_wins', []))}",
+        f"- **Queue B — Official MCP Expansion ({len(rm.get('mcp_expansion_candidates', []))} apps; Built API Only in Composio + Official Vendor MCP):** {fmt_names(rm.get('mcp_expansion_candidates', []))}",
+        f"- **Queue C1 — Net-New Friction ({len(rm.get('net_new_friction', []))} apps; not in Composio + paywall/review/admin):** {fmt_names(rm.get('net_new_friction', []))}",
+        f"- **Queue C2 — Net-New Partner/Outreach ({len(rm.get('net_new_outreach', []))} apps; enterprise/sales-gated):** {fmt_names(rm.get('net_new_outreach', []))}",
+        f"- **Queue D1 — Net-New Non-API Blockers ({len(rm.get('net_new_blocked', []))} apps; local CLI):** {fmt_names(rm.get('net_new_blocked', []))}",
+        f"- **Queue D2 — Trigger Expansion Candidates ({len(rm.get('trigger_expansion_candidates', []))} apps; in Composio with vendor webhooks but 0 live triggers):** {fmt_names(rm.get('trigger_expansion_candidates', []))}",
+        f"- **Build vs. Wrap Split ({bvw.get('both_count', 22)} Both / {bvw.get('mcp_only_count', 5)} MCP Only):** Built API leads on {bvw.get('api_beats_mcp_count', 14)}/{bvw.get('both_count', 22)} apps (top moat: {top_api_moat_str}); Provider MCP leads on {bvw.get('mcp_beats_api_count', 7)}/{bvw.get('both_count', 22)} apps ({mcp_leads_str}); MCP Only ({mcp_only_str}).",
+    ])
+
+    executions = (proof or {}).get("verified_live_executions", [])
+    if executions:
+        lines.extend([
+            "",
+            "## Composio Live Proof (Real SDK Executions)",
+            "| Toolkit | Type | Tool Slug | Session ID | Log ID | Purpose |",
+            "|---|---|---|---|---|---|",
+        ])
+        for ex in executions:
+            lines.append(
+                f"| {md_cell(ex.get('toolkit'))} | {md_cell(ex.get('toolkit_type'))} | "
+                f"`{md_cell(ex.get('tool_slug'))}` | `{md_cell(ex.get('session_id'))}` | "
+                f"`{md_cell(ex.get('log_id'))}` | {md_cell(ex.get('purpose'))} |"
+            )
+
+    lines.extend([
         "",
-        "## Machine-Readable Artifacts",
-        "- Final Verified Dataset: data/final_results.json",
-        "- Pass 1 Raw Baseline: data/pass1_results.json",
-        "- Pass 2 Verified Snapshot: data/pass2_verified.json",
-        "- Automated Verification Diffs: data/verification_diff_report.json",
-        "- Human & Browser Audit Log: data/human_audit.json",
-        "- Deep Composio Catalog Audit: data/composio_catalog_deep.json",
-        "- Aggregated Analytics: data/analytics_summary.json",
+        "## Verification & Human-in-the-Loop Summary",
+        "- **3-Pass Pipeline:** Pass 1 (Exa `/search` + Composio `deepwiki_mcp` + Gemini structured Pydantic output) -> Pass 2 (HTTP link health + Exa `/contents` + disconfirmation search + live Composio v3.1 catalog cross-check + Composio `github` repo ownership audit + Gemini Critic) -> Pass 3 (20-app stratified live-docs & browser human audit across all 10 categories).",
+        "- **Key failure modes caught by human/browser review:** (1) Bot-shielded doc portals (Meta, LinkedIn, Cloudflare) returning HTTP 400/403/timeouts to headless link checkers; (2) Free sandbox portals mislabeled as `Self-Serve Free` when production requires business verification or app review; (3) Split-surface products (Otter AI Enterprise REST vs. 3-tool OAuth MCP; NotebookLM Consumer vs. GCP Enterprise); (4) Catalog alias & entity collisions (`linkedin` vs. `linkedin_ads`, `Paygent Connect` vs. Payman AI, Clay's 404 REST docs, FanBasis rebrand to Commas).",
         "",
-        "## 100-App Compact Index",
-        "| # | App | Category | Auth | Access Model | API | MCP | Verdict | Composio Coverage |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "## JSON Schema Quick Reference (`data/final_results.json`)",
+        "- Top-level JSON array of 100 objects sorted by `id` (1..100).",
+        "- Core fields: `id`, `name`, `category`, `one_liner`, `auth_methods` (array), `auth_notes`, `access_model`, `access_notes`, `api_protocol`, `api_breadth`, `api_surface_notes`, `mcp_status`, `mcp_evidence_url`, `openapi_spec_available`, `webhooks_supported`, `buildability_verdict`, `primary_blocker`, `evidence_urls` (array), `confidence`.",
+        "- Live Composio & audit fields: `composio_catalog_slugs`, `composio_coverage`, `composio_tools_count`, `composio_triggers_count`, `composio_auth_modes`, `composio_managed_auth`, `github_mcp_audit`, `url_health`, `verification_changes`, `human_audited`.",
+        "- `buildability_verdict` enum: `Ready Today (Easy Win)` | `Buildable with Friction` | `Gated / Needs Outreach` | `Blocked / Not API-Native`.",
+        "- `composio_coverage` enum: `Built API Only` | `Both Built + Provider MCP` | `Provider MCP Only` | `Not in Catalog`.",
+        "",
+        "## 100-App Full Matrix",
+        "| # | App | Category | Auth | Access Model | API | MCP | Verdict | Composio Coverage | Tools/Triggers | Primary Blocker | Primary Doc |",
+        "|---:|---|---|---|---|---|---|---|---|---|---|---|",
     ])
     for r in records:
+        tools_trigs = (
+            f"{r.get('composio_tools_count', 0)}/{r.get('composio_triggers_count', 0)}"
+            if r.get("composio_catalog_slugs")
+            else "-"
+        )
+        blocker_clean = clean_prose(r.get("primary_blocker", "None"))
+        first_doc = (r.get("evidence_urls") or [""])[0]
+        doc_cell = f"[docs]({first_doc})" if first_doc else "-"
         lines.append(
-            f"| {r['id']} | {r['name']} | {r['category']} | {', '.join(r['auth_methods'])} | "
-            f"{r['access_model']} | {r['api_protocol']} | {r['mcp_status']} | "
-            f"{r['buildability_verdict']} | {r.get('composio_coverage', 'Not in Catalog')} |"
+            f"| {r['id']} | {md_cell(r['name'])} | {md_cell(r['category'])} | {md_cell(', '.join(r['auth_methods']))} | "
+            f"{md_cell(r['access_model'])} | {md_cell(r['api_protocol'])} | {md_cell(r['mcp_status'])} | "
+            f"{md_cell(r['buildability_verdict'])} | {md_cell(r.get('composio_coverage', 'Not in Catalog'))} | "
+            f"{tools_trigs} | {md_cell(blocker_clean)} | {doc_cell} |"
         )
     return "\n".join(lines) + "\n"
 
@@ -2513,7 +2616,7 @@ def main() -> None:
     html_content = generate_html(records, analytics, proof, mermaid_info, human_audit, diff_report)
     (ROOT / "index.html").write_text(html_content, encoding="utf-8", newline="\n")
 
-    llms_content = build_llms_txt(records, analytics, human_audit)
+    llms_content = build_llms_txt(records, analytics, human_audit, proof)
     (ROOT / "llms.txt").write_text(llms_content, encoding="utf-8", newline="\n")
 
     print(f"Built tasteskill index.html ({len(html_content):,} bytes) and llms.txt ({len(llms_content):,} bytes) for {len(records)} apps.")
