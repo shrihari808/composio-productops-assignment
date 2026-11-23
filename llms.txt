@@ -1,6 +1,7 @@
 # Composio AI Product Ops — 100-App Toolkit & MCP Buildability Research
 
-> Automated multi-pass research and verification study of 100 SaaS, developer, fintech, and AI apps across 10 categories.
+> Automated 3-pass research and verification study of 100 SaaS, developer, fintech, and AI apps across 10 categories.
+> Live Case Study: https://composio-productops-assignment.vercel.app
 > Source Repo: https://github.com/shrihari808/composio-productops-assignment
 
 ## Headline Metrics
