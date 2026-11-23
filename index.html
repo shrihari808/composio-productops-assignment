@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Composio AI Product Ops — 100-App Toolkit & MCP Buildability Study</title>
+  <title>Composio AI Product Ops: 100-App Toolkit & MCP Buildability Study</title>
   <meta name="description" content="Automated 3-pass research & verification study of 100 apps across 10 categories for Composio AI agent toolkits and MCP servers." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
@@ -126,7 +126,7 @@
           <div class="text-xs font-bold uppercase tracking-wide text-emerald-600">Pattern 2 · Where Easy Wins Live</div>
           <h3 class="text-base font-bold text-slate-900 mt-1">Dev/Infra &amp; Productivity Are Nearly 100% Self-Serve</h3>
           <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-            The highest density of <strong>Ready Today</strong> toolkits sits in <strong>Productivity and Project Management, Communications and Messaging</strong>. These categories pair free developer sandboxes, clean OpenAPI/GraphQL specs, and instant token provisioning—making them ideal for automated toolkit generation.
+            The highest density of <strong>Ready Today</strong> toolkits sits in <strong>Productivity and Project Management, Communications and Messaging</strong>. These categories pair free developer sandboxes, clean OpenAPI/GraphQL specs, and instant token provisioning which makes them ideal for automated toolkit generation.
           </p>
         </article>
 
@@ -381,7 +381,7 @@
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-3">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Section 03 · Trust &amp; Verification</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-0.5">How We Verified Accuracy (Pass 1 → Pass 2 → Human Audit)</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-0.5">How I Verified Accuracy (Pass 1 → Pass 2 → Human Audit)</h2>
         </div>
         <p class="text-xs text-slate-500">Every claim is traceable across immutable Pass 1, Pass 2, and Human Audit snapshots</p>
       </div>
@@ -891,7 +891,7 @@
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-3">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Section 04 · Architecture &amp; Live Proof</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-0.5">What We Built, Composio Proof &amp; Where a Human Was Needed</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-0.5">What is Built, Composio Proof &amp; Where a Human Was Needed</h2>
         </div>
         <a href="https://github.com/shrihari808/composio-productops-assignment" target="_blank" rel="noopener" class="text-xs font-semibold text-indigo-600 hover:underline">View Full Source Code &amp; README on GitHub ↗</a>
       </div>
@@ -953,7 +953,7 @@ flowchart LR
         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div>
             <h3 class="text-base font-bold">Verified Live Composio Platform Execution Proofs</h3>
-            <p class="text-xs text-slate-300 mt-0.5">Real tool calls executed via Composio Sessions (<code>user_id="product_ops_researcher"</code>) — every <code>log_id</code> is auditable in the Composio Dashboard</p>
+            <p class="text-xs text-slate-300 mt-0.5">Real tool calls executed via Composio Sessions (<code>user_id="product_ops_researcher"</code>) and every <code>log_id</code> is auditable in the Composio Dashboard</p>
           </div>
           <code class="text-xs bg-slate-950/80 border border-slate-700 px-3 py-1.5 rounded-lg text-emerald-300">python src/research_one_composio.py --app "Stripe"</code>
         </div>
@@ -1028,7 +1028,7 @@ flowchart LR
         <div class="bg-white border border-amber-200 rounded-2xl p-5 shadow-sm">
           <h3 class="text-sm font-bold text-amber-900 mb-3">Where a Human Was Essential (Real Failure Modes Caught)</h3>
           <ul class="space-y-2 text-xs text-slate-700 leading-relaxed list-disc pl-4">
-            <li><strong>Bot-shielded doc portals (caught in 5-app pilot!):</strong> Meta (<code>developers.facebook.com</code>), LinkedIn, and Cloudflare return HTTP 400/403/timeouts to headless HTTP clients. Our initial link checker mistakenly deleted valid WhatsApp URLs and swapped in a <code>?locale=zh_CN</code> page—requiring a human fix to combine HTTP checks with Exa <code>/contents</code> status codes.</li>
+            <li><strong>Bot-shielded doc portals (caught in 5-app pilot!):</strong> Meta (<code>developers.facebook.com</code>), LinkedIn, and Cloudflare return HTTP 400/403/timeouts to headless HTTP clients. Our initial link checker mistakenly deleted valid WhatsApp URLs and swapped in a <code>?locale=zh_CN</code> page, requiring a human fix to combine HTTP checks with Exa <code>/contents</code> status codes.</li>
             <li><strong>"Free dev portal" vs. production app review:</strong> Pass 1 occasionally labeled Ads &amp; Fintech apps as <code>Self-Serve Free</code> because sandbox signup is free, missing mandatory business verification or developer token review for production.</li>
             <li><strong>Split-surface products:</strong> Products like <strong>Otter AI</strong> (Enterprise-only REST API vs. self-serve 3-tool OAuth MCP) and <strong>NotebookLM</strong> (consumer web app vs. GCP Enterprise API) required human judgment on the buildability rubric.</li>
             <li><strong>Catalog alias disambiguation &amp; obscure apps:</strong> Human review caught false catalog matches (e.g., <code>linkedin</code> vs. <code>linkedin_ads</code>; Amazon shopping vs. SP-API) and browser-checked opaque fintech/niche portals (<code>Paygent Connect</code>, <code>fanbasis</code>, <code>iPayX</code>, <code>Waterfall.io</code>).</li>
